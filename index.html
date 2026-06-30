@@ -98,8 +98,9 @@
   .roadmap-card h2{margin:0 0 4px;font-size:19px;}
   .roadmap-card .sub{color:var(--muted);font-size:13.5px;margin-bottom:18px;}
   .track-grid{
-    display:grid;grid-template-columns:repeat(7,1fr);gap:10px;
+    display:grid;grid-template-columns:repeat(8,1fr);gap:10px;
   }
+  @media(max-width:760px){.track-grid{grid-template-columns:repeat(4,1fr);}}
   .track-day{
     background:var(--teal-900);color:#fff;border-radius:10px;
     padding:12px 8px;text-align:center;cursor:pointer;
@@ -115,6 +116,8 @@
     margin:8px auto 0;display:flex;align-items:center;justify-content:center;font-size:11px;
   }
   .track-day.done .check{background:var(--green-ok);border-color:var(--green-ok);}
+  .track-day.results-tile{background:linear-gradient(135deg,var(--orange),#ffac4d);}
+  .track-day.results-tile .check{display:none;}
 
   /* ===== Day content ===== */
   .wrap{max-width:980px;margin:0 auto;padding:30px 24px 80px;}
@@ -231,10 +234,168 @@
   .cta ul li{font-size:13.5px;color:#dcefec;padding:5px 0 5px 20px;position:relative;}
   .cta ul li::before{content:"›";position:absolute;left:0;color:var(--orange);font-weight:800;}
   .cta-btn{
-    background:var(--orange);color:#fff;border:none;padding:14px 30px;border-radius:999px;
-    font-weight:800;font-size:14.5px;cursor:pointer;
+    position:relative;
+    background:linear-gradient(90deg,var(--orange),#ff9d3d,var(--orange));
+    background-size:200% auto;
+    color:#fff;border:none;padding:14px 30px;border-radius:999px;
+    font-weight:800;font-size:14.5px;cursor:pointer;overflow:hidden;
+    animation:ctaPulse 1.8s ease-in-out infinite, ctaShine 3s linear infinite;
+  }
+  .cta-btn:hover{animation-play-state:paused;transform:scale(1.04);}
+  @keyframes ctaPulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(245,130,31,.55);}
+    50%{box-shadow:0 0 0 14px rgba(245,130,31,0);}
+  }
+  @keyframes ctaShine{
+    0%{background-position:0% center;}
+    100%{background-position:200% center;}
   }
   .foot-note{margin-top:30px;font-size:12px;color:#7da39c;}
+
+  /* ===== Results panel ===== */
+  .results-hero{text-align:center;padding:10px 0 28px;}
+  .results-emoji{font-size:44px;margin-bottom:10px;}
+  .results-hero h2{font-size:24px;margin:0 0 10px;color:var(--teal-900);}
+  .results-sub{color:var(--muted);font-size:14.5px;max-width:560px;margin:0 auto;line-height:1.6;}
+
+  .score-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:14px;margin-bottom:30px;
+  }
+  @media(max-width:680px){.score-grid{grid-template-columns:1fr 1fr;}}
+  .score-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+  }
+  .score-card b{font-size:26px;color:var(--teal-900);font-weight:800;}
+  .score-card span{font-size:12px;color:var(--muted);margin-top:4px;}
+  .score-card.main-score{background:var(--teal-900);border:none;}
+  .score-label{font-size:12px;color:#bcd6d1;margin-top:10px;font-weight:600;}
+
+  .score-ring{
+    --pct:0;
+    width:96px;height:96px;border-radius:50%;
+    background:conic-gradient(var(--orange) calc(var(--pct)*1%), rgba(255,255,255,.15) 0);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .score-ring span{
+    width:74px;height:74px;border-radius:50%;background:var(--teal-900);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:22px;font-weight:800;
+  }
+  .score-ring span small{font-size:12px;font-weight:600;color:#bcd6d1;margin-left:2px;}
+
+  .journey-recap{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;margin-bottom:24px;
+  }
+  .recap-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .recap-chip{
+    background:#eef6f4;border:1px solid var(--line);color:var(--teal-900);
+    font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .recap-chip::before{content:"✓";color:var(--green-ok);font-weight:800;}
+
+  .pitch-card{
+    background:linear-gradient(150deg,var(--teal-900),var(--teal-800) 60%, #1a4d4a);
+    border-radius:18px;padding:34px 30px;color:#fff;text-align:center;margin-bottom:10px;
+    position:relative;overflow:hidden;
+  }
+  .pitch-card::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle, rgba(245,130,31,.25), transparent 70%);
+  }
+  .pitch-eyebrow{
+    font-size:12px;letter-spacing:2px;font-weight:800;color:var(--orange-light);
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  .pitch-card h3{font-size:22px;margin:0 0 12px;line-height:1.3;max-width:520px;margin-left:auto;margin-right:auto;}
+  .pitch-card p{font-size:14px;color:#cfe4e0;max-width:560px;margin:0 auto 24px;line-height:1.65;}
+  .pitch-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:560px;margin:0 auto 26px;
+  }
+  @media(max-width:600px){.pitch-grid{grid-template-columns:1fr 1fr;}}
+  .pitch-item{
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+    border-radius:12px;padding:14px 10px;
+  }
+  .pitch-item b{display:block;font-size:18px;color:var(--orange-light);font-weight:800;}
+  .pitch-item span{font-size:11px;color:#cfe4e0;}
+  .cta-btn.big{
+    padding:16px 34px;font-size:15.5px;border-radius:999px;
+    box-shadow:0 10px 30px rgba(245,130,31,.35);
+  }
+  .pitch-footnote{margin-top:16px;font-size:12px;color:#9fc4be;}
+
+  /* ===== Mobile / responsive final pass ===== */
+  @media(max-width:680px){
+    .topbar{padding:12px 16px;}
+    .topbar .brand{font-size:12.5px;}
+    .testbook-badge{padding:5px 10px;}
+    .testbook-badge .tb-logo-img{height:16px;}
+
+    .hero{padding:34px 18px 70px;}
+    .hero h1{font-size:30px;line-height:1.18;}
+    .hero p{font-size:14.5px;}
+    .eyebrow{font-size:11px;letter-spacing:1.5px;}
+    .pill{font-size:12px;padding:7px 13px;margin-bottom:20px;}
+    .quote-strip{font-size:13.5px;padding:12px 14px;}
+    .stat-row{gap:10px;}
+    .stat{min-width:42%;padding:13px 14px;}
+    .stat b{font-size:21px;}
+    .stat span{font-size:11.5px;}
+
+    .roadmap{padding:0 14px 10px;margin-top:-46px;}
+    .roadmap-card{padding:18px 16px;border-radius:14px;}
+    .roadmap-card h2{font-size:16.5px;}
+    .roadmap-card .sub{font-size:12.5px;margin-bottom:14px;}
+    .track-day{padding:9px 5px;}
+    .track-day .num{font-size:9.5px;}
+    .track-day .name{font-size:11px;}
+
+    .wrap{padding:22px 16px 60px;}
+    .day-head{gap:10px;margin-bottom:14px;}
+    .day-head h2{font-size:20px;}
+    .day-badge{font-size:11.5px;padding:5px 10px;}
+    .day-tagline{font-size:13.5px;margin-bottom:16px;}
+    .section-card,.solved-card,.journey-recap,.pitch-card{padding:16px 16px;border-radius:12px;}
+    .section-title{font-size:12.5px;}
+    .concept-list li{font-size:13.5px;}
+    .shortcut-box{font-size:13px;padding:12px 14px;}
+    .qbox{padding:13px 14px;}
+    .qbox .qtext{font-size:13.5px;}
+    .opt{font-size:13px;padding:9px 11px;}
+    .solved-card .qtext{font-size:14px;}
+    .diagram-box{padding:10px;}
+
+    .nav-btns{flex-direction:column;}
+    .nav-btn{width:100%;font-size:13.5px;padding:13px 16px;}
+
+    .cta{padding:38px 16px;}
+    .cta h2{font-size:21px;}
+    .cta p{font-size:13.5px;}
+    .cta-btn{font-size:13.5px;padding:13px 22px;}
+
+    .results-emoji{font-size:36px;}
+    .results-hero h2{font-size:19px;}
+    .results-sub{font-size:13.5px;}
+    .score-grid{gap:10px;margin-bottom:22px;}
+    .score-card{padding:15px;}
+    .score-card b{font-size:21px;}
+    .score-ring{width:78px;height:78px;}
+    .score-ring span{width:60px;height:60px;font-size:17px;}
+    .recap-chip{font-size:11.5px;padding:6px 11px;}
+    .pitch-card h3{font-size:18px;}
+    .pitch-card p{font-size:13px;}
+    .cta-btn.big{width:100%;font-size:14px;padding:15px 18px;}
+  }
+
+  @media(max-width:380px){
+    .hero h1{font-size:25px;}
+    .stat{min-width:100%;}
+    .pitch-grid{grid-template-columns:1fr 1fr;}
+  }
 </style>
 </head>
 <body>
@@ -242,21 +403,21 @@
 <div class="topbar">
   <div class="brand"><span class="dot"></span> 7-Day CSAT Booster Plan</div>
   <div class="testbook-badge">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb8AAADACAYAAACUEG3SAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADifSURBVHhe7d13mGRVmTjx77mhqjpX5+7p6YkMMAIurquoiLpmEcHsru666iIrAgI/DKBIUAkiIoioBBUQN6DgYlwDiqKyyIKgEoeJPT3dPZ1jVd10fn/caujp6XBvdXWYqffzPPWsO1VUn7rpPfE9SmutEUIIIUqIMf0fhBBCiIOdBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJLz/wEiOVTig6cweQAAAABJRU5ErkJggg==" alt="Testbook" class="tb-logo-img">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb8AAADACAYAAACUEG3SAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADifSURBVHhe7d13mGRVmfjx77mhqjpX5+7p6YkMMAIurquoiLpmEcHsru666iIrAgI/DKBIUAkiIoioBBUQN6DgYlwDiqKyyIKgEoeJPT3dPZ1jVd10fn/caujp6XBvdXWYqffzPPWsO1VUn7rpPfE9SmutEUIIIUqIMf0fhBBCiIOdBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJLz/wEiOVTig6cweQAAAABJRU5ErkJggg==" alt="Testbook" class="tb-logo-img">
   </div>
 </div>
 
 <div class="hero">
   <div class="hero-inner">
     <div class="eyebrow">UPSC Prelims · Paper II · CSAT</div>
-    <h1>7 Din. 7 Chapter.<span class="accent">Ek Booster Jo Kaam Karta Hai.</span></h1>
+    <h1>7 Din. 8 Chapter.<span class="accent">Ek Booster Jo Kaam Karta Hai.</span></h1>
     <p>Ek chapter daily — concept + solved example + 3 exam-level practice questions. Bilkul real CSAT pattern par based. Sirf 7 din mein apna confidence boost karo.</p>
     <div class="pill">⏱ Roznana 30–40 minute · No fluff</div>
     <div class="quote-strip">"Itna kar liya, ab CSAT clear ho jaayega" — yeh feeling lana hi is plan ka maqsad hai.</div>
     <div class="stat-row">
-      <div class="stat"><b>7</b><span>Core Chapters</span></div>
-      <div class="stat"><b>7</b><span>Solved Examples</span></div>
-      <div class="stat"><b>21+</b><span>Practice Qs (PYQ-based)</span></div>
+      <div class="stat"><b>8</b><span>Core Chapters</span></div>
+      <div class="stat"><b>8</b><span>Solved Examples</span></div>
+      <div class="stat"><b>24</b><span>Practice Qs (PYQ-based)</span></div>
       <div class="stat"><b>33%</b><span>Qualifying Target</span></div>
     </div>
   </div>
@@ -271,10 +432,11 @@
 </div>
 
 <div class="wrap" id="dayWrap"></div>
+<div class="wrap" id="resultsWrap"></div>
 
 <div class="cta">
   <div class="cta-inner">
-    <h2>You did it — 7 Days, 7 Chapters 🎉</h2>
+    <h2>You did it — 7 Days, 8 Chapters 🎉</h2>
     <p>Yeh sirf shuruaat thi. Agar 7 din mein itna confidence aaya, toh sochiye poore structured course mein kya hoga.</p>
     <ul>
       <li>50+ chapters · har topic ke 100+ exam-level questions</li>
@@ -640,6 +802,7 @@ const DAYS = [
 ];
 
 const wrap = document.getElementById('dayWrap');
+const resultsWrap = document.getElementById('resultsWrap');
 const trackGrid = document.getElementById('trackGrid');
 
 DAYS.forEach((d,i)=>{
@@ -650,6 +813,12 @@ DAYS.forEach((d,i)=>{
   td.onclick = ()=> showDay(i);
   trackGrid.appendChild(td);
 });
+const resultsTile = document.createElement('div');
+resultsTile.className = 'track-day results-tile';
+resultsTile.id = 'resultsTile';
+resultsTile.innerHTML = `<div class="num">FINAL</div><div class="name">My Results</div><div class="check"></div>`;
+resultsTile.onclick = ()=> showResults();
+trackGrid.appendChild(resultsTile);
 
 function renderConcept(list){
   return `<ul class="concept-list">${list.map(c=>`<li>${c}</li>`).join('')}</ul>`;
@@ -700,7 +869,9 @@ function dayHTML(d, i){
     ${body}
     <div class="nav-btns">
       <button class="nav-btn ${i===0?'disabled':''}" onclick="showDay(${i-1})">← Previous Day</button>
-      <button class="nav-btn ${i===DAYS.length-1?'disabled':''}" onclick="showDay(${i+1})">Next Day →</button>
+      ${i===DAYS.length-1
+        ? `<button class="nav-btn results-btn" onclick="showResults()">See My 7-Day Results →</button>`
+        : `<button class="nav-btn" onclick="showDay(${i+1})">Next Day →</button>`}
     </div>
   </div>`;
 }
@@ -718,11 +889,11 @@ function showDay(i){
   window.scrollTo({top: document.querySelector('.roadmap').offsetTop - 70, behavior:'smooth'});
 }
 
+const scoreState = {}; // qid -> true/false (correct or not)
+
 function selectOpt(qid, oi, correct){
   document.querySelectorAll(`.opt[data-qid="${qid}"]`).forEach(o=>{
     o.classList.remove('correct','wrong');
-    const thisOi = parseInt(o.dataset.oi);
-    if(thisOi===correct) {}
   });
   document.querySelectorAll(`.opt[data-qid="${qid}"]`).forEach(o=>{
     const thisOi = parseInt(o.dataset.oi);
@@ -733,6 +904,7 @@ function selectOpt(qid, oi, correct){
       o.classList.add('correct');
     }
   });
+  scoreState[qid] = (oi===correct);
   const sol = document.getElementById('sol_'+qid);
   if(sol) sol.classList.add('show');
 }
@@ -740,6 +912,99 @@ function selectOpt(qid, oi, correct){
 function toggleSol(qid){
   const sol = document.getElementById('sol_'+qid);
   sol.classList.toggle('show');
+}
+
+const TOTAL_QS = 24;
+
+function showResults(){
+  const attempted = Object.keys(scoreState).length;
+  const correct = Object.values(scoreState).filter(v=>v).length;
+  const pct = attempted ? Math.round((correct/attempted)*100) : 0;
+  const overallPct = Math.round((correct/TOTAL_QS)*100);
+
+  let tier;
+  if(overallPct >= 80){
+    tier = {
+      emoji:"🔥",
+      title:"Outstanding! Aap CSAT clear karne ke bohot kareeb ho.",
+      msg:"7 din mein itni strong accuracy — yeh sirf luck nahi, consistency ka result hai. Ab bas isi momentum ko 70 din tak le jaana hai, aur qualifying mark aapke liye formality reh jaayegi."
+    };
+  } else if(overallPct >= 50){
+    tier = {
+      emoji:"💪",
+      title:"Acchi shuruaat! Foundation ban chuka hai.",
+      msg:"7 din mein itna concept clear ho gaya hai ki aapko pata chal gaya kahan strong ho aur kahan thoda aur practice chahiye. Yahi sahi time hai isko scale karne ka — akela practice se utna far nahi jaa paoge jitna ek structured course se jaaoge."
+    };
+  } else {
+    tier = {
+      emoji:"🌱",
+      title:"Yeh sirf shuruaat hai — aur har expert kabhi beginner tha.",
+      msg:"7 din mein aapne apne weak areas pehchaan liye hain — yahi sabse bada kadam hai. Ab inhe permanently fix karne ke liye sahi guidance aur structured practice chahiye, jo akele karna mushkil hota hai."
+    };
+  }
+
+  resultsWrap.innerHTML = `
+    <div class="day-panel active" id="resultsPanel">
+      <div class="results-hero">
+        <div class="results-emoji">${tier.emoji}</div>
+        <h2>${tier.title}</h2>
+        <p class="results-sub">${tier.msg}</p>
+      </div>
+
+      <div class="score-grid">
+        <div class="score-card main-score">
+          <div class="score-ring" style="--pct:${overallPct}">
+            <span>${correct}<small>/${TOTAL_QS}</small></span>
+          </div>
+          <div class="score-label">Questions Correct</div>
+        </div>
+        <div class="score-card">
+          <b>${attempted}</b>
+          <span>Questions Attempted</span>
+        </div>
+        <div class="score-card">
+          <b>${pct}%</b>
+          <span>Accuracy (on attempted)</span>
+        </div>
+        <div class="score-card">
+          <b>7/7</b>
+          <span>Days Completed</span>
+        </div>
+      </div>
+
+      <div class="journey-recap">
+        <div class="section-title"><span class="ico">🗺️</span> Aapki 7-Day Journey</div>
+        <div class="recap-row">
+          ${DAYS.map(d=>`<div class="recap-chip">Day ${d.num} · ${d.name}</div>`).join('')}
+        </div>
+      </div>
+
+      <div class="pitch-card">
+        <div class="pitch-eyebrow">YEH SIRF TRAILER THA</div>
+        <h3>7 din mein itna ho gaya — socho 70 din mein kya hoga.</h3>
+        <p>Aapne abhi sirf 8 chapters, 8 solved examples aur 24 questions cover kiye hain. CSAT mein qualify karne ke liye consistent practice, sahi shortcuts, aur real exam-pattern mocks chahiye — yahi cheez Testbook ka Full CSAT Course deta hai.</p>
+        <div class="pitch-grid">
+          <div class="pitch-item"><b>50+</b><span>Chapters fully covered</span></div>
+          <div class="pitch-item"><b>100+</b><span>Exam-level Qs per topic</span></div>
+          <div class="pitch-item"><b>Full</b><span>Length CSAT mock tests</span></div>
+          <div class="pitch-item"><b>1:1</b><span>Doubt support & tracking</span></div>
+        </div>
+        <button class="cta-btn big" onclick="window.open('#','_blank')">Join the Full CSAT Course on Testbook →</button>
+        <div class="pitch-footnote">Apni 7-day streak ko 70-day mastery mein badlo. Aaj hi enroll karo — qualifying CSAT ab door nahi hai.</div>
+      </div>
+
+      <div class="nav-btns">
+        <button class="nav-btn" onclick="showDay(${DAYS.length-1})">← Back to Day 7</button>
+        <button class="nav-btn" onclick="showDay(0)">Restart from Day 1</button>
+      </div>
+    </div>
+  `;
+
+  document.querySelectorAll('#dayWrap .day-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.track-day').forEach(t=>t.classList.add('done'));
+  document.querySelectorAll('.track-day').forEach(t=>t.classList.remove('active'));
+  document.getElementById('resultsTile').classList.add('active');
+  window.scrollTo({top: document.querySelector('.roadmap').offsetTop - 70, behavior:'smooth'});
 }
 </script>
 
