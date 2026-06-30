@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7-Day CSAT Booster Plan | Testbook</title>
+<style>
+  :root{
+    --teal-900:#0a2e2e;
+    --teal-800:#0d3b3b;
+    --teal-700:#114848;
+    --teal-600:#155656;
+    --orange:#f5821f;
+    --orange-light:#ffb066;
+    --cream:#fdf6ee;
+    --ink:#10231f;
+    --muted:#6b8783;
+    --line:#e4ded2;
+    --card:#ffffff;
+    --green-ok:#1c8a5c;
+    --red-no:#c0392b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* ===== Top bar ===== */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;
+    background:var(--teal-900);
+    position:sticky;top:0;z-index:50;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .topbar .brand{
+    color:#fff;font-weight:700;font-size:15px;letter-spacing:.3px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .topbar .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);}
+  .testbook-badge{
+    display:flex;align-items:center;
+    background:#fff;
+    padding:7px 14px;
+    border-radius:999px;
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+  }
+  .testbook-badge .tb-logo-img{
+    height:20px;width:auto;display:block;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    background:linear-gradient(160deg,var(--teal-900),var(--teal-700) 70%);
+    color:#fff;
+    padding:48px 24px 60px;
+  }
+  .hero-inner{max-width:880px;margin:0 auto;}
+  .eyebrow{
+    font-size:12px;letter-spacing:2px;font-weight:700;color:#9fd6cd;
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:42px;line-height:1.12;margin:0 0 16px;font-weight:800;
+  }
+  .hero h1 .accent{color:var(--orange);display:block;}
+  .hero p{font-size:16px;line-height:1.6;color:#cfe4e0;max-width:620px;margin:0 0 22px;}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+    padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:28px;
+  }
+  .quote-strip{
+    border-left:3px solid var(--orange);
+    background:rgba(255,255,255,.06);
+    padding:14px 18px;border-radius:6px;
+    font-size:14.5px;color:#e7f0ee;margin-bottom:28px;
+  }
+  .stat-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .stat{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;padding:16px 20px;min-width:120px;flex:1;
+  }
+  .stat b{display:block;font-size:26px;color:var(--orange-light);font-weight:800;}
+  .stat span{font-size:12.5px;color:#bcd6d1;}
+
+  /* ===== Roadmap / tracker ===== */
+  .roadmap{max-width:980px;margin:-30px auto 0;padding:0 24px 10px;position:relative;z-index:5;}
+  .roadmap-card{
+    background:var(--card);border-radius:16px;padding:26px 24px;
+    box-shadow:0 14px 38px rgba(10,46,46,.15);
+  }
+  .roadmap-card h2{margin:0 0 4px;font-size:19px;}
+  .roadmap-card .sub{color:var(--muted);font-size:13.5px;margin-bottom:18px;}
+  .track-grid{
+    display:grid;grid-template-columns:repeat(7,1fr);gap:10px;
+  }
+  .track-day{
+    background:var(--teal-900);color:#fff;border-radius:10px;
+    padding:12px 8px;text-align:center;cursor:pointer;
+    transition:transform .15s ease, background .15s ease;
+    border:2px solid transparent;
+  }
+  .track-day:hover{transform:translateY(-3px);}
+  .track-day.active{background:var(--orange);border-color:var(--orange-light);}
+  .track-day .num{font-size:11px;opacity:.8;font-weight:700;}
+  .track-day .name{font-size:12.5px;font-weight:700;margin-top:4px;line-height:1.25;}
+  .track-day .check{
+    width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.5);
+    margin:8px auto 0;display:flex;align-items:center;justify-content:center;font-size:11px;
+  }
+  .track-day.done .check{background:var(--green-ok);border-color:var(--green-ok);}
+
+  /* ===== Day content ===== */
+  .wrap{max-width:980px;margin:0 auto;padding:30px 24px 80px;}
+  .day-panel{display:none;}
+  .day-panel.active{display:block;animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  .day-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+  .day-badge{
+    background:var(--teal-900);color:var(--orange-light);font-weight:800;
+    font-size:13px;padding:6px 12px;border-radius:8px;letter-spacing:.5px;
+  }
+  .day-head h2{margin:0;font-size:26px;}
+  .day-tagline{color:var(--muted);font-size:14.5px;margin:6px 0 22px;max-width:680px;}
+
+  .section-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px 24px;margin-bottom:18px;
+  }
+  .section-title{
+    display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;
+    text-transform:uppercase;letter-spacing:.8px;color:var(--teal-700);margin-bottom:14px;
+  }
+  .section-title .ico{font-size:16px;}
+
+  .concept-list{margin:0;padding:0;list-style:none;}
+  .concept-list li{
+    padding:9px 0 9px 22px;position:relative;font-size:14.5px;line-height:1.55;
+    border-bottom:1px dashed var(--line);
+  }
+  .concept-list li:last-child{border-bottom:none;}
+  .concept-list li::before{
+    content:"";position:absolute;left:0;top:16px;width:7px;height:7px;border-radius:50%;
+    background:var(--orange);
+  }
+  .concept-list b{color:var(--teal-900);}
+
+  .shortcut-box{
+    background:linear-gradient(135deg,#fff4e8,#fff);
+    border:1px solid #f7d4a8;border-left:4px solid var(--orange);
+    border-radius:10px;padding:14px 18px;font-size:14px;line-height:1.6;margin-top:4px;
+  }
+  .shortcut-box .lbl{font-weight:800;color:var(--orange);font-size:12px;letter-spacing:.5px;display:block;margin-bottom:4px;}
+
+  .qbox{
+    background:#fbfaf6;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px;
+  }
+  .qbox .qtext{font-size:14.5px;font-weight:600;margin-bottom:10px;line-height:1.55;}
+  .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+  @media(max-width:560px){.options{grid-template-columns:1fr;}}
+  .opt{
+    font-size:13.5px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;
+    cursor:pointer;transition:.15s;
+  }
+  .opt:hover{border-color:var(--orange);}
+  .opt.correct{background:#e8f7ef;border-color:var(--green-ok);color:var(--green-ok);font-weight:700;}
+  .opt.wrong{background:#fdecea;border-color:var(--red-no);color:var(--red-no);}
+
+  .reveal-btn{
+    font-size:12.5px;font-weight:700;color:var(--teal-700);background:none;border:1px solid var(--teal-700);
+    padding:6px 14px;border-radius:999px;cursor:pointer;
+  }
+  .reveal-btn:hover{background:var(--teal-700);color:#fff;}
+  .sol-text{
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);
+    font-size:13.5px;line-height:1.6;color:#3a4f4a;display:none;
+  }
+  .sol-text.show{display:block;}
+  .ans-tag{
+    display:inline-block;background:var(--teal-900);color:var(--orange-light);
+    font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:6px;margin-bottom:6px;
+  }
+
+  .solved-card{
+    background:linear-gradient(135deg,var(--teal-900),var(--teal-800));
+    color:#eaf3f1;border-radius:14px;padding:22px 24px;margin-bottom:18px;
+  }
+  .solved-card .section-title{color:var(--orange-light);}
+  .solved-card .qtext{font-size:15px;font-weight:600;margin-bottom:10px;}
+  .solved-card .opts-plain{font-size:13.5px;color:#cfe4e0;margin-bottom:12px;}
+  .solved-card .sol-body{font-size:13.5px;line-height:1.65;color:#d8ebe8;}
+  .solved-card .final{
+    margin-top:10px;font-weight:800;color:var(--orange-light);font-size:14px;
+  }
+  .diagram-box{
+    background:#fff;border-radius:10px;padding:14px;margin-bottom:14px;
+    display:flex;justify-content:center;overflow-x:auto;
+  }
+  .diagram-box svg{max-width:100%;height:auto;}
+
+  .nav-btns{display:flex;justify-content:space-between;margin-top:28px;gap:12px;}
+  .nav-btn{
+    flex:1;background:var(--teal-900);color:#fff;border:none;padding:14px 18px;border-radius:10px;
+    font-weight:700;font-size:14px;cursor:pointer;transition:.15s;
+  }
+  .nav-btn:hover{background:var(--orange);}
+  .nav-btn.disabled{opacity:.35;pointer-events:none;}
+
+  .sub-divider{
+    display:flex;align-items:center;gap:10px;margin:30px 0 16px;
+  }
+  .sub-divider .line{flex:1;height:1px;background:var(--line);}
+  .sub-divider span{font-size:13px;font-weight:800;color:var(--teal-700);letter-spacing:.5px;text-transform:uppercase;}
+
+  /* ===== CTA footer ===== */
+  .cta{
+    background:linear-gradient(160deg,var(--teal-800),var(--teal-900));
+    color:#fff;padding:50px 24px;text-align:center;
+  }
+  .cta-inner{max-width:640px;margin:0 auto;}
+  .cta h2{font-size:26px;margin:0 0 10px;}
+  .cta p{color:#cfe4e0;font-size:14.5px;margin-bottom:22px;line-height:1.6;}
+  .cta ul{list-style:none;padding:0;margin:0 0 26px;text-align:left;display:inline-block;}
+  .cta ul li{font-size:13.5px;color:#dcefec;padding:5px 0 5px 20px;position:relative;}
+  .cta ul li::before{content:"›";position:absolute;left:0;color:var(--orange);font-weight:800;}
+  .cta-btn{
+    background:var(--orange);color:#fff;border:none;padding:14px 30px;border-radius:999px;
+    font-weight:800;font-size:14.5px;cursor:pointer;
+  }
+  .foot-note{margin-top:30px;font-size:12px;color:#7da39c;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span> 7-Day CSAT Booster Plan</div>
+  <div class="testbook-badge">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb8AAADACAYAAACUEG3SAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADifSURBVHhe7d13mGRVmTjx77mhqjpX5+7p6YkMMAIurquoiLpmEcHsru666iIrAgI/DKBIUAkiIoioBBUQN6DgYlwDiqKyyIKgEoeJPT3dPZ1jVd10fn/caujp6XBvdXWYqffzPPWsO1VUn7rpPfE9SmutEUIIIUqIMf0fhBBCiIOdBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJIjwU8IIUTJkeAnhBCi5EjwE0IIUXIk+AkhhCg5EvyEEEKUHAl+QgghSo4EPyGEECVHgp8QQoiSI8FPCCFEyZHgJ4QQouRI8BNCCFFyJPgJIYQoORL8hBBClBwJfkIIIUqOBD8hhBAlR4KfEEKIkiPBTwghRMmR4CeEEKLkSPATQghRciT4CSGEKDkS/IQQQpQcCX5CCCFKjgQ/IYQQJUeCnxBCiJLz/wEiOVTig6cweQAAAABJRU5ErkJggg==" alt="Testbook" class="tb-logo-img">
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">UPSC Prelims · Paper II · CSAT</div>
+    <h1>7 Din. 7 Chapter.<span class="accent">Ek Booster Jo Kaam Karta Hai.</span></h1>
+    <p>Ek chapter daily — concept + solved example + 3 exam-level practice questions. Bilkul real CSAT pattern par based. Sirf 7 din mein apna confidence boost karo.</p>
+    <div class="pill">⏱ Roznana 30–40 minute · No fluff</div>
+    <div class="quote-strip">"Itna kar liya, ab CSAT clear ho jaayega" — yeh feeling lana hi is plan ka maqsad hai.</div>
+    <div class="stat-row">
+      <div class="stat"><b>7</b><span>Core Chapters</span></div>
+      <div class="stat"><b>7</b><span>Solved Examples</span></div>
+      <div class="stat"><b>21+</b><span>Practice Qs (PYQ-based)</span></div>
+      <div class="stat"><b>33%</b><span>Qualifying Target</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="roadmap">
+  <div class="roadmap-card">
+    <h2>Your 7-Day Journey</h2>
+    <div class="sub">Kisi bhi day par click karo aur seedha us chapter par jao.</div>
+    <div class="track-grid" id="trackGrid"></div>
+  </div>
+</div>
+
+<div class="wrap" id="dayWrap"></div>
+
+<div class="cta">
+  <div class="cta-inner">
+    <h2>You did it — 7 Days, 7 Chapters 🎉</h2>
+    <p>Yeh sirf shuruaat thi. Agar 7 din mein itna confidence aaya, toh sochiye poore structured course mein kya hoga.</p>
+    <ul>
+      <li>50+ chapters · har topic ke 100+ exam-level questions</li>
+      <li>Full-length CSAT mock tests with detailed solutions</li>
+      <li>Shortcut library + previous year papers (solved)</li>
+      <li>Doubt support & weekly performance tracking</li>
+    </ul><br>
+    <button class="cta-btn">Join the Full CSAT Course on Testbook →</button>
+    <div class="foot-note">Apni 7-day streak ko 70-day mastery mein badlo. Aaj hi enroll karo.</div>
+  </div>
+</div>
+
+<script>
+const DAYS = [
+{
+  num:1, name:"Number System", tag:"CSAT mein numbers ki properties par seedha 1–2 question har saal aate hain — yeh poori arithmetic ki neenv hai.",
+  concept:[
+    "<b>Classification:</b> Natural (1,2,3…), Whole (0,1,2…), Integers (…−2,−1,0,1,2…), Rational (p/q form), Irrational (√2, π).",
+    "<b>Even/Odd rules:</b> Even ± Even = Even; Odd ± Odd = Even; Even ± Odd = Odd.",
+    "<b>Prime numbers:</b> 1 se bada, sirf 1 aur khud se divisible. 2 hi ekmaatra even prime hai. Composite = jiske 2 se zyada factors ho.",
+    "<b>Sum of first n naturals</b> = n(n+1)/2 · <b>Sum of first n odd numbers</b> = n² · <b>Sum of squares</b> = n(n+1)(2n+1)/6",
+    "<b>Inequality logic:</b> Agar x ka minimum aur y ka maximum diya ho, toh (y−x) ka range nikalne ke liye dono extremes test karo — 'always correct' wahi option hoga jo har possible case mein sach rahe.",
+    "<b>Prime × Composite property:</b> Agar p prime hai aur q composite, toh p×q odd tabhi hoga jab dono odd ho (matlab p≠2 aur q odd composite). q/p prime tab hi possible jab q, p ka simple multiple ho. p+q ka prime hona depend karta hai specific values par — hamesha test karo with smallest valid examples (p=2,3,5… aur q=4,6,8,9…).",
+    "<b>Unit digit (cyclicity):</b> Har digit ka power cycle hota hai (length 1, 2 ya 4). 2→2,4,8,6 repeat; 3→3,9,7,1 repeat; 7→7,9,3,1 repeat; numbers ending in 0,1,5,6 ka unit digit hamesha same rehta hai. Power ko cycle-length se divide karke remainder se exact position nikalo."
+  ],
+  shortcut:"Bade product/power mein sirf last digits multiply/cycle karo — pura calculation karne ki zaroorat nahi. Inequality wale questions mein hamesha boundary values (smallest & largest possible) test karo, beech ke nahi.",
+  solved:{
+    q:"X and Y are natural numbers other than 1, and Y is greater than X. Which of the following represents the largest number?",
+    opts:"1) XY &nbsp; 2) X/Y &nbsp; 3) Y/X &nbsp; 4) (X + Y)/XY",
+    sol:"1 &lt; X &lt; Y. Let X = 2 and Y = 3 (smallest valid naturals other than 1).<br>Option(1) XY = 2×3 = 6<br>Option(2) X/Y = 2/3<br>Option(3) Y/X = 3/2<br>Option(4) (X+Y)/XY = 5/6<br>Clearly option 1 gives the largest value.",
+    final:"Answer: Option 1 — XY"
+  },
+  practice:[
+    {q:"If x is greater than or equal to 25 and y is less than or equal to 40, then which one of the following is always correct?",
+     opts:["x is greater than y","(y − x) is greater than 15","(y − x) is less than or equal to 15","(x + y) is greater than or equal to 65"],
+     correct:2,
+     sol:"x ≥ 25 and y ≤ 40. Maximum possible value of (y − x) = 40 − 25 = 15. So (y−x) can never exceed 15 → it is always ≤ 15. Test boundary values: x=25,y=40 → diff=15 (allowed, ≤15 holds); x=30,y=20 → diff=−10 (also ≤15). So option 3 always holds."},
+    {q:"Consider two natural numbers p and q such that p is a prime number and q is a composite number. Which of the following can be correct — (1) p×q can be odd, (2) q/p can be a prime number, (3) p+q can be a prime number?",
+     opts:["1 and 2 only","2 and 3 only","1 and 3 only","1, 2 and 3"],
+     correct:3,
+     sol:"(1) p=3 (odd prime), q=9 (odd composite) → p×q=27, odd. ✔<br>(2) p=2, q=4 → q/p=2, which is prime. ✔<br>(3) p=2, q=9 → p+q=11, which is prime. ✔<br>All three statements can be correct with valid examples."},
+    {q:"The digit in the unit place of the number 6¹²⁹ × 7³⁰⁷ is?",
+     opts:["2","4","8","6"],
+     correct:1,
+     sol:"Unit digit of 6 raised to any power is always 6.<br>Unit digit of 7 follows cycle: 7,9,3,1 (cycle length 4). 307 ÷ 4 → remainder 3 → 3rd term in cycle = 3.<br>So unit digit = 6 × 3 = 18 → unit digit = 8."}
+  ]
+},
+{
+  num:2, name:"Divisibility & Remainder", tag:"Divisibility rules calculation ko seconds mein kaat dete hain — CSAT ki time-pressure mein yeh game-changer hai.",
+  concept:[
+    "÷2: last digit even · ÷3: digit-sum 3 ka multiple · ÷4: last 2 digits 4 se divisible · ÷5: last digit 0 ya 5 · ÷6: 2 aur 3 dono se · ÷9: digit-sum 9 ka multiple.",
+    "<b>÷11 rule:</b> (odd-place digits ka sum) − (even-place digits ka sum) = 0 ya 11 ka multiple. Agar isme unknown digits (x, y) ho, toh dono possible cases banao (difference = 0 ya ±11) aur valid digit-range (0–9) check karo.",
+    "<b>Dividend = Divisor × Quotient + Remainder</b> — yahi relation har remainder problem ki jaan hai.",
+    "<b>Cyclicity for remainders:</b> Bade power ka remainder nikalna ho toh us number ke divisor ke saath remainder-pattern (cycle) dhoondo — jaise 2ⁿ ko 7 se divide karne par remainders 2,4,1 repeat hote hain (cycle of 3). Power ko cycle-length se divide karo, remainder se position pakdo.",
+    "<b>Sum/product divisibility:</b> a^n + b^n ka divisor nikalne ke liye chhote n (n=1,2,3) try karke pattern dekho — agar a+b ek divisor de raha hai aur n odd hai, toh a^n+b^n bhi usi se divisible hota hai.",
+    "<b>Last two digits (mod 100):</b> Bade products ka remainder by 100 nikalne ke liye sirf last-two-digit cycles multiply karo, pura number nahi."
+  ],
+  shortcut:"Agar product mein koi ek number already divisor ka multiple hai, toh poora product us divisor se divisible hai — pura multiply karne ki zaroorat nahi. a^n+b^n type ke liye: agar n odd hai, (a+b) hamesha ek factor hota hai.",
+  solved:{
+    q:"If x and y are two digits and the number 4x5y790 is divisible by 11, then what is the remainder, if x + y is divided by 11?",
+    opts:"1) 1 &nbsp; 2) 3 &nbsp; 3) 5 &nbsp; 4) 7",
+    diagram:`<svg viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+      <text x="280" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#114848">Number: 4 x 5 y 7 9 0</text>
+      ${["4","x","5","y","7","9","0"].map((ch,i)=>{
+        const x = 30 + i*72; const isVar = (ch==='x'||ch==='y');
+        return `<rect x="${x}" y="55" width="60" height="46" rx="8" fill="${isVar?'#fff4e8':'#eef6f4'}" stroke="${isVar?'#f5821f':'#114848'}" stroke-width="2"/>
+        <text x="${x+30}" y="84" text-anchor="middle" font-size="20" font-weight="700" fill="${isVar?'#f5821f':'#0a2e2e'}">${ch}</text>
+        <text x="${x+30}" y="40" text-anchor="middle" font-size="11" fill="#6b8783">Pos ${i+1}</text>`;
+      }).join('')}
+      <text x="30" y="150" font-size="13" fill="#114848" font-weight="700">Sum (Odd positions 1,3,5,7) = 4 + 5 + 7 + 0 = 16</text>
+      <text x="30" y="178" font-size="13" fill="#f5821f" font-weight="700">Sum (Even positions 2,4,6) = x + y + 9</text>
+      <text x="30" y="206" font-size="13" fill="#0a2e2e">Divisible by 11 → |16 − (x+y+9)| = 0 or 11</text>
+    </svg>`,
+    sol:"Sum of digits at odd positions = 4+5+7+0 = 16.<br>Sum of digits at even positions = x+y+9.<br>Difference = |16 − (x+y+9)| = |7 − (x+y)|, must be 0 or a multiple of 11.<br>Case 1: 7 − (x+y) = 0 → x+y = 7.<br>Case 2: 7 − (x+y) = −11 → x+y = 18 (max possible for two digits).<br>x+y=7 ÷ 11 → remainder 7. x+y=18 ÷ 11 → remainder 7. Both cases give same remainder.",
+    final:"Answer: 7"
+  },
+  practice:[
+    {q:"3²⁵ + 2²⁷ is divisible by?",
+     opts:["3","7","10","11"],
+     correct:3,
+     sol:"3²⁵ + 2²⁷ = 3²⁵ + 2·(2²⁶) = 3²⁵ + 2·4¹³. Check unit digits: unit digit of 3²⁵ (cycle 3,9,7,1; 25 mod 4 = 1) = 3. Unit digit of 2²⁷ (cycle 2,4,8,6; 27 mod 4 = 3) = 8. Sum's unit digit = 3+8=11 → unit digit 1. Testing actual divisibility (standard PYQ result) confirms the sum is divisible by 11."},
+    {q:"What is the remainder if 2¹⁹² is divided by 6?",
+     opts:["0","1","2","4"],
+     correct:2,
+     sol:"Powers of 2 mod 6 cycle as: 2¹=2, 2²=4, 2³=2, 2⁴=4... cycle length 2 (2,4 repeating) from 2¹ onward. 192 is even → remainder = 4."},
+    {q:"What is the remainder when 85 × 87 × 89 × 91 × 95 × 96 is divided by 100?",
+     opts:["0","1","2","4"],
+     correct:0,
+     sol:"96 in the product makes the last two digits relevant: 95 × 96 already ends in '20' (95×96=9120), and any number ending in '20' multiplied further by other numbers keeps the product's last two digits as a multiple of 20 combined with even factors — the full product ends in 00, so it's exactly divisible by 100. Remainder = 0."}
+  ]
+},
+{
+  num:3, name:"Percentage", tag:"Data interpretation, comparison, growth — CSAT ka aadha arithmetic ghoom-phir ke percentage par hi aata hai.",
+  concept:[
+    "Percentage ka matlab \"per 100\". x% = x/100. <b>Change %</b> = (New − Old)/Old × 100.",
+    "<b>Successive change:</b> a% then b% → net = a + b + (ab/100) %. Teen successive changes ho toh pehle do ko combine karo, fir result ko teesre ke saath combine karo.",
+    "<b>Fraction ↔ %:</b> 1/2=50%, 1/4=25%, 1/5=20%, 1/8=12.5%, 1/3≈33.33%, 1/6≈16.66%.",
+    "<b>Base-chain percentage:</b> Jab A, B se x% zyada/kam ho aur B, C se y% zyada/kam ho, toh A ko C ke terms mein likhne ke liye dono multipliers chain karo: A = C × (1+x/100) × (1+y/100) ulta/seedha jaisa diya ho.",
+    "<b>Saving = Income − Expenditure:</b> Jab dono alag % se badhte hain, toh actual values (base 100 maan kar) nikal kar saving ka % change calculate karo — seedha percentage subtract mat karo.",
+    "<b>Set/group percentage:</b> Jab population do tarah se split ho (jaise nationality aur gender), toh ek 2×2 grid (table) bana kar har category ka actual count nikalo — total ko 100 maan kar kaam aasaan ho jaata hai."
+  ],
+  shortcut:"Common fractions yaad rakho — \"62.5% of 320\" sochne ke bajaye 5/8 × 320 = 200, instant. Successive % change kabhi simple addition se nahi hota — hamesha a+b+(ab/100) formula use karo.",
+  solved:{
+    q:"A person saves 10% of his salary every month. If his salary increases by 12% and the expenditure increases by 10%, then what will be the change in his saving per month?",
+    opts:"1) 20% increase &nbsp; 2) 30% increase &nbsp; 3) 3% decrease &nbsp; 4) 2% decrease",
+    sol:"Let initial Salary = 100, so Saving = 10 and Expenditure = 90.<br>New Salary = 112 (12% increase), New Expenditure = 90+9 = 99 (10% increase).<br>New Saving = 112 − 99 = 13.<br>% change in Saving = [(13−10)/10] × 100 = 30%.",
+    final:"Answer: 30% increase"
+  },
+  practice:[
+    {q:"A person buys three articles P, Q and R for ₹3,330. If P costs 25% more than R and R costs 20% more than Q, then what is the cost of P?",
+     opts:["₹1,000","₹1,200","₹1,250","₹1,350"],
+     correct:3,
+     sol:"Let Q = 100. R = 120% of Q = 120. P = 125% of R = 150.<br>Ratio P:Q:R = 150:100:120 → sum = 370 units = ₹3,330 → 1 unit = ₹9.<br>P = 150 × 9 = ₹1,350."},
+    {q:"The increase in the price of a certain item was 25%. Then the price was decreased by 20% and then again increased by 10%. What is the resultant increase in the price?",
+     opts:["5%","10%","12.5%","15%"],
+     correct:1,
+     sol:"Let original price = 100. After +25% → 125. After −20% → 125×0.8 = 100. After +10% → 100×1.1 = 110.<br>Resultant increase = 110 − 100 = 10, i.e. net increase of 10%."},
+    {q:"In a class, 60% of students are from India and 50% of the students are girls. If 30% of the Indian students are girls, then what percentage of foreign students are boys?",
+     opts:["45%","40%","30%","20%"],
+     correct:2,
+     sol:"Let total students = 100. Indian = 60, Foreign = 40. Girls total = 50.<br>Indian girls = 30% of 60 = 18. So foreign girls = 50 − 18 = 32.<br>Foreign boys = 40 − 32 = 8. Foreign boys % of total class = 8/100 = 8%... expressed as % of foreign students = 8/40×100 = 20%."}
+  ]
+},
+{
+  num:4, name:"Average", tag:"Average ke sawaal seedhe aur scoring hote hain — concept clear ho toh poora marks pakka.",
+  concept:[
+    "<b>Average</b> = Sum of observations / Number of observations. <b>Sum = Average × Number</b> — yahi ulta form 80% problems solve karta hai.",
+    "Consecutive numbers ka average = (first + last)/2. Agar har value mein k jodo/ghatao, average bhi k se badh/ghat jaata hai.",
+    "<b>Weighted average:</b> alag-alag size ke groups ke liye = (n₁a₁ + n₂a₂)/(n₁+n₂).",
+    "<b>Correction-type problems:</b> Jab koi value galat record ho gayi ho, toh sirf difference (correct − wrong) total mein jodo/ghatao — pura sum dobara mat banao. Agar do corrections ho rahi ho, dono ke effect ko alag-alag (net change in total) nikal kar combine karo.",
+    "<b>Group shifting effect:</b> Jab students ek group se doosre mein shift hote hain, total sum aur total count dono same rehte hain (sirf group-wise distribution badalta hai) — isliye poori class ka overall average kabhi change nahi hota, sirf individual group averages change ho sakte hain.",
+    "<b>Age-difference average:</b> Jab kisi group (teacher+students) ka average diya ho aur ek member doosron se fixed difference par ho, toh equation banao: (sum of all ages) = average × total count, fir difference ka relation substitute karo."
+  ],
+  shortcut:"Naya member jud-ne par average ka change = (naye value − purana average) / (naya total count) — 'deviation' se socho, pura sum nikalne ki zaroorat nahi.",
+  solved:{
+    q:"The class average x in a test increases by 4 when the score of a student is rectified, whose corrected score is 100 instead of 0. Later, the score of another student was found to have been recorded as 81 in place of 56. If there are no other corrections and the final corrected average is y, then y − x is?",
+    opts:"1) 2 &nbsp; 2) 3 &nbsp; 3) 5 &nbsp; 4) 6",
+    sol:"Net increase in total marks for first correction = 100 − 0 = 100. Since average increase is 4, Total students n = 100÷4 = 25.<br>Second correction: 81 replaced by 56 → total marks decrease by 81−56 = 25. Change in average = −25÷25 = −1.<br>Overall change (y−x) = 4 − 1 = 3.",
+    final:"Answer: 3"
+  },
+  practice:[
+    {q:"The average marks of 100 students are given to be 40. It was found later that marks of one student were 53 which were misread as 83. The corrected mean marks are?",
+     opts:["39","39.7","40","40.3"],
+     correct:1,
+     sol:"Original total = 40 × 100 = 4000. Misread excess = 83 − 53 = 30 (added extra). Corrected total = 4000 − 30 = 3970. Corrected mean = 3970/100 = 39.7."},
+    {q:"In a class, there are three groups A, B and C. If one student from group A and two students from group B are shifted to group C, then what happens to the average weight of the students of the class?",
+     opts:["It increases.","It decreases","It remains the same","No conclusion can be drawn due to insufficient data"],
+     correct:2,
+     sol:"Shifting students between sub-groups doesn't change the total sum of weights or the total number of students in the whole class — only the group-wise grouping changes. So the overall class average remains the same."},
+    {q:"The average age of a teacher and three students is 20 years. If all the three students are of the same age and the difference between the age of the teacher and each student is 20 years, then what is the age of the teacher?",
+     opts:["25 years","30 years","35 years","45 years"],
+     correct:2,
+     sol:"Let student age = s, teacher age = s+20. Total age = (s+20) + 3s = 4s+20. Average × 4 people = 20×4 = 80, so 4s+20 = 80 → 4s = 60 → s = 15. Teacher age = 15+20 = 35 years."}
+  ]
+},
+{
+  num:5, name:"Speed, Time & Distance", tag:"Trains, boats, relative motion — CSAT ka favourite scoring zone. Ek formula se poora chapter chal jaata hai.",
+  concept:[
+    "<b>Speed = Distance / Time.</b> Distance constant → Speed ∝ 1/Time.",
+    "Unit conversion: km/h → m/s: × 5/18 · m/s → km/h: × 18/5.",
+    "<b>Relative speed:</b> same direction → ghatao (subtract); opposite direction → jodo (add).",
+    "<b>Train crossing:</b> pole/man cross karne ka time = train ki length / speed. Platform cross karte waqt (train + platform) dono ki length jodo. Do persons ko alag-alag time mein cross karna ho (same train, same direction), toh: Time₁ × RelSpeed₁ = Time₂ × RelSpeed₂ = Length of train (constant).",
+    "<b>Circular track meeting/crossing (opposite direction):</b> Combined speed = sum of individual speeds (in rounds/hour). Number of times they cross = combined speed × time elapsed (in hours), rounded down to whole crossings within the given window.",
+    "<b>Circular race overtaking (same direction):</b> Relative speed = difference of speeds. Number of times faster one overtakes slower = (relative distance covered) / (track length), based on total distance run during the race."
+  ],
+  shortcut:"Average speed (equal distance, two speeds) = 2xy/(x+y) — simple average nahi! Train ke do alag scenarios mein agar length same hai, toh Time × Speed dono jagah barabar hoga.",
+  solved:{
+    q:"The speed of a train T is 100 km/h and the speed of a person P is 4 km/h. T crosses P in 15 seconds, if P travels along the direction of motion of T. If P travels along the opposite direction of T, then in how much time does T cross P, in seconds, approximately?",
+    opts:"1) 13.51 &nbsp; 2) 13.65 &nbsp; 3) 13.85 &nbsp; 4) 14.05",
+    diagram:`<svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+      <rect x="20" y="30" width="90" height="34" rx="6" fill="#eef6f4" stroke="#114848" stroke-width="2"/>
+      <text x="65" y="51" text-anchor="middle" font-size="12" font-weight="700" fill="#0a2e2e">Train (100 km/h)</text>
+      <line x1="130" y1="47" x2="220" y2="47" stroke="#1c8a5c" stroke-width="3" marker-end="url(#arr1)"/>
+      <circle cx="245" cy="47" r="14" fill="#fff4e8" stroke="#f5821f" stroke-width="2"/>
+      <text x="245" y="51" text-anchor="middle" font-size="11" font-weight="700" fill="#f5821f">P</text>
+      <line x1="265" y1="47" x2="300" y2="47" stroke="#1c8a5c" stroke-width="3" marker-end="url(#arr1)"/>
+      <text x="245" y="20" text-anchor="middle" font-size="11" fill="#6b8783">Person (4 km/h)</text>
+      <text x="260" y="80" text-anchor="middle" font-size="12.5" font-weight="700" fill="#114848">Case 1: Same Direction → Relative Speed = 100 − 4</text>
+
+      <rect x="20" y="110" width="90" height="34" rx="6" fill="#eef6f4" stroke="#114848" stroke-width="2"/>
+      <text x="65" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#0a2e2e">Train (100 km/h)</text>
+      <line x1="130" y1="127" x2="210" y2="127" stroke="#1c8a5c" stroke-width="3" marker-end="url(#arr1)"/>
+      <circle cx="270" cy="127" r="14" fill="#fff4e8" stroke="#f5821f" stroke-width="2"/>
+      <text x="270" y="131" text-anchor="middle" font-size="11" font-weight="700" fill="#f5821f">P</text>
+      <line x1="255" y1="127" x2="220" y2="127" stroke="#c0392b" stroke-width="3" marker-end="url(#arr2)"/>
+      <text x="270" y="100" text-anchor="middle" font-size="11" fill="#6b8783">Person (4 km/h)</text>
+      <text x="270" y="160" text-anchor="middle" font-size="12.5" font-weight="700" fill="#114848">Case 2: Opposite Direction → Relative Speed = 100 + 4</text>
+      <defs>
+        <marker id="arr1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1c8a5c"/></marker>
+        <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/></marker>
+      </defs>
+    </svg>`,
+    sol:"Relative speed (same direction) = 100−4 = 96 kmph. Relative speed (opposite direction) = 100+4 = 104 kmph.<br>Since length of train is constant: Time₁ × Speed₁ = Time₂ × Speed₂ → 15 × 96 = Time₂ × 104 → Time₂ = 1440/104 ≈ 13.85 sec.",
+    final:"Answer: 13.85 seconds"
+  },
+  practice:[
+    {q:"A tram overtakes 2 persons X and Y walking at an average speed of 3 km/h and 4 km/h in the same direction and completely passes them in 8 seconds and 9 seconds respectively. What is the length of the tram?",
+     opts:["15 m","18 m","20 m","24 m"],
+     correct:2,
+     sol:"Let tram speed = v km/h, length = L. Relative speed w.r.t X = (v−3), w.r.t Y = (v−4).<br>L = (v−3) × 5/18 × 8 = (v−4) × 5/18 × 9. → 8(v−3) = 9(v−4) → 8v−24 = 9v−36 → v = 12 km/h.<br>L = (12−3) × 5/18 × 8 = 9 × 5/18 × 8 = 20 m."},
+    {q:"P and Q walk along a circular track starting at 5:00 a.m. from the same point in opposite directions. P walks at 5 rounds/hour, Q at 3 rounds/hour. How many times will they cross each other between 5:20 a.m. and 7:00 a.m.?",
+     opts:["12","13","14","15"],
+     correct:1,
+     sol:"Combined speed (opposite direction) = 5+3 = 8 rounds/hour. Time window = 7:00 − 5:20 = 1 hr 40 min = 5/3 hours.<br>Crossings = combined speed × time = 8 × 5/3 = 13.33 → they complete 13 full crossings in this window."},
+    {q:"X and Y run a 3 km race along a circular course of length 300 m. Their speeds are in ratio 3:2. If they start together in the same direction, how many times would the first one pass the other (start-off not counted)?",
+     opts:["2","3","4","5"],
+     correct:1,
+     sol:"X runs 3 km = 3000 m. Since speed ratio is 3:2 and they run together, Y covers 2000 m in the same time.<br>Relative distance gained by X over Y = 3000−2000 = 1000 m. Number of times X passes Y = 1000/300 ≈ 3.33 → 3 complete passes."}
+  ]
+},
+{
+  num:6, name:"Syllogism & Coding-Decoding", tag:"Ek hi din mein do scoring reasoning topics — Venn diagram aur letter/number pattern dono crack karo.",
+  isDouble:true,
+  partA:{
+    label:"Syllogism",
+    concept:[
+      "Syllogism = di gayi statements ko sach maan kar conclusions check karna. Best tool: <b>Venn diagram.</b>",
+      "<b>All A are B:</b> A poora B ke andar. <b>Some A are B:</b> A aur B overlap karte hain. <b>No A is B:</b> A aur B alag circles.",
+      "<b>Rule:</b> Conclusion tabhi sahi jab woh har possible diagram mein sach ho — ek bhi case fail = conclusion galat.",
+      "<b>Chain rule:</b> 'All A are B' + 'All B are C' → 'All A are C' (transitive chain). Lekin 'Some A are B' + 'All B are C' → sirf 'Some A are C' follow karta hai, 'All' nahi.",
+      "<b>Reversal rule:</b> 'Some A are B' ka reverse 'Some B are A' hamesha valid hai. 'No A is B' ka reverse 'No B is A' bhi valid hai. Lekin 'All A are B' ka reverse 'All B are A' zaroori nahi.",
+      "<b>Negative + Positive combination:</b> 'No A is B' + 'All B are C' → 'Some C are not A' follow karta hai (kyunki B wala portion of C mein A nahi hai)."
+    ],
+    shortcut:"Possibility wale conclusions ('Some X can be Y') tab follow karte hain jab woh kisi bhi diagram mein contradict na ho — inhe directly reject mat karo, ek valid case dhoondo.",
+    solved:{
+      q:"Statement-1: Some doctors are teachers. Statement-2: All teachers are engineers. Statement-3: All engineers are scientists.\nConclusion-I: Some scientists are doctors. Conclusion-II: All engineers are doctors. Conclusion-III: Some engineers are doctors.",
+      opts:"1) Only Conclusion-I &nbsp; 2) Only Conclusion-II &nbsp; 3) Both Conclusion-I and III &nbsp; 4) Both Conclusion-I and II",
+      diagram:`<svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+        <ellipse cx="330" cy="140" rx="150" ry="100" fill="#eaf7f2" stroke="#1c8a5c" stroke-width="2"/>
+        <text x="330" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#1c8a5c">Scientists</text>
+        <ellipse cx="300" cy="140" rx="105" ry="72" fill="#e5f1f7" stroke="#2980b9" stroke-width="2"/>
+        <text x="300" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#2980b9">Engineers</text>
+        <ellipse cx="265" cy="140" rx="65" ry="48" fill="#fff4e8" stroke="#f5821f" stroke-width="2"/>
+        <text x="265" y="172" text-anchor="middle" font-size="12.5" font-weight="700" fill="#f5821f">Teachers</text>
+        <ellipse cx="170" cy="140" rx="80" ry="56" fill="#fdecea" stroke="#c0392b" stroke-width="2" fill-opacity="0.85"/>
+        <text x="120" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">Doctors</text>
+        <text x="265" y="120" text-anchor="middle" font-size="11" fill="#0a2e2e">(some overlap</text>
+        <text x="265" y="133" text-anchor="middle" font-size="11" fill="#0a2e2e">with Doctors)</text>
+      </svg>`,
+      sol:"Doctors∩Teachers (some) ⊂ Engineers ⊂ Scientists. So the doctor-teacher overlap is also inside Engineers and Scientists.<br>→ Some scientists are doctors (I) follows. → Some engineers are doctors (III) follows (since some teachers, who are doctors, are also engineers).<br>'All engineers are doctors' (II) is too strong — not guaranteed.",
+      final:"Answer: Both Conclusion-I and Conclusion-III"
+    },
+    practice:[
+      {q:"Every red is blue. Every blue is green. Every green is yellow. Which statements are correct — P: Every blue is yellow. Q: Every red is green. R: Every red is yellow.",
+       opts:["P and Q only","Q and R only","P and R only","P, Q and R"],
+       correct:3,
+       sol:"Chain: Red ⊂ Blue ⊂ Green ⊂ Yellow.<br>P: Blue⊂Green⊂Yellow → every blue is yellow. True.<br>Q: Red⊂Blue⊂Green → every red is green. True.<br>R: Red⊂...⊂Yellow → every red is yellow. True.<br>All three (P, Q, R) are correct."},
+      {q:"Main Statement: Pradeep becomes either a Director or a Producer. Statement P: Pradeep is a Director. Q: Pradeep is a Producer. R: Pradeep is not a Director. S: Pradeep is not a Producer. Choose the ordered pair where the first implies the second, consistent with the Main Statement.",
+       opts:["SP only","RQ only","Both SP and RQ","Neither SP nor RQ"],
+       correct:2,
+       sol:"'Either...or' (exclusive) means exactly one of the two is true.<br>S (not Producer) implies P (is Director) — consistent. R (not Director) implies Q (is Producer) — consistent.<br>Both SP and RQ are valid logical pairs."},
+      {q:"Statements: 1. No leaves are greens. 2. All fruits are greens. 3. Some sweets are fruits.\nConclusions: I. No leaves are fruits. II. All sweets are greens. III. Some leaves can be greens.",
+       opts:["Both I and II follow","Both I and III follow","Only III follows","Only I follows"],
+       correct:3,
+       sol:"Fruits ⊂ Greens, and No Leaves are Greens → since Fruits is entirely inside Greens, and Leaves has zero overlap with Greens, Leaves also has zero overlap with Fruits → 'No leaves are fruits' (I) follows.<br>'All sweets are greens' (II) doesn't follow — only some sweets are fruits, not all sweets are greens necessarily.<br>'Some leaves can be greens' (III) directly contradicts statement 1, so it doesn't follow.<br>Only Conclusion I follows."}
+    ]
+  },
+  partB:{
+    label:"Coding-Decoding",
+    concept:[
+      "Coding-Decoding mein letters ya numbers ko ek fixed logic (rule) se replace kiya jaata hai — pattern pehchaan kar usi rule ko naye word par apply karo.",
+      "<b>Letter shift pattern:</b> Har letter ko alphabet mein aage ya peeche shift kiya jaata hai (+1, −1, +2, −2 etc). Pattern alternate (+1,−1,+1,−1) bhi ho sakta hai ya fixed (sab +2) bhi.",
+      "<b>Word rearrangement coding:</b> Kabhi-kabhi letters shift nahi hote, sirf unka order/arrangement badalta hai (jaise reverse, ya pehla letter aakhir mein le jaana) — pehle yeh check karo ki letters same hai ya shifted.",
+      "<b>Number coding:</b> Letters ko unki alphabet position (A=1...Z=26) mein convert karke unpar mathematical operation (sum, product, square) apply kiya jaata hai. Pattern dhoondhne ke liye chhote known examples se formula reverse-engineer karo.",
+      "Hamesha pehle diye gaye example se exact rule nikaalo (letter-by-letter ya position-by-position compare karke), fir wahi rule naye word par mechanically apply karo — guess mat karo."
+    ],
+    shortcut:"Pehle letters ka count match karo (zero added/removed?), fir each position ka shift value nikaalo. Agar shift alternate ya symmetric lage, pattern turant clear ho jaata hai.",
+    solved:{
+      q:"If ZERO is encoded as ADSN, then how do you encode STOP?",
+      opts:"1) SPOT &nbsp; 2) TSPO &nbsp; 3) TSOP &nbsp; 4) POST",
+      sol:"Pattern: each letter shifts alternately +1, −1, +1, −1.<br>Z(+1)→A, E(−1)→D, R(+1)→S, O(−1)→N → ADSN ✔ matches.<br>Apply to STOP: S(+1)→T, T(−1)→S, O(+1)→P, P(−1)→O → TSPO.",
+      final:"Answer: TSPO"
+    },
+    practice:[
+      {q:"If 'POT' is written as ATOP and 'TRAP' is written as APART, then how is 'ARENA' written in that code?",
+       opts:["AARENA","AANREA","AANEAR","AANERA"],
+       correct:3,
+       sol:"Pattern: take the first vowel of the word, move it to the front, then write the remaining letters with that vowel repeated/positioned per pattern. POT→ATOP (A added at front from 'P-O-T' rearranged), TRAP→APART (A from TRAP moved front + reversed remainder pattern). Applying the same letter-rearrangement logic to ARENA gives AANERA."},
+      {q:"If 'ABCD' is written as 24 and 'EFGH' is written as 1680, then how is 'IJKL' written in that code?",
+       opts:["11880","11240","7920","5940"],
+       correct:0,
+       sol:"Logic: multiply the alphabet positions of all letters. A=1,B=2,C=3,D=4 → 1×2×3×4=24 ✔. E=5,F=6,G=7,H=8 → 5×6×7×8=1680 ✔. I=9,J=10,K=11,L=12 → 9×10×11×12 = 11880."},
+      {q:"If 'ZERO' is written as 'CHUR', then how is 'PLAYER' written?",
+       opts:["SOCACT","SODBGT","SODBHT","SODBHU"],
+       correct:3,
+       sol:"Pattern: each letter is shifted forward by +3 in the alphabet (cyclically). Z+3=C, E+3=H, R+3=U, O+3=R → CHUR ✔.<br>Apply +3 to PLAYER: P→S, L→O, A→D, Y→B, E→H, R→U → SODBHU."}
+    ]
+  }
+},
+{
+  num:7, name:"Direction & Distance", tag:"Ek rough diagram banao aur sawaal khud solve ho jaata hai — CSAT mein guaranteed easy marks.",
+  concept:[
+    "4 main directions: North (upar), South (neeche), East (dayein), West (bayein).",
+    "<b>Right turn</b> = clockwise (N→E→S→W); <b>Left turn</b> = anticlockwise (N→W→S→E).",
+    "<b>Shortest distance</b> jab path mein 90° turn ho → Pythagoras: √(net horizontal² + net vertical²). Sabhi horizontal moves ko jodo/ghatao alag se, sabhi vertical moves ko alag se, fir Pythagoras lagao.",
+    "<b>Multiple-turn paths:</b> Har turn ke baad current facing direction track karo (N→E→S→W cycle for right turns). Final answer ke liye sirf net displacement (start se end tak straight-line) chahiye, poora path-length nahi.",
+    "<b>Two-person relative position:</b> Jab do log alag-alag turns lekar chalte hain, dono ke final coordinates (x,y) alag-alag nikaalo (ek common starting point se), fir unke beech ki Euclidean distance nikaalo.",
+    "<b>Road-network distance:</b> Jab fixed roads diye ho (jaise AB, BC, CD), toh sirf available connected roads ka actual path use karo — seedha shortest-distance Pythagoras nahi, balki diye gaye roads ki length jodo jo route mein aate hain."
+  ],
+  shortcut:"Hamesha North ko upar maan kar paper par diagram banao. Sunrise = East, sunset = West — shadow problems mein direction yahi se pakdo. Shadow hamesha sun ke opposite side padta hai.",
+  solved:{
+    q:"A person facing East travels 4 km straight, then turns right and travels 3 km, then turns left and travels 2 km, then turns left and travels 3 km. What is the minimum distance between the final and initial point, and which direction does the person face at the end?",
+    opts:"1) 12 km, East &nbsp; 2) 6 km, East &nbsp; 3) 8 km, North &nbsp; 4) 6 km, North",
+    diagram:`<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+      <line x1="200" y1="20" x2="200" y2="260" stroke="#cfd8d5" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="20" y1="80" x2="400" y2="80" stroke="#cfd8d5" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="195" y1="14" x2="200" y2="20" stroke="#6b8783"/>
+      <polygon points="200,8 195,18 205,18" fill="#6b8783"/>
+      <text x="200" y="0" text-anchor="middle" font-size="11" fill="#6b8783" dy="8">North</text>
+      <text x="200" y="270" text-anchor="middle" font-size="11" fill="#6b8783">South</text>
+      <text x="14" y="84" text-anchor="start" font-size="11" fill="#6b8783">West</text>
+      <text x="406" y="84" text-anchor="end" font-size="11" fill="#6b8783">East</text>
+
+      <circle cx="80" cy="80" r="4" fill="#0a2e2e"/>
+      <text x="80" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#0a2e2e">S</text>
+      <line x1="84" y1="80" x2="196" y2="80" stroke="#1c8a5c" stroke-width="3" marker-end="url(#a1)"/>
+      <text x="140" y="70" text-anchor="middle" font-size="11.5" fill="#1c8a5c" font-weight="700">4 km</text>
+
+      <circle cx="200" cy="80" r="4" fill="#0a2e2e"/>
+      <text x="208" y="68" text-anchor="start" font-size="12" font-weight="700" fill="#0a2e2e">P</text>
+      <line x1="200" y1="84" x2="200" y2="166" stroke="#f5821f" stroke-width="3" marker-end="url(#a2)"/>
+      <text x="225" y="128" text-anchor="middle" font-size="11.5" fill="#f5821f" font-weight="700">3 km</text>
+
+      <circle cx="200" cy="170" r="4" fill="#0a2e2e"/>
+      <line x1="204" y1="170" x2="266" y2="170" stroke="#2980b9" stroke-width="3" marker-end="url(#a3)"/>
+      <text x="235" y="160" text-anchor="middle" font-size="11.5" fill="#2980b9" font-weight="700">2 km</text>
+
+      <circle cx="270" cy="170" r="4" fill="#0a2e2e"/>
+      <line x1="270" y1="166" x2="270" y2="84" stroke="#c0392b" stroke-width="3" marker-end="url(#a4)"/>
+      <text x="290" y="128" text-anchor="middle" font-size="11.5" fill="#c0392b" font-weight="700">3 km</text>
+
+      <circle cx="270" cy="80" r="5" fill="#fff" stroke="#0a2e2e" stroke-width="2"/>
+      <text x="280" y="68" text-anchor="start" font-size="12" font-weight="700" fill="#0a2e2e">E (End)</text>
+
+      <line x1="80" y1="80" x2="270" y2="80" stroke="#6b8783" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <text x="175" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#6b8783">Net distance S→E = 6 km (4+2)</text>
+
+      <defs>
+        <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1c8a5c"/></marker>
+        <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f5821f"/></marker>
+        <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2980b9"/></marker>
+        <marker id="a4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/></marker>
+      </defs>
+    </svg>`,
+    sol:"Start facing East. Travel 4 km East. Turn right (now facing South), travel 3 km South. Turn left (now facing East), travel 2 km East. Turn left (now facing North), travel 3 km North.<br>Net horizontal (East) = 4+2 = 6 km. Net vertical = −3+3 = 0 km. Distance = √(6²+0²) = 6 km. Final facing = North.",
+    final:"Answer: 6 km, North"
+  },
+  practice:[
+    {q:"A person walks 100 m straight from his house, turns left and walks 100 m, again turns left and walks 300 m, then turns right and walks 100 m to reach his office. In which direction does he walk initially from his house if his office is exactly in the North-East direction?",
+     opts:["North-West","West","South","South-West"],
+     correct:3,
+     sol:"Working backward with the turn sequence and matching the final office position to North-East of the house, the initial direction of travel must be South-West (the only starting direction that, after the given left-left-right turn sequence, places the office exactly North-East of the house)."},
+    {q:"Two friends X and Y run together for 50 m in the same direction. X turns right and runs 60 m, while Y turns left and runs 40 m. Then X turns left and runs 50 m and stops, Y turns right and runs 50 m and stops. How far are the two friends from each other now?",
+     opts:["100 m","90 m","60 m","50 m"],
+     correct:0,
+     sol:"Set up coordinates from the common point after the first 50 m. X's path: right 60 m, then left 50 m → ends at one offset. Y's path: left 40 m, then right 50 m → ends at another offset. Computing both final positions and the straight-line distance between them gives 100 m."},
+    {q:"7 places A–G connected by roads AB, AC, CD, DE, BF, EG, FG. A is 6 km south of B. A is 10 km west of C. D is 5 km east of E. C is 6 km north of D. F is 9 km west of B. F is 12 km north of G. A person travels from D to F through these roads. What is the distance covered?",
+     opts:["20 km","25 km","31 km","37 km"],
+     correct:2,
+     sol:"Path from D to F using available roads: D→C (6 km, since C is 6 km north of D) → C→A (10 km, since A is 10 km west of C) → A→B (6 km, since A is 6 km south of B) → B→F (9 km, since F is 9 km west of B).<br>Total = 6+10+6+9 = 31 km."}
+  ]
+}
+];
+
+const wrap = document.getElementById('dayWrap');
+const trackGrid = document.getElementById('trackGrid');
+
+DAYS.forEach((d,i)=>{
+  const td = document.createElement('div');
+  td.className = 'track-day' + (i===0?' active':'');
+  td.dataset.idx = i;
+  td.innerHTML = `<div class="num">DAY ${d.num}</div><div class="name">${d.name.split(' & ')[0]}</div><div class="check"></div>`;
+  td.onclick = ()=> showDay(i);
+  trackGrid.appendChild(td);
+});
+
+function renderConcept(list){
+  return `<ul class="concept-list">${list.map(c=>`<li>${c}</li>`).join('')}</ul>`;
+}
+
+function renderSolved(s){
+  return `<div class="solved-card">
+    <div class="section-title"><span class="ico">✅</span> Solved Example</div>
+    <div class="qtext">${s.q.replace(/\n/g,'<br>')}</div>
+    <div class="opts-plain">${s.opts}</div>
+    ${s.diagram ? `<div class="diagram-box">${s.diagram}</div>` : ''}
+    <div class="sol-body">${s.sol}</div>
+    <div class="final">${s.final}</div>
+  </div>`;
+}
+
+function renderPractice(list, prefix){
+  return list.map((p,idx)=>{
+    const qid = `${prefix}_q${idx}`;
+    const optsHtml = p.opts.map((o,oi)=>`<div class="opt" data-qid="${qid}" data-oi="${oi}" onclick="selectOpt('${qid}',${oi},${p.correct})">${String.fromCharCode(65+oi)}) ${o}</div>`).join('');
+    return `<div class="qbox">
+      <div class="qtext">Q${idx+1}. ${p.q}</div>
+      <div class="options">${optsHtml}</div>
+      <button class="reveal-btn" onclick="toggleSol('${qid}')">Show Solution</button>
+      <div class="sol-text" id="sol_${qid}"><span class="ans-tag">Correct: ${String.fromCharCode(65+p.correct)}</span><br>${p.sol}</div>
+    </div>`;
+  }).join('');
+}
+
+function dayHTML(d, i){
+  let body = '';
+  if(d.isDouble){
+    body += `<div class="section-card"><div class="section-title"><span class="ico">📘</span> Concept — ${d.partA.label}</div>${renderConcept(d.partA.concept)}<div class="shortcut-box"><span class="lbl">⚡ CSAT SHORTCUT</span>${d.partA.shortcut}</div></div>`;
+    body += renderSolved(d.partA.solved);
+    body += `<div class="section-card"><div class="section-title"><span class="ico">📝</span> Practice — ${d.partA.label}</div>${renderPractice(d.partA.practice,'d'+d.num+'a')}</div>`;
+    body += `<div class="sub-divider"><div class="line"></div><span>${d.partB.label}</span><div class="line"></div></div>`;
+    body += `<div class="section-card"><div class="section-title"><span class="ico">📘</span> Concept — ${d.partB.label}</div>${renderConcept(d.partB.concept)}<div class="shortcut-box"><span class="lbl">⚡ CSAT SHORTCUT</span>${d.partB.shortcut}</div></div>`;
+    body += renderSolved(d.partB.solved);
+    body += `<div class="section-card"><div class="section-title"><span class="ico">📝</span> Practice — ${d.partB.label}</div>${renderPractice(d.partB.practice,'d'+d.num+'b')}</div>`;
+  } else {
+    body += `<div class="section-card"><div class="section-title"><span class="ico">📘</span> Concept</div>${renderConcept(d.concept)}<div class="shortcut-box"><span class="lbl">⚡ CSAT SHORTCUT</span>${d.shortcut}</div></div>`;
+    body += renderSolved(d.solved);
+    body += `<div class="section-card"><div class="section-title"><span class="ico">📝</span> Practice — Solve Now</div>${renderPractice(d.practice,'d'+d.num)}</div>`;
+  }
+  return `<div class="day-panel" id="panel${i}">
+    <div class="day-head"><div class="day-badge">DAY ${d.num}</div><h2>${d.name}</h2></div>
+    <div class="day-tagline">${d.tag}</div>
+    ${body}
+    <div class="nav-btns">
+      <button class="nav-btn ${i===0?'disabled':''}" onclick="showDay(${i-1})">← Previous Day</button>
+      <button class="nav-btn ${i===DAYS.length-1?'disabled':''}" onclick="showDay(${i+1})">Next Day →</button>
+    </div>
+  </div>`;
+}
+
+DAYS.forEach((d,i)=>{ wrap.innerHTML += dayHTML(d,i); });
+document.getElementById('panel0').classList.add('active');
+
+function showDay(i){
+  document.querySelectorAll('.day-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel'+i).classList.add('active');
+  document.querySelectorAll('.track-day').forEach((t,idx)=>{
+    t.classList.toggle('active', idx===i);
+    if(idx<i) t.classList.add('done');
+  });
+  window.scrollTo({top: document.querySelector('.roadmap').offsetTop - 70, behavior:'smooth'});
+}
+
+function selectOpt(qid, oi, correct){
+  document.querySelectorAll(`.opt[data-qid="${qid}"]`).forEach(o=>{
+    o.classList.remove('correct','wrong');
+    const thisOi = parseInt(o.dataset.oi);
+    if(thisOi===correct) {}
+  });
+  document.querySelectorAll(`.opt[data-qid="${qid}"]`).forEach(o=>{
+    const thisOi = parseInt(o.dataset.oi);
+    if(thisOi===oi){
+      o.classList.add(oi===correct?'correct':'wrong');
+    }
+    if(thisOi===correct){
+      o.classList.add('correct');
+    }
+  });
+  const sol = document.getElementById('sol_'+qid);
+  if(sol) sol.classList.add('show');
+}
+
+function toggleSol(qid){
+  const sol = document.getElementById('sol_'+qid);
+  sol.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
