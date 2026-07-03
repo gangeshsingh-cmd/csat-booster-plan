@@ -508,7 +508,7 @@
       <span class="hero-pitch-icon">🎯</span>
       <span class="pitch-text">
         <span class="pitch-tag">⚡ Yeh plan kyun karna chahiye?</span>
-        CSAT qualify karne ke liye aapko sirf <span class="pitch-highlight">27 questions</span> sahi karne hain (33% cutoff). In 8 chapters se directly <span class="pitch-highlight">~14–16 questions</span> aate hain — yaani <b>cutoff ka aadha hissa sirf in 7 dino mein cover ho jaata hai.</b> Yeh ek chhota commitment hai, return bahut bada hai.
+        CSAT qualify karne ke liye aapko sirf <span class="pitch-highlight">27 questions</span> sahi karne hain (33% cutoff). In 8 chapters se directly <span class="pitch-highlight">~13–14 questions</span> aate hain — yaani <b>cutoff ka aadha hissa sirf in 7 dino mein cover ho jaata hai.</b> Yeh ek chhota commitment hai, return bahut bada hai.
       </span>
     </div>
     <div class="stat-row">
@@ -549,737 +549,620 @@
 <script>
 const DAYS = [
 {
-  num:1, name:"Number System", tag:"CSAT mein numbers ki properties par seedha 1–2 question har saal aate hain — yeh poori arithmetic ki neenv hai.",
-  concept:[
-    "<b>Classification:</b> Natural (1,2,3…), Whole (0,1,2…), Integers (…−2,−1,0,1,2…), Rational (p/q form), Irrational (√2, π).",
-    "<b>Even/Odd rules:</b> Even ± Even = Even; Odd ± Odd = Even; Even ± Odd = Odd.",
-    "<b>Prime numbers:</b> 1 se bada, sirf 1 aur khud se divisible. 2 hi ekmaatra even prime hai. Composite = jiske 2 se zyada factors ho.",
-    "<b>Sum of first n naturals</b> = n(n+1)/2 · <b>Sum of first n odd numbers</b> = n² · <b>Sum of squares</b> = n(n+1)(2n+1)/6",
-    "<b>Inequality logic:</b> Agar x ka minimum aur y ka maximum diya ho, toh (y−x) ka range nikalne ke liye dono extremes test karo — 'always correct' wahi option hoga jo har possible case mein sach rahe.",
-    "<b>Prime × Composite property:</b> Agar p prime hai aur q composite, toh p×q odd tabhi hoga jab dono odd ho (matlab p≠2 aur q odd composite). q/p prime tab hi possible jab q, p ka simple multiple ho. p+q ka prime hona depend karta hai specific values par — hamesha test karo with smallest valid examples (p=2,3,5… aur q=4,6,8,9…).",
-    "<b>Unit digit (cyclicity):</b> Har digit ka power cycle hota hai (length 1, 2 ya 4). 2→2,4,8,6 repeat; 3→3,9,7,1 repeat; 7→7,9,3,1 repeat; numbers ending in 0,1,5,6 ka unit digit hamesha same rehta hai. Power ko cycle-length se divide karke remainder se exact position nikalo."
-  ],
-  shortcut:"Bade product/power mein sirf last digits multiply/cycle karo — pura calculation karne ki zaroorat nahi. Inequality wale questions mein hamesha boundary values (smallest & largest possible) test karo, beech ke nahi.",
-  solved:{
-    q:"X and Y are natural numbers other than 1, and Y is greater than X. Which of the following represents the largest number?",
-    opts:"1) XY &nbsp; 2) X/Y &nbsp; 3) Y/X &nbsp; 4) (X + Y)/XY",
-    tag:"",
-    sol:"1 &lt; X &lt; Y. Let X = 2 and Y = 3 (smallest valid naturals other than 1).<br>Option(1) XY = 2×3 = 6<br>Option(2) X/Y = 2/3<br>Option(3) Y/X = 3/2<br>Option(4) (X+Y)/XY = 5/6<br>Clearly option 1 gives the largest value.",
-    final:"Answer: Option 1 — XY"
-  },
-  practice:[
-    {q:"If x is greater than or equal to 25 and y is less than or equal to 40, then which one of the following is always correct?",
-     opts:["x is greater than y","(y − x) is greater than 15","(y − x) is less than or equal to 15","(x + y) is greater than or equal to 65"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2255cc"/></marker>
-       <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cc5500"/></marker></defs>
-       <line x1="30" y1="60" x2="450" y2="60" stroke="#555555" stroke-width="2"/>
-       <text x="10" y="64" font-family="Arial" font-size="14" fill="#222222">0</text>
-       <text x="440" y="64" font-family="Arial" font-size="14" fill="#222222">50</text>
-       <line x1="230" y1="50" x2="230" y2="70" stroke="#555555" stroke-width="1"/>
-       <text x="218" y="42" font-family="Arial" font-size="14" fill="#222222">25</text>
-       <line x1="350" y1="50" x2="350" y2="70" stroke="#555555" stroke-width="1"/>
-       <text x="338" y="42" font-family="Arial" font-size="14" fill="#222222">40</text>
-       <line x1="232" y1="35" x2="430" y2="35" stroke="#2255cc" stroke-width="4" marker-end="url(#a1)"/>
-       <text x="232" y="24" font-family="Arial" font-size="14" fill="#2255cc">x &#8805; 25 (min x = 25)</text>
-       <line x1="348" y1="85" x2="60" y2="85" stroke="#cc5500" stroke-width="4" marker-end="url(#a2)"/>
-       <text x="150" y="100" font-family="Arial" font-size="14" fill="#cc5500">y &#8804; 40 (max y = 40)</text>
-       <path d="M230,130 Q290,150 350,130" stroke="#007700" stroke-width="2" fill="none"/>
-       <line x1="230" y1="130" x2="230" y2="120" stroke="#007700" stroke-width="1.5"/>
-       <line x1="350" y1="130" x2="350" y2="120" stroke="#007700" stroke-width="1.5"/>
-       <text x="240" y="152" font-family="Arial" font-size="14" fill="#007700">Max gap (y&#8722;x) = 40&#8722;25 = 15</text>
-       <text x="30" y="172" font-family="Arial" font-size="14" fill="#222222">&#8658; y&#8722;x can never exceed 15 &#8658; always &#8804; 15</text>
-       <text x="30" y="192" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = (y &#8722; x) is less than or equal to 15</text>
-     </svg>`},
-    {q:"Consider two natural numbers p and q such that p is a prime number and q is a composite number. Which of the following can be correct — (1) p×q can be odd, (2) q/p can be a prime number, (3) p+q can be a prime number?",
-     opts:["1 and 2 only","2 and 3 only","1 and 3 only","1, 2 and 3"],
-     correct:3,
-     svgSol:`<svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <circle cx="70" cy="50" r="26" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <text x="70" y="55" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">p=3</text>
-       <circle cx="160" cy="50" r="26" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-       <text x="160" y="55" text-anchor="middle" font-family="Arial" font-size="14" fill="#6a1b9a">q=9</text>
-       <text x="195" y="55" font-family="Arial" font-size="14" fill="#222222">&#8658; p&#215;q = 27 (odd)</text>
-       <circle cx="370" cy="55" r="18" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
-       <text x="370" y="60" text-anchor="middle" font-family="Arial" font-size="13" fill="#007700">&#10003;</text>
-
-       <circle cx="70" cy="115" r="26" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <text x="70" y="120" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">p=2</text>
-       <circle cx="160" cy="115" r="26" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-       <text x="160" y="120" text-anchor="middle" font-family="Arial" font-size="14" fill="#6a1b9a">q=4</text>
-       <text x="195" y="120" font-family="Arial" font-size="14" fill="#222222">&#8658; q&#247;p = 2 (prime)</text>
-       <circle cx="370" cy="120" r="18" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
-       <text x="370" y="125" text-anchor="middle" font-family="Arial" font-size="13" fill="#007700">&#10003;</text>
-
-       <circle cx="70" cy="180" r="26" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <text x="70" y="185" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">p=2</text>
-       <circle cx="160" cy="180" r="26" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-       <text x="160" y="185" text-anchor="middle" font-family="Arial" font-size="14" fill="#6a1b9a">q=9</text>
-       <text x="195" y="185" font-family="Arial" font-size="14" fill="#222222">&#8658; p+q = 11 (prime)</text>
-       <circle cx="370" cy="185" r="18" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
-       <text x="370" y="190" text-anchor="middle" font-family="Arial" font-size="13" fill="#007700">&#10003;</text>
-       <text x="30" y="220" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 1, 2 and 3 (all three are possible)</text>
-     </svg>`},
-    {q:"The digit in the unit place of the number 6¹²⁹ × 7³⁰⁷ is?",
-     opts:["2","4","8","6"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <circle cx="100" cy="90" r="55" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/>
-       <text x="100" y="40" text-anchor="middle" font-family="Arial" font-size="14" fill="#cc5500">6&#8319;&#178;&#8313; cycle</text>
-       <circle cx="100" cy="50" r="14" fill="#fff0cc" stroke="#cc5500" stroke-width="1.5"/><text x="100" y="55" text-anchor="middle" font-family="Arial" font-size="12">6</text>
-       <text x="100" y="95" text-anchor="middle" font-family="Arial" font-size="13" fill="#222222">always</text>
-       <text x="100" y="112" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#cc5500">6</text>
-
-       <circle cx="340" cy="90" r="60" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <text x="340" y="22" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">7&#8319; cycle (len 4)</text>
-       <circle cx="340" cy="40" r="14" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="340" y="45" text-anchor="middle" font-family="Arial" font-size="12">7</text>
-       <circle cx="385" cy="90" r="14" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="385" y="95" text-anchor="middle" font-family="Arial" font-size="12">9</text>
-       <circle cx="340" cy="140" r="14" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="340" y="145" text-anchor="middle" font-family="Arial" font-size="12">3</text>
-       <circle cx="295" cy="90" r="14" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/><text x="295" y="95" text-anchor="middle" font-family="Arial" font-size="12" fill="#cc5500">1</text>
-       <text x="295" y="118" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">307&#247;4 rem 3 &#8594; 3rd term</text>
-
-       <text x="30" y="195" font-family="Arial" font-size="14" fill="#222222">&#8658; Unit digit of 6&#8319;&#178;&#8313; = 6; Unit digit of 7&#179;&#8304;&#8311; = 3</text>
-       <text x="30" y="216" font-family="Arial" font-size="14" fill="#222222">&#8658; 6 &#215; 3 = 18 &#8594; unit digit = 8</text>
-       <text x="30" y="238" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 8</text>
-     </svg>`}
-  ]
+"num": 1,
+"name": "Number System",
+"tag": "CSAT mein numbers ki properties par seedha 1–2 question har saal aate hain — yeh poori arithmetic ki neenv hai.",
+"concept": [
+"<b>Classification:</b> Natural (1,2,3…), Whole (0,1,2…), Integers (…−2,−1,0,1,2…), Rational (p/q form), Irrational (√2, π).",
+"<b>Even/Odd rules:</b> Even ± Even = Even; Odd ± Odd = Even; Even ± Odd = Odd.",
+"<b>Prime numbers:</b> 1 se bada, sirf 1 aur khud se divisible. 2 hi ekmaatra even prime hai. Composite = jiske 2 se zyada factors ho.",
+"<b>Sum of first n naturals</b> = n(n+1)/2 · <b>Sum of first n odd numbers</b> = n² · <b>Sum of squares</b> = n(n+1)(2n+1)/6",
+"<b>Inequality logic:</b> Agar x ka minimum aur y ka maximum diya ho, toh (y−x) ka range nikalne ke liye dono extremes test karo — 'always correct' wahi option hoga jo har possible case mein sach rahe.",
+"<b>Prime × Composite property:</b> Agar p prime hai aur q composite, toh p×q odd tabhi hoga jab dono odd ho (matlab p≠2 aur q odd composite). q/p prime tab hi possible jab q, p ka simple multiple ho. p+q ka prime hona depend karta hai specific values par — hamesha test karo with smallest valid examples (p=2,3,5… aur q=4,6,8,9…).",
+"<b>Unit digit (cyclicity):</b> Har digit ka power cycle hota hai (length 1, 2 ya 4). 2→2,4,8,6 repeat; 3→3,9,7,1 repeat; 7→7,9,3,1 repeat; numbers ending in 0,1,5,6 ka unit digit hamesha same rehta hai. Power ko cycle-length se divide karke remainder se exact position nikalo."
+],
+"shortcut": "Bade product/power mein sirf last digits multiply/cycle karo — pura calculation karne ki zaroorat nahi. Inequality wale questions mein hamesha boundary values (smallest & largest possible) test karo, beech ke nahi.",
+"solved": {
+"q": "X and Y are natural numbers other than 1, and Y is greater than X. Which of the following represents the largest number?",
+"opts": "1) XY &nbsp; 2) X/Y &nbsp; 3) Y/X &nbsp; 4) (X + Y)/XY",
+"tag": "UPSC CSAT 2018",
+"diagram": "<svg width=\"500\" height=\"230\" viewBox=\"0 0 500 230\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n</defs>\n\n<!-- ZONE 1: Number Line Comparison -->\n<path d=\"M 30 80 L 470 80\" stroke=\"#555555\" stroke-width=\"2\" marker-end=\"url(#arr)\"/>\n\n<!-- Ticks and Numbers -->\n<line x1=\"40\" y1=\"75\" x2=\"40\" y2=\"85\" stroke=\"#555555\" stroke-width=\"2\"/>\n<text x=\"35\" y=\"100\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">0</text>\n<line x1=\"110\" y1=\"75\" x2=\"110\" y2=\"85\" stroke=\"#555555\" stroke-width=\"2\"/>\n<text x=\"105\" y=\"100\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">1</text>\n<line x1=\"460\" y1=\"75\" x2=\"460\" y2=\"85\" stroke=\"#555555\" stroke-width=\"2\"/>\n<text x=\"455\" y=\"100\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">6</text>\n\n<!-- Points for X=2, Y=3 -->\n<!-- X/Y = 0.67 -->\n<circle cx=\"87\" cy=\"80\" r=\"5\" fill=\"#ffd6d6\" stroke=\"#cc0000\" stroke-width=\"1.5\"/>\n<text x=\"60\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc0000\">X&#247;Y</text>\n\n<!-- (X+Y)/XY = 0.83 -->\n<circle cx=\"98\" cy=\"80\" r=\"5\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<text x=\"85\" y=\"120\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">(X+Y)&#247;XY</text>\n\n<!-- Y/X = 1.5 -->\n<circle cx=\"145\" cy=\"80\" r=\"5\" fill=\"#ede7f6\" stroke=\"#6a1b9a\" stroke-width=\"1.5\"/>\n<text x=\"130\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#6a1b9a\">Y&#247;X</text>\n\n<!-- XY = 6 -->\n<circle cx=\"460\" cy=\"80\" r=\"6\" fill=\"#ccffcc\" stroke=\"#007700\" stroke-width=\"2\"/>\n<text x=\"445\" y=\"65\" font-family=\"Arial\" font-size=\"14\" font-weight=\"bold\" fill=\"#007700\">XY</text>\n\n<!-- Growth Arrow -->\n<path d=\"M 150 40 Q 300 10 450 40\" fill=\"none\" stroke=\"#007700\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\" marker-end=\"url(#arrG)\"/>\n<text x=\"250\" y=\"35\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">Largest Growth</text>\n\n<!-- ZONE 2: Solution -->\n<text x=\"30\" y=\"150\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Substitute X = 2, Y = 3 (as X, Y &gt; 1 and Y &gt; X)</text>\n<text x=\"30\" y=\"175\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Values: XY = 6, X&#247;Y = 0.67, Y&#247;X = 1.5, (X+Y)&#247;XY = 0.83</text>\n\n<text x=\"30\" y=\"210\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = XY</text>\n</svg>"
+},
+"practice": [
+{
+"q": "If x is greater than or equal to 25 and y is less than or equal to 40, then which one of the following is always correct ?",
+"opts": [
+"x is greater than y",
+"(y - x) is greater than 15",
+"(y - x) is less than or equal to 15",
+"(x + y) is greater than or equal to 65"
+],
+"correct": 2,
+"svgSol": "<svg width=\"500\" height=\"230\" viewBox=\"0 0 500 230\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrR\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc0000\"/></marker>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/></marker>\n</defs>\n\n<!-- ZONE 1: NUMBER LINE REPRESENTATION -->\n<!-- Main Number Line -->\n<line x1=\"40\" y1=\"90\" x2=\"460\" y2=\"90\" stroke=\"#555555\" stroke-width=\"2\" />\n\n<!-- Ticks and Labels -->\n<line x1=\"120\" y1=\"85\" x2=\"120\" y2=\"95\" stroke=\"#555555\" stroke-width=\"2\" />\n<text x=\"110\" y=\"115\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">25</text>\n\n<line x1=\"280\" y1=\"85\" x2=\"280\" y2=\"95\" stroke=\"#555555\" stroke-width=\"2\" />\n<text x=\"270\" y=\"115\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">40</text>\n\n<!-- X-Range: x >= 25 -->\n<path d=\"M 120 60 L 440 60\" stroke=\"#2255cc\" stroke-width=\"3\" marker-end=\"url(#arr)\" fill=\"none\" />\n<circle cx=\"120\" cy=\"60\" r=\"4\" fill=\"#2255cc\" />\n<text x=\"350\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\" font-weight=\"bold\">x &#8805; 25</text>\n\n<!-- Y-Range: y <= 40 -->\n<path d=\"M 280 40 L 60 40\" stroke=\"#cc0000\" stroke-width=\"3\" marker-end=\"url(#arrR)\" fill=\"none\" />\n<circle cx=\"280\" cy=\"40\" r=\"4\" fill=\"#cc0000\" />\n<text x=\"70\" y=\"35\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc0000\" font-weight=\"bold\">y &#8804; 40</text>\n\n<!-- Gap Analysis -->\n<path d=\"M 120 80 Q 200 70 280 80\" fill=\"none\" stroke=\"#cc5500\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\" />\n<text x=\"155\" y=\"75\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc5500\">Max Gap = 40 &#8722; 25 = 15</text>\n\n<!-- Vertical boundaries for Max Gap -->\n<line x1=\"120\" y1=\"65\" x2=\"120\" y2=\"90\" stroke=\"#888888\" stroke-dasharray=\"3,3\" />\n<line x1=\"280\" y1=\"45\" x2=\"280\" y2=\"90\" stroke=\"#888888\" stroke-dasharray=\"3,3\" />\n\n<!-- ZONE 2: CALCULATION -->\n<text x=\"30\" y=\"150\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; To find max (y &#8722; x), take max y and min x</text>\n<text x=\"30\" y=\"175\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Max(y &#8722; x) = 40 &#8722; 25 = 15</text>\n\n<text x=\"30\" y=\"210\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = (y &#8722; x) is less than or equal to 15</text>\n</svg>"
 },
 {
-  num:2, name:"Divisibility & Remainder", tag:"Divisibility rules calculation ko seconds mein kaat dete hain — CSAT ki time-pressure mein yeh game-changer hai.",
-  concept:[
-    "÷2: last digit even · ÷3: digit-sum 3 ka multiple · ÷4: last 2 digits 4 se divisible · ÷5: last digit 0 ya 5 · ÷6: 2 aur 3 dono se · ÷9: digit-sum 9 ka multiple.",
-    "<b>÷11 rule:</b> (odd-place digits ka sum) − (even-place digits ka sum) = 0 ya 11 ka multiple. Agar isme unknown digits (x, y) ho, toh dono possible cases banao (difference = 0 ya ±11) aur valid digit-range (0–9) check karo.",
-    "<b>Dividend = Divisor × Quotient + Remainder</b> — yahi relation har remainder problem ki jaan hai.",
-    "<b>Cyclicity for remainders:</b> Bade power ka remainder nikalna ho toh us number ke divisor ke saath remainder-pattern (cycle) dhoondo — jaise 2ⁿ ko 7 se divide karne par remainders 2,4,1 repeat hote hain (cycle of 3). Power ko cycle-length se divide karo, remainder se position pakdo.",
-    "<b>Sum/product divisibility:</b> a^n + b^n ka divisor nikalne ke liye chhote n (n=1,2,3) try karke pattern dekho — agar a+b ek divisor de raha hai aur n odd hai, toh a^n+b^n bhi usi se divisible hota hai.",
-    "<b>Last two digits (mod 100):</b> Bade products ka remainder by 100 nikalne ke liye sirf last-two-digit cycles multiply karo, pura number nahi."
-  ],
-  shortcut:"Agar product mein koi ek number already divisor ka multiple hai, toh poora product us divisor se divisible hai — pura multiply karne ki zaroorat nahi. a^n+b^n type ke liye: agar n odd hai, (a+b) hamesha ek factor hota hai.",
-  solved:{
-    q:"If x and y are two digits and the number 4x5y790 is divisible by 11, then what is the remainder, if x + y is divided by 11?",
-    opts:"1) 1 &nbsp; 2) 3 &nbsp; 3) 5 &nbsp; 4) 7",
-    tag:"UPSC CSAT 2026",
-    diagram:`<svg viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
-      <text x="280" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#114848">Number: 4 x 5 y 7 9 0</text>
-      ${["4","x","5","y","7","9","0"].map((ch,i)=>{
-        const x = 30 + i*72; const isVar = (ch==='x'||ch==='y');
-        return `<rect x="${x}" y="55" width="60" height="46" rx="8" fill="${isVar?'#fff4e8':'#eef6f4'}" stroke="${isVar?'#f5821f':'#114848'}" stroke-width="2"/>
-        <text x="${x+30}" y="84" text-anchor="middle" font-size="20" font-weight="700" fill="${isVar?'#f5821f':'#0a2e2e'}">${ch}</text>
-        <text x="${x+30}" y="40" text-anchor="middle" font-size="11" fill="#6b8783">Pos ${i+1}</text>`;
-      }).join('')}
-      <text x="30" y="150" font-size="13" fill="#114848" font-weight="700">Sum (Odd positions 1,3,5,7) = 4 + 5 + 7 + 0 = 16</text>
-      <text x="30" y="178" font-size="13" fill="#f5821f" font-weight="700">Sum (Even positions 2,4,6) = x + y + 9</text>
-      <text x="30" y="206" font-size="13" fill="#0a2e2e">Divisible by 11 → |16 − (x+y+9)| = 0 or 11</text>
-    </svg>`,
-    sol:"Sum of digits at odd positions = 4+5+7+0 = 16.<br>Sum of digits at even positions = x+y+9.<br>Difference = |16 − (x+y+9)| = |7 − (x+y)|, must be 0 or a multiple of 11.<br>Case 1: 7 − (x+y) = 0 → x+y = 7.<br>Case 2: 7 − (x+y) = −11 → x+y = 18 (max possible for two digits).<br>x+y=7 ÷ 11 → remainder 7. x+y=18 ÷ 11 → remainder 7. Both cases give same remainder.",
-    final:"Answer: 7"
-  },
-  practice:[
-    {q:"32²⁵ + 2²⁷ is divisible by?",
-     opts:["3","7","10","11"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <text x="30" y="28" font-family="Arial" font-size="14" fill="#222222">32&#178;&#8309; + 2&#178;&#8311; = (2&#8309;)&#178;&#8309; + 2&#178;&#8311; = 2&#185;&#178;&#8309; + 2&#178;&#8311;</text>
-       <circle cx="120" cy="100" r="55" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <text x="120" y="50" text-anchor="middle" font-family="Arial" font-size="13" fill="#2255cc">2&#185;&#178;&#8309; cycle (len 4)</text>
-       <circle cx="120" cy="60" r="13" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="120" y="65" text-anchor="middle" font-family="Arial" font-size="11">2</text>
-       <circle cx="162" cy="100" r="13" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="162" y="105" text-anchor="middle" font-family="Arial" font-size="11">4</text>
-       <circle cx="120" cy="140" r="13" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="120" y="145" text-anchor="middle" font-family="Arial" font-size="11">8</text>
-       <circle cx="78" cy="100" r="13" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/><text x="78" y="105" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">6</text>
-       <text x="120" y="170" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">125&#247;4 rem1 &#8594; unit digit 2</text>
-
-       <circle cx="350" cy="100" r="55" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-       <text x="350" y="50" text-anchor="middle" font-family="Arial" font-size="13" fill="#6a1b9a">2&#178;&#8311; cycle (len 4)</text>
-       <circle cx="350" cy="60" r="13" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/><text x="350" y="65" text-anchor="middle" font-family="Arial" font-size="11">2</text>
-       <circle cx="392" cy="100" r="13" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/><text x="392" y="105" text-anchor="middle" font-family="Arial" font-size="11">4</text>
-       <circle cx="350" cy="140" r="13" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/><text x="350" y="145" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">8</text>
-       <circle cx="308" cy="100" r="13" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/><text x="308" y="105" text-anchor="middle" font-family="Arial" font-size="11">6</text>
-       <text x="350" y="170" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">27&#247;4 rem3 &#8594; unit digit 8</text>
-
-       <text x="30" y="198" font-family="Arial" font-size="14" fill="#222222">&#8658; Sum of unit digits = 2 + 8 = 10 &#8594; number ends in 0</text>
-       <text x="30" y="216" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = divisible by 10</text>
-     </svg>`},
-    {q:"What is the remainder if 2¹⁹² is divided by 6?",
-     opts:["0","1","2","4"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 190" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2255cc"/></marker></defs>
-       <text x="30" y="26" font-family="Arial" font-size="14" fill="#222222">Powers of 2 mod 6 (n &#8805; 1):</text>
-       ${["2&#185;=2","2&#178;=4","2&#179;=2","2&#8308;=4"].map((t,i)=>`
-         <circle cx="${80+i*100}" cy="80" r="32" fill="${i%2===0?'#ddeeff':'#fff0cc'}" stroke="${i%2===0?'#2255cc':'#cc5500'}" stroke-width="2"/>
-         <text x="${80+i*100}" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="${i%2===0?'#2255cc':'#cc5500'}">${t}</text>
-       `).join('')}
-       ${[0,1,2].map(i=>`<line x1="${112+i*100}" y1="80" x2="${148+i*100}" y2="80" stroke="#555555" stroke-width="2" marker-end="url(#a3)"/>`).join('')}
-       <text x="30" y="135" font-family="Arial" font-size="14" fill="#222222">&#8658; Cycle length = 2 (2,4 repeating); 192 is even</text>
-       <text x="30" y="156" font-family="Arial" font-size="14" fill="#222222">&#8658; Even power &#8594; remainder matches 2&#178; position = 4</text>
-       <text x="30" y="180" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 4</text>
-     </svg>`},
-    {q:"What is the remainder when 85 × 87 × 89 × 91 × 95 × 96 is divided by 100?",
-     opts:["0","1","2","4"],
-     correct:0,
-     svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker></defs>
-       ${["85","87","89","91","95","96"].map((n,i)=>`
-         <circle cx="${50+i*70}" cy="55" r="26" fill="${i>=4?'#fff0cc':'#f0f0f0'}" stroke="${i>=4?'#cc5500':'#555555'}" stroke-width="2"/>
-         <text x="${50+i*70}" y="60" text-anchor="middle" font-family="Arial" font-size="13" fill="${i>=4?'#cc5500':'#333333'}">${n}</text>
-       `).join('')}
-       ${[0,1,2,3,4].map(i=>`<line x1="${78+i*70}" y1="55" x2="${94+i*70}" y2="55" stroke="#555555" stroke-width="2" marker-end="url(#a4)"/>`).join('')}
-       <text x="30" y="105" font-family="Arial" font-size="14" fill="#cc5500">95 &#215; 96 = 9120 &#8594; last two digits = 20</text>
-       <text x="30" y="130" font-family="Arial" font-size="14" fill="#222222">&#8658; Remaining factors (85&#215;87&#215;89&#215;91) are all even-ended</text>
-       <text x="30" y="153" font-family="Arial" font-size="14" fill="#222222">&#8658; Combined with "...20", full product ends in 00</text>
-       <text x="30" y="180" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 0 (exactly divisible by 100)</text>
-     </svg>`}
-  ]
+"q": "Consider the following statements in respect of two natural numbers p and q such that p is a prime number and q is a composite number : 1. p × q can be an odd number. 2. q / p can be a prime number. 3. p + q can be a prime number. Which of the above statements are correct?",
+"opts": [
+"1 and 2 only",
+"2 and 3 only",
+"1 and 3 only",
+"1, 2 and 3"
+],
+"correct": 3,
+"svgSol": "<svg width=\"550\" height=\"270\" viewBox=\"0 0 550 270\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n</defs>\n\n<!-- Legend -->\n<circle cx=\"40\" cy=\"30\" r=\"12\" stroke=\"#2255cc\" stroke-width=\"2\" fill=\"#ddeeff\" />\n<text x=\"58\" y=\"35\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">Prime (p)</text>\n<rect x=\"180\" y=\"18\" width=\"24\" height=\"24\" stroke=\"#cc5500\" stroke-width=\"2\" fill=\"#fff0cc\" />\n<text x=\"210\" y=\"35\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">Composite (q)</text>\n\n<!-- Number Line -->\n<line x1=\"30\" y1=\"90\" x2=\"510\" y2=\"90\" stroke=\"#555555\" stroke-width=\"2\" />\n\n<!-- Numbers on line: 2, 3, 4, 5, 6, 7, 8, 9, 10 -->\n<!-- 2 (Prime) -->\n<circle cx=\"60\" cy=\"90\" r=\"14\" stroke=\"#2255cc\" stroke-width=\"2\" fill=\"#ddeeff\" />\n<text x=\"56\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">2</text>\n<!-- 3 (Prime) -->\n<circle cx=\"110\" cy=\"90\" r=\"14\" stroke=\"#2255cc\" stroke-width=\"2\" fill=\"#ddeeff\" />\n<text x=\"106\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">3</text>\n<!-- 4 (Composite) -->\n<rect x=\"146\" y=\"76\" width=\"28\" height=\"28\" stroke=\"#cc5500\" stroke-width=\"2\" fill=\"#fff0cc\" />\n<text x=\"154\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">4</text>\n<!-- 5 (Prime) -->\n<circle cx=\"210\" cy=\"90\" r=\"14\" stroke=\"#2255cc\" stroke-width=\"2\" fill=\"#ddeeff\" />\n<text x=\"206\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">5</text>\n<!-- 6 (Composite) -->\n<rect x=\"246\" y=\"76\" width=\"28\" height=\"28\" stroke=\"#cc5500\" stroke-width=\"2\" fill=\"#fff0cc\" />\n<text x=\"254\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">6</text>\n<!-- 7 (Prime) -->\n<circle cx=\"310\" cy=\"90\" r=\"14\" stroke=\"#2255cc\" stroke-width=\"2\" fill=\"#ddeeff\" />\n<text x=\"306\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">7</text>\n<!-- 8 (Composite) -->\n<rect x=\"346\" y=\"76\" width=\"28\" height=\"28\" stroke=\"#cc5500\" stroke-width=\"2\" fill=\"#fff0cc\" />\n<text x=\"354\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">8</text>\n<!-- 9 (Composite) -->\n<rect x=\"396\" y=\"76\" width=\"28\" height=\"28\" stroke=\"#cc5500\" stroke-width=\"2\" fill=\"#fff0cc\" />\n<text x=\"404\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">9</text>\n<!-- 10 (Composite) -->\n<rect x=\"446\" y=\"76\" width=\"28\" height=\"28\" stroke=\"#cc5500\" stroke-width=\"2\" fill=\"#fff0cc\" />\n<text x=\"454\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">10</text>\n\n<!-- Arcs for examples -->\n<path d=\"M 110,70 Q 255,10 410,70\" fill=\"none\" stroke=\"#888888\" stroke-dasharray=\"4,2\" />\n<text x=\"245\" y=\"40\" font-family=\"Arial\" font-size=\"12\" fill=\"#888888\">3 &#215; 9</text>\n\n<!-- Zone 2: Solution -->\n<text x=\"30\" y=\"160\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; S1: p=3, q=9 &#8594; p &#215; q = 27 (Odd number)</text>\n<text x=\"30\" y=\"185\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; S2: q=4, p=2 &#8594; q &#247; p = 2 (Prime number)</text>\n<text x=\"30\" y=\"210\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; S3: p=2, q=9 &#8594; p + q = 11 (Prime number)</text>\n\n<text x=\"30\" y=\"245\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 1, 2 and 3</text>\n</svg>"
 },
 {
-  num:3, name:"Percentage", tag:"Data interpretation, comparison, growth — CSAT ka aadha arithmetic ghoom-phir ke percentage par hi aata hai.",
-  concept:[
-    "Percentage ka matlab \"per 100\". x% = x/100. <b>Change %</b> = (New − Old)/Old × 100.",
-    "<b>Successive change:</b> a% then b% → net = a + b + (ab/100) %. Teen successive changes ho toh pehle do ko combine karo, fir result ko teesre ke saath combine karo.",
-    "<b>Fraction ↔ %:</b> 1/2=50%, 1/4=25%, 1/5=20%, 1/8=12.5%, 1/3≈33.33%, 1/6≈16.66%.",
-    "<b>Base-chain percentage:</b> Jab A, B se x% zyada/kam ho aur B, C se y% zyada/kam ho, toh A ko C ke terms mein likhne ke liye dono multipliers chain karo: A = C × (1+x/100) × (1+y/100) ulta/seedha jaisa diya ho.",
-    "<b>Saving = Income − Expenditure:</b> Jab dono alag % se badhte hain, toh actual values (base 100 maan kar) nikal kar saving ka % change calculate karo — seedha percentage subtract mat karo.",
-    "<b>Set/group percentage:</b> Jab population do tarah se split ho (jaise nationality aur gender), toh ek 2×2 grid (table) bana kar har category ka actual count nikalo — total ko 100 maan kar kaam aasaan ho jaata hai."
-  ],
-  shortcut:"Common fractions yaad rakho — \"62.5% of 320\" sochne ke bajaye 5/8 × 320 = 200, instant. Successive % change kabhi simple addition se nahi hota — hamesha a+b+(ab/100) formula use karo.",
-  solved:{
-    q:"A person saves 10% of his salary every month. If his salary increases by 12% and the expenditure increases by 10%, then what will be the change in his saving per month?",
-    opts:"1) 20% increase &nbsp; 2) 30% increase &nbsp; 3) 3% decrease &nbsp; 4) 2% decrease",
-    tag:"UPSC CSAT 2026",
-    sol:"Let initial Salary = 100, so Saving = 10 and Expenditure = 90.<br>New Salary = 112 (12% increase), New Expenditure = 90+9 = 99 (10% increase).<br>New Saving = 112 − 99 = 13.<br>% change in Saving = [(13−10)/10] × 100 = 30%.",
-    final:"Answer: 30% increase"
-  },
-  practice:[
-    {q:"A person buys three articles P, Q and R for ₹3,330. If P costs 25% more than R and R costs 20% more than Q, then what is the cost of P?",
-     opts:["₹1,000","₹1,200","₹1,250","₹1,350"],
-     correct:3,
-     svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <text x="30" y="24" font-family="Arial" font-size="14" fill="#222222">Let Q = 100 (base)</text>
-       <rect x="30" y="38" width="100" height="28" rx="6" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/>
-       <text x="80" y="57" text-anchor="middle" font-family="Arial" font-size="13" fill="#2255cc">Q = 100</text>
-       <rect x="30" y="76" width="120" height="28" rx="6" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/>
-       <text x="90" y="95" text-anchor="middle" font-family="Arial" font-size="13" fill="#6a1b9a">R = 120 (+20%)</text>
-       <rect x="30" y="114" width="150" height="28" rx="6" fill="#ccffcc" stroke="#007700" stroke-width="1.5"/>
-       <text x="105" y="133" text-anchor="middle" font-family="Arial" font-size="13" fill="#007700">P = 150 (+25% of R)</text>
-       <line x1="200" y1="38" x2="200" y2="142" stroke="#555555" stroke-width="1" stroke-dasharray="4,3"/>
-       <text x="250" y="60" font-family="Arial" font-size="13" fill="#222222">Ratio Q:R:P = 100:120:150</text>
-       <text x="250" y="84" font-family="Arial" font-size="13" fill="#222222">Sum = 370 units = &#8377;3,330</text>
-       <text x="250" y="108" font-family="Arial" font-size="13" fill="#cc5500">1 unit = &#8377;9</text>
-       <text x="30" y="172" font-family="Arial" font-size="14" fill="#222222">&#8658; P = 150 &#215; 9 = &#8377;1,350</text>
-       <text x="30" y="196" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = &#8377;1,350</text>
-     </svg>`},
-    {q:"The increase in the price of a certain item was 25%. Then the price was decreased by 20% and then again increased by 10%. What is the resultant increase in the price?",
-     opts:["5%","10%","12.5%","15%"],
-     correct:1,
-     svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker></defs>
-       ${[["100","Start","#f0f0f0","#555555"],["125","+25%","#ccffcc","#007700"],["100","&#8722;20%","#ffd6d6","#cc0000"],["110","+10%","#ccffcc","#007700"]].map((c,i)=>`
-         <rect x="${20+i*110}" y="60" width="90" height="60" rx="8" fill="${c[2]}" stroke="${c[3]}" stroke-width="2"/>
-         <text x="${65+i*110}" y="86" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="${c[3]}">${c[0]}</text>
-         <text x="${65+i*110}" y="106" text-anchor="middle" font-family="Arial" font-size="11" fill="${c[3]}">${c[1]}</text>
-         ${i<3?`<line x1="${112+i*110}" y1="90" x2="${118+i*110}" y2="90" stroke="#555555" stroke-width="2" marker-end="url(#a5)"/>`:''}
-       `).join('')}
-       <text x="30" y="158" font-family="Arial" font-size="14" fill="#222222">&#8658; 100 &#8594; 125 &#8594; 100 &#8594; 110</text>
-       <text x="30" y="180" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 10% net increase</text>
-     </svg>`},
-    {q:"In a class, 60% of students are from India and 50% of the students are girls. If 30% of the Indian students are girls, then what percentage of foreign students are boys?",
-     opts:["45%","40%","30%","20%"],
-     correct:3,
-     svgSol:`<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <text x="30" y="24" font-family="Arial" font-size="14" fill="#222222">Total = 100 students</text>
-       <rect x="30" y="35" width="240" height="40" rx="6" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/>
-       <text x="150" y="60" text-anchor="middle" font-family="Arial" font-size="13" fill="#2255cc">India = 60</text>
-       <rect x="275" y="35" width="160" height="40" rx="6" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/>
-       <text x="355" y="60" text-anchor="middle" font-family="Arial" font-size="13" fill="#6a1b9a">Foreign = 40</text>
-       <rect x="30" y="85" width="72" height="36" rx="4" fill="#ccffcc" stroke="#007700" stroke-width="1.5"/>
-       <text x="66" y="108" text-anchor="middle" font-family="Arial" font-size="12" fill="#007700">Indian Girls=18</text>
-       <rect x="106" y="85" width="164" height="36" rx="4" fill="#f0f0f0" stroke="#555555" stroke-width="1.5"/>
-       <text x="188" y="108" text-anchor="middle" font-family="Arial" font-size="12" fill="#555555">Indian Boys=42</text>
-       <rect x="275" y="85" width="128" height="36" rx="4" fill="#ccffcc" stroke="#007700" stroke-width="1.5"/>
-       <text x="339" y="108" text-anchor="middle" font-family="Arial" font-size="12" fill="#007700">Fgn Girls=32</text>
-       <rect x="408" y="85" width="27" height="36" rx="4" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
-       <text x="421" y="108" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc0000">8</text>
-       <text x="30" y="148" font-family="Arial" font-size="14" fill="#222222">&#8658; Foreign Girls = 50&#8722;18 = 32; Foreign Boys = 40&#8722;32 = 8</text>
-       <text x="30" y="170" font-family="Arial" font-size="14" fill="#222222">&#8658; Foreign boys as % of foreign = 8/40 &#215; 100 = 20%</text>
-       <text x="30" y="196" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 20%</text>
-     </svg>`}
-  ]
+"q": "The digit in the unit place of the number 6¹²⁹ × 7³⁰⁷ is",
+"opts": [
+"2",
+"4",
+"8",
+"6"
+],
+"correct": 2,
+"svgSol": "<svg width=\"500\" height=\"285\" viewBox=\"0 0 500 285\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n</defs>\n\n<!-- ZONE 1: Cyclicity Figures -->\n<!-- Base 6 Cyclicity -->\n<circle cx=\"90\" cy=\"70\" r=\"30\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"2\"/>\n<text x=\"82\" y=\"75\" font-family=\"Arial\" font-size=\"20\" fill=\"#2255cc\" font-weight=\"bold\">6</text>\n<path d=\"M105,45 A35,35 0 1,1 75,45\" fill=\"none\" stroke=\"#2255cc\" stroke-width=\"2\" marker-end=\"url(#arr)\"/>\n<text x=\"50\" y=\"125\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">6<tspan baseline-shift=\"super\" font-size=\"10\">n</tspan> always ends in 6</text>\n\n<!-- Base 7 Cyclicity Wheel -->\n<circle cx=\"350\" cy=\"80\" r=\"55\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"2\"/>\n<line x1=\"350\" y1=\"25\" x2=\"350\" y2=\"135\" stroke=\"#cc5500\" stroke-width=\"1\"/>\n<line x1=\"295\" y1=\"80\" x2=\"405\" y2=\"80\" stroke=\"#cc5500\" stroke-width=\"1\"/>\n\n<text x=\"345\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">7<tspan baseline-shift=\"super\" font-size=\"10\">1</tspan>=7</text>\n<text x=\"375\" y=\"90\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">7<tspan baseline-shift=\"super\" font-size=\"10\">2</tspan>=9</text>\n<text x=\"330\" y=\"115\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\" font-weight=\"bold\">7<tspan baseline-shift=\"super\" font-size=\"10\">3</tspan>=3</text>\n<text x=\"310\" y=\"70\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">7<tspan baseline-shift=\"super\" font-size=\"10\">4</tspan>=1</text>\n\n<path d=\"M380,30 Q410,40 420,70\" fill=\"none\" stroke=\"#cc5500\" stroke-width=\"2\" marker-end=\"url(#arrO)\"/>\n<text x=\"300\" y=\"155\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">Cyclicity = 4</text>\n\n<!-- Remainder Logic -->\n<path d=\"M200,80 L250,80\" fill=\"none\" stroke=\"#555555\" stroke-width=\"2\" marker-end=\"url(#arrG)\"/>\n<text x=\"180\" y=\"70\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">307 &#247; 4</text>\n<text x=\"175\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">Rem = 3</text>\n\n<!-- ZONE 2: Solution -->\n<text x=\"30\" y=\"200\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Unit digit of 6<tspan baseline-shift=\"super\" font-size=\"9\">129</tspan> = 6</text>\n<text x=\"30\" y=\"225\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Unit digit of 7<tspan baseline-shift=\"super\" font-size=\"9\">307</tspan> = 7<tspan baseline-shift=\"super\" font-size=\"9\">3</tspan> = 3</text>\n<text x=\"30\" y=\"250\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Product ends in 6 &#215; 3 = 18</text>\n\n<text x=\"30\" y=\"275\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 8</text>\n</svg>"
+}
+]
 },
 {
-  num:4, name:"Average", tag:"Average ke sawaal seedhe aur scoring hote hain — concept clear ho toh poora marks pakka.",
-  concept:[
-    "<b>Average</b> = Sum of observations / Number of observations. <b>Sum = Average × Number</b> — yahi ulta form 80% problems solve karta hai.",
-    "Consecutive numbers ka average = (first + last)/2. Agar har value mein k jodo/ghatao, average bhi k se badh/ghat jaata hai.",
-    "<b>Weighted average:</b> alag-alag size ke groups ke liye = (n₁a₁ + n₂a₂)/(n₁+n₂).",
-    "<b>Correction-type problems:</b> Jab koi value galat record ho gayi ho, toh sirf difference (correct − wrong) total mein jodo/ghatao — pura sum dobara mat banao. Agar do corrections ho rahi ho, dono ke effect ko alag-alag (net change in total) nikal kar combine karo.",
-    "<b>Group shifting effect:</b> Jab students ek group se doosre mein shift hote hain, total sum aur total count dono same rehte hain (sirf group-wise distribution badalta hai) — isliye poori class ka overall average kabhi change nahi hota, sirf individual group averages change ho sakte hain.",
-    "<b>Age-difference average:</b> Jab kisi group (teacher+students) ka average diya ho aur ek member doosron se fixed difference par ho, toh equation banao: (sum of all ages) = average × total count, fir difference ka relation substitute karo."
-  ],
-  shortcut:"Naya member jud-ne par average ka change = (naye value − purana average) / (naya total count) — 'deviation' se socho, pura sum nikalne ki zaroorat nahi.",
-  solved:{
-    q:"The class average x in a test increases by 4 when the score of a student is rectified, whose corrected score is 100 instead of 0. Later, the score of another student was found to have been recorded as 81 in place of 56. If there are no other corrections and the final corrected average is y, then y − x is?",
-    opts:"1) 2 &nbsp; 2) 3 &nbsp; 3) 5 &nbsp; 4) 6",
-    tag:"UPSC CSAT 2026",
-    sol:"Net increase in total marks for first correction = 100 − 0 = 100. Since average increase is 4, Total students n = 100÷4 = 25.<br>Second correction: 81 replaced by 56 → total marks decrease by 81−56 = 25. Change in average = −25÷25 = −1.<br>Overall change (y−x) = 4 − 1 = 3.",
-    final:"Answer: 3"
-  },
-  practice:[
-    {q:"The average marks of 100 students are given to be 40. It was found later that marks of one student were 53 which were misread as 83. The corrected mean marks are?",
-     opts:["39","39.7","40","40.3"],
-     correct:1,
-     svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <rect x="30" y="24" width="420" height="36" rx="6" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/>
-       <text x="240" y="47" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">Original Total = 40 &#215; 100 = 4000</text>
-       <rect x="30" y="70" width="200" height="36" rx="6" fill="#ffd6d6" stroke="#cc0000" stroke-width="1.5"/>
-       <text x="130" y="93" text-anchor="middle" font-family="Arial" font-size="13" fill="#cc0000">Misread: 83 (wrong)</text>
-       <rect x="240" y="70" width="210" height="36" rx="6" fill="#ccffcc" stroke="#007700" stroke-width="1.5"/>
-       <text x="345" y="93" text-anchor="middle" font-family="Arial" font-size="13" fill="#007700">Correct: 53 (actual)</text>
-       <text x="30" y="137" font-family="Arial" font-size="14" fill="#222222">&#8658; Excess added = 83 &#8722; 53 = 30</text>
-       <text x="30" y="158" font-family="Arial" font-size="14" fill="#222222">&#8658; Corrected total = 4000 &#8722; 30 = 3970</text>
-       <text x="30" y="184" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 3970 &#247; 100 = 39.7</text>
-     </svg>`},
-    {q:"In a class, there are three groups A, B and C. If one student from group A and two students from group B are shifted to group C, then what happens to the average weight of the students of the class?",
-     opts:["It increases.","It decreases","It remains the same","No conclusion can be drawn due to insufficient data"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cc5500"/></marker></defs>
-       <rect x="20" y="30" width="110" height="60" rx="8" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <text x="75" y="58" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">Group A</text>
-       <text x="75" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#2255cc">n₁, avg₁</text>
-       <rect x="175" y="30" width="110" height="60" rx="8" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-       <text x="230" y="58" text-anchor="middle" font-family="Arial" font-size="14" fill="#6a1b9a">Group B</text>
-       <text x="230" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#6a1b9a">n₂, avg₂</text>
-       <rect x="330" y="30" width="110" height="60" rx="8" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
-       <text x="385" y="58" text-anchor="middle" font-family="Arial" font-size="14" fill="#007700">Group C</text>
-       <text x="385" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#007700">n₃, avg₃</text>
-       <path d="M75,92 Q75,120 330,120" stroke="#cc5500" stroke-width="2" fill="none" marker-end="url(#a6)"/>
-       <path d="M230,92 Q230,130 330,130" stroke="#cc5500" stroke-width="2" fill="none" marker-end="url(#a6)"/>
-       <text x="240" y="112" font-family="Arial" font-size="11" fill="#cc5500">3 students shift</text>
-       <text x="30" y="160" font-family="Arial" font-size="14" fill="#222222">&#8658; Total students = same; Total weight = same</text>
-       <text x="30" y="184" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = Class average remains the same</text>
-     </svg>`},
-    {q:"The average age of a teacher and three students is 20 years. If all the three students are of the same age and the difference between the age of the teacher and each student is 20 years, then what is the age of the teacher?",
-     opts:["25 years","30 years","35 years","45 years"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <text x="30" y="26" font-family="Arial" font-size="14" fill="#222222">Let student age = s, Teacher age = s + 20</text>
-       <rect x="30" y="38" width="120" height="90" rx="8" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <text x="90" y="70" text-anchor="middle" font-family="Arial" font-size="13" fill="#2255cc">Teacher</text>
-       <text x="90" y="90" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#2255cc">s+20</text>
-       ${[0,1,2].map(i=>`
-         <rect x="${165+i*100}" y="38" width="80" height="90" rx="8" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-         <text x="${205+i*100}" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="#6a1b9a">Student ${i+1}</text>
-         <text x="${205+i*100}" y="90" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#6a1b9a">s</text>
-       `).join('')}
-       <line x1="30" y1="145" x2="455" y2="145" stroke="#555555" stroke-width="1.5"/>
-       <text x="240" y="163" text-anchor="middle" font-family="Arial" font-size="13" fill="#222222">Total = (s+20) + 3s = 4s+20 = 20&#215;4 = 80</text>
-       <text x="30" y="183" font-family="Arial" font-size="14" fill="#222222">&#8658; 4s = 60 &#8594; s = 15 &#8594; Teacher = 15+20</text>
-       <text x="340" y="183" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; 35 years</text>
-     </svg>`}
-  ]
+"num": 2,
+"name": "Divisibility & Remainder",
+"tag": "Divisibility rules calculation ko seconds mein kaat dete hain — CSAT ki time-pressure mein yeh game-changer hai.",
+"concept": [
+"÷2: last digit even · ÷3: digit-sum 3 ka multiple · ÷4: last 2 digits 4 se divisible · ÷5: last digit 0 ya 5 · ÷6: 2 aur 3 dono se · ÷9: digit-sum 9 ka multiple.",
+"<b>÷11 rule:</b> (odd-place digits ka sum) − (even-place digits ka sum) = 0 ya 11 ka multiple. Agar isme unknown digits (x, y) ho, toh dono possible cases banao (difference = 0 ya ±11) aur valid digit-range (0–9) check karo.",
+"<b>Dividend = Divisor × Quotient + Remainder</b> — yahi relation har remainder problem ki jaan hai.",
+"<b>Cyclicity for remainders:</b> Bade power ka remainder nikalna ho toh us number ke divisor ke saath remainder-pattern (cycle) dhoondo — jaise 2ⁿ ko 7 se divide karne par remainders 2,4,1 repeat hote hain (cycle of 3). Power ko cycle-length se divide karo, remainder se position pakdo.",
+"<b>Sum/product divisibility:</b> a^n + b^n ka divisor nikalne ke liye chhote n (n=1,2,3) try karke pattern dekho — agar a+b ek divisor de raha hai aur n odd hai, toh a^n+b^n bhi usi se divisible hota hai.",
+"<b>Last two digits (mod 100):</b> Bade products ka remainder by 100 nikalne ke liye sirf last-two-digit cycles multiply karo, pura number nahi."
+],
+"shortcut": "Agar product mein koi ek number already divisor ka multiple hai, toh poora product us divisor se divisible hai — pura multiply karne ki zaroorat nahi. a^n+b^n type ke liye: agar n odd hai, (a+b) hamesha ek factor hota hai.",
+"solved": {
+"q": "If x and y are two digits and the number 4x5y790 is divisible by 11, then what is the remainder, if x + y is divided by 11?",
+"opts": "1) 1 &nbsp; 2) 3 &nbsp; 3) 5 &nbsp; 4) 7",
+"tag": "UPSC CSAT 2026",
+"diagram": "<svg width=\"420\" height=\"260\" viewBox=\"0 0 420 260\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arrB\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n</defs>\n\n<!-- Number Line Representation -->\n<text x=\"60\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\" font-weight=\"700\">4</text>\n<text x=\"90\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\" font-weight=\"700\">x</text>\n<text x=\"120\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\" font-weight=\"700\">5</text>\n<text x=\"150\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\" font-weight=\"700\">y</text>\n<text x=\"180\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\" font-weight=\"700\">7</text>\n<text x=\"210\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\" font-weight=\"700\">9</text>\n<text x=\"240\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\" font-weight=\"700\">0</text>\n\n<!-- Arcs for Odd positions (Top) -->\n<path d=\"M 65,65 Q 92,40 120,65\" fill=\"none\" stroke=\"#2255cc\" stroke-width=\"1.5\" marker-end=\"url(#arrB)\"/>\n<path d=\"M 125,65 Q 152,40 180,65\" fill=\"none\" stroke=\"#2255cc\" stroke-width=\"1.5\" marker-end=\"url(#arrB)\"/>\n<path d=\"M 185,65 Q 212,40 240,65\" fill=\"none\" stroke=\"#2255cc\" stroke-width=\"1.5\" marker-end=\"url(#arrB)\"/>\n<text x=\"110\" y=\"30\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">S<tspan baseline-shift=\"sub\" font-size=\"10\">odd</tspan> = 16</text>\n\n<!-- Arcs for Even positions (Bottom) -->\n<path d=\"M 95,90 Q 122,115 150,90\" fill=\"none\" stroke=\"#007700\" stroke-width=\"1.5\" marker-end=\"url(#arrG)\"/>\n<path d=\"M 155,90 Q 182,115 210,90\" fill=\"none\" stroke=\"#007700\" stroke-width=\"1.5\" marker-end=\"url(#arrG)\"/>\n<text x=\"110\" y=\"130\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">S<tspan baseline-shift=\"sub\" font-size=\"10\">even</tspan> = x + y + 9</text>\n\n<!-- Divisibility Rule Visual -->\n<line x1=\"280\" y1=\"40\" x2=\"280\" y2=\"120\" stroke=\"#555555\" stroke-dasharray=\"4,2\"/>\n<text x=\"290\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">Difference = 11k</text>\n\n<!-- Calculation Zone -->\n<text x=\"30\" y=\"170\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; (x + y + 9) &#8722; 16 = 0 or 11</text>\n<text x=\"30\" y=\"195\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; x + y = 7 (for diff=0) or x + y = 18 (for diff=11)</text>\n<text x=\"30\" y=\"220\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; 7 &#247; 11 (Rem = 7) and 18 &#247; 11 (Rem = 7)</text>\n\n<text x=\"30\" y=\"245\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 7</text>\n</svg>"
+},
+"practice": [
+{
+"q": "32⁵ + 2²⁷ is divisible by",
+"opts": [
+"3",
+"7",
+"10",
+"11"
+],
+"correct": 2,
+"svgSol": "<svg width=\"500\" height=\"240\" viewBox=\"0 0 500 240\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/></marker>\n</defs>\n\n<!-- ZONE 1: Mechanism Figure (Number System Divisibility) -->\n<!-- Factorization Path -->\n<text x=\"30\" y=\"35\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\" font-weight=\"bold\">32<tspan baseline-shift=\"super\" font-size=\"10\">5</tspan> + 2<tspan baseline-shift=\"super\" font-size=\"10\">27</tspan></text>\n\n<path d=\"M45 45 L45 65\" stroke=\"#2255cc\" stroke-width=\"1.5\" fill=\"none\" marker-end=\"url(#arr)\"/>\n<text x=\"60\" y=\"60\" font-family=\"Arial\" font-size=\"12\" fill=\"#555555\">(2<tspan baseline-shift=\"super\" font-size=\"9\">5</tspan>)<tspan baseline-shift=\"super\" font-size=\"9\">5</tspan> + 2<tspan baseline-shift=\"super\" font-size=\"9\">27</tspan></text>\n\n<text x=\"30\" y=\"85\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\" font-weight=\"bold\">2<tspan baseline-shift=\"super\" font-size=\"10\">25</tspan>(1 + 2<tspan baseline-shift=\"super\" font-size=\"10\">2</tspan>)</text>\n\n<path d=\"M45 95 L45 115\" stroke=\"#007700\" stroke-width=\"1.5\" fill=\"none\" marker-end=\"url(#arrG)\"/>\n<text x=\"60\" y=\"110\" font-family=\"Arial\" font-size=\"12\" fill=\"#555555\">2<tspan baseline-shift=\"super\" font-size=\"9\">25</tspan> &#215; 5</text>\n\n<text x=\"160\" y=\"105\" font-family=\"Arial\" font-size=\"16\" fill=\"#cc5500\" font-weight=\"bold\">2<tspan baseline-shift=\"super\" font-size=\"11\">24</tspan> &#215; 10</text>\n<path d=\"M140 100 Q150 100 155 100\" stroke=\"#cc5500\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrO)\"/>\n\n<!-- Number Line -->\n<line x1=\"250\" y1=\"90\" x2=\"480\" y2=\"90\" stroke=\"#555555\" stroke-width=\"2\"/>\n<line x1=\"280\" y1=\"85\" x2=\"280\" y2=\"95\" stroke=\"#555555\" stroke-width=\"1.5\"/>\n<line x1=\"330\" y1=\"85\" x2=\"330\" y2=\"95\" stroke=\"#555555\" stroke-width=\"1.5\"/>\n<line x1=\"380\" y1=\"85\" x2=\"380\" y2=\"95\" stroke=\"#555555\" stroke-width=\"1.5\"/>\n<line x1=\"430\" y1=\"85\" x2=\"430\" y2=\"95\" stroke=\"#555555\" stroke-width=\"1.5\"/>\n\n<text x=\"275\" y=\"110\" font-family=\"Arial\" font-size=\"11\" fill=\"#555555\">0</text>\n<text x=\"320\" y=\"110\" font-family=\"Arial\" font-size=\"11\" fill=\"#555555\">10k</text>\n<text x=\"370\" y=\"110\" font-family=\"Arial\" font-size=\"11\" fill=\"#555555\">20k</text>\n<text x=\"420\" y=\"110\" font-family=\"Arial\" font-size=\"11\" fill=\"#555555\">30k</text>\n\n<text x=\"373\" y=\"87\" font-family=\"Arial\" font-size=\"20\" fill=\"#cc5500\">&#9733;</text>\n<text x=\"345\" y=\"70\" font-family=\"Arial\" font-size=\"11\" fill=\"#cc5500\" font-weight=\"bold\">Expression</text>\n\n<!-- ZONE 2: Solution Lines -->\n<text x=\"30\" y=\"145\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; 32<tspan baseline-shift=\"super\" font-size=\"10\">5</tspan> + 2<tspan baseline-shift=\"super\" font-size=\"10\">27</tspan> = 2<tspan baseline-shift=\"super\" font-size=\"10\">25</tspan> + 2<tspan baseline-shift=\"super\" font-size=\"10\">27</tspan></text>\n<text x=\"30\" y=\"170\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; 2<tspan baseline-shift=\"super\" font-size=\"10\">25</tspan>(1 + 2<tspan baseline-shift=\"super\" font-size=\"10\">2</tspan>) = 2<tspan baseline-shift=\"super\" font-size=\"10\">25</tspan> &#215; 5</text>\n<text x=\"30\" y=\"195\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; 2<tspan baseline-shift=\"super\" font-size=\"10\">24</tspan> &#215; (2 &#215; 5) = 2<tspan baseline-shift=\"super\" font-size=\"10\">24</tspan> &#215; 10</text>\n\n<text x=\"30\" y=\"225\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 10</text>\n</svg>"
 },
 {
-  num:5, name:"Speed, Time & Distance", tag:"Trains, boats, relative motion — CSAT ka favourite scoring zone. Ek formula se poora chapter chal jaata hai.",
-  concept:[
-    "<b>Speed = Distance / Time.</b> Distance constant → Speed ∝ 1/Time.",
-    "Unit conversion: km/h → m/s: × 5/18 · m/s → km/h: × 18/5.",
-    "<b>Relative speed:</b> same direction → ghatao (subtract); opposite direction → jodo (add).",
-    "<b>Train crossing:</b> pole/man cross karne ka time = train ki length / speed. Platform cross karte waqt (train + platform) dono ki length jodo. Do persons ko alag-alag time mein cross karna ho (same train, same direction), toh: Time₁ × RelSpeed₁ = Time₂ × RelSpeed₂ = Length of train (constant).",
-    "<b>Circular track meeting/crossing (opposite direction):</b> Combined speed = sum of individual speeds (in rounds/hour). Number of times they cross = combined speed × time elapsed (in hours), rounded down to whole crossings within the given window.",
-    "<b>Circular race overtaking (same direction):</b> Relative speed = difference of speeds. Number of times faster one overtakes slower = (relative distance covered) / (track length), based on total distance run during the race."
-  ],
-  shortcut:"Average speed (equal distance, two speeds) = 2xy/(x+y) — simple average nahi! Train ke do alag scenarios mein agar length same hai, toh Time × Speed dono jagah barabar hoga.",
-  solved:{
-    q:"The speed of a train T is 100 km/h and the speed of a person P is 4 km/h. T crosses P in 15 seconds, if P travels along the direction of motion of T. If P travels along the opposite direction of T, then in how much time does T cross P, in seconds, approximately?",
-    opts:"1) 13.51 &nbsp; 2) 13.65 &nbsp; 3) 13.85 &nbsp; 4) 14.05",
-    tag:"UPSC CSAT 2026",
-    diagram:`<svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
-      <rect x="20" y="30" width="90" height="34" rx="6" fill="#eef6f4" stroke="#114848" stroke-width="2"/>
-      <text x="65" y="51" text-anchor="middle" font-size="12" font-weight="700" fill="#0a2e2e">Train (100 km/h)</text>
-      <line x1="130" y1="47" x2="220" y2="47" stroke="#1c8a5c" stroke-width="3" marker-end="url(#arr1)"/>
-      <circle cx="245" cy="47" r="14" fill="#fff4e8" stroke="#f5821f" stroke-width="2"/>
-      <text x="245" y="51" text-anchor="middle" font-size="11" font-weight="700" fill="#f5821f">P</text>
-      <line x1="265" y1="47" x2="300" y2="47" stroke="#1c8a5c" stroke-width="3" marker-end="url(#arr1)"/>
-      <text x="245" y="20" text-anchor="middle" font-size="11" fill="#6b8783">Person (4 km/h)</text>
-      <text x="260" y="80" text-anchor="middle" font-size="12.5" font-weight="700" fill="#114848">Case 1: Same Direction → Relative Speed = 100 − 4</text>
-
-      <rect x="20" y="110" width="90" height="34" rx="6" fill="#eef6f4" stroke="#114848" stroke-width="2"/>
-      <text x="65" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#0a2e2e">Train (100 km/h)</text>
-      <line x1="130" y1="127" x2="210" y2="127" stroke="#1c8a5c" stroke-width="3" marker-end="url(#arr1)"/>
-      <circle cx="270" cy="127" r="14" fill="#fff4e8" stroke="#f5821f" stroke-width="2"/>
-      <text x="270" y="131" text-anchor="middle" font-size="11" font-weight="700" fill="#f5821f">P</text>
-      <line x1="255" y1="127" x2="220" y2="127" stroke="#c0392b" stroke-width="3" marker-end="url(#arr2)"/>
-      <text x="270" y="100" text-anchor="middle" font-size="11" fill="#6b8783">Person (4 km/h)</text>
-      <text x="270" y="160" text-anchor="middle" font-size="12.5" font-weight="700" fill="#114848">Case 2: Opposite Direction → Relative Speed = 100 + 4</text>
-      <defs>
-        <marker id="arr1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1c8a5c"/></marker>
-        <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/></marker>
-      </defs>
-    </svg>`,
-    sol:"Relative speed (same direction) = 100−4 = 96 kmph. Relative speed (opposite direction) = 100+4 = 104 kmph.<br>Since length of train is constant: Time₁ × Speed₁ = Time₂ × Speed₂ → 15 × 96 = Time₂ × 104 → Time₂ = 1440/104 ≈ 13.85 sec.",
-    final:"Answer: 13.85 seconds"
-  },
-  practice:[
-    {q:"A tram overtakes 2 persons X and Y walking at an average speed of 3 km/h and 4 km/h in the same direction and completely passes them in 8 seconds and 9 seconds respectively. What is the length of the tram?",
-     opts:["15 m","18 m","20 m","24 m"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs><marker id="a7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2255cc"/></marker>
-       <marker id="a8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cc5500"/></marker></defs>
-       <rect x="20" y="28" width="120" height="34" rx="6" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <circle cx="36" cy="68" r="8" fill="#555" stroke="#333" stroke-width="1"/><circle cx="124" cy="68" r="8" fill="#555" stroke="#333" stroke-width="1"/>
-       <text x="80" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#2255cc">Tram (v km/h)</text>
-       <line x1="142" y1="45" x2="220" y2="45" stroke="#2255cc" stroke-width="2.5" marker-end="url(#a7)"/>
-       <circle cx="260" cy="48" r="10" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/>
-       <text x="260" y="52" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">X</text>
-       <text x="260" y="70" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">3 km/h</text>
-       <circle cx="380" cy="48" r="10" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-       <text x="380" y="52" text-anchor="middle" font-family="Arial" font-size="11" fill="#6a1b9a">Y</text>
-       <text x="380" y="70" text-anchor="middle" font-family="Arial" font-size="11" fill="#6a1b9a">4 km/h</text>
-       <line x1="20" y1="90" x2="460" y2="90" stroke="#555555" stroke-width="1.5"/>
-       <text x="30" y="114" font-family="Arial" font-size="13" fill="#222222">L = (v&#8722;3)&#215;5/18&#215;8 = (v&#8722;4)&#215;5/18&#215;9</text>
-       <text x="30" y="137" font-family="Arial" font-size="13" fill="#222222">&#8658; 8(v&#8722;3) = 9(v&#8722;4) &#8658; 8v&#8722;24 = 9v&#8722;36 &#8658; v = 12 km/h</text>
-       <text x="30" y="160" font-family="Arial" font-size="13" fill="#222222">&#8658; L = (12&#8722;3) &#215; 5/18 &#215; 8 = 9 &#215; 5/18 &#215; 8 = 20 m</text>
-       <text x="30" y="188" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 20 m</text>
-     </svg>`},
-    {q:"P and Q walk along a circular track starting at 5:00 a.m. from the same point in opposite directions. P walks at 5 rounds/hour, Q at 3 rounds/hour. How many times will they cross each other between 5:20 a.m. and 7:00 a.m.?",
-     opts:["12","13","14","15"],
-     correct:1,
-     svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <circle cx="140" cy="95" r="70" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-       <circle cx="140" cy="95" r="3" fill="#555"/>
-       <text x="140" y="99" text-anchor="middle" font-family="Arial" font-size="11" fill="#555">Track</text>
-       <path d="M140,25 A70,70 0 0 1 210,95" stroke="#2255cc" stroke-width="3" fill="none" marker-end="url(#a7)"/>
-       <text x="195" y="56" font-family="Arial" font-size="12" fill="#2255cc">P: 5 r/hr</text>
-       <path d="M140,165 A70,70 0 0 0 70,95" stroke="#cc0000" stroke-width="3" fill="none"/>
-       <text x="52" y="145" font-family="Arial" font-size="12" fill="#cc0000">Q: 3 r/hr</text>
-       <rect x="260" y="28" width="190" height="56" rx="8" fill="#f0f0f0" stroke="#555555" stroke-width="1.5"/>
-       <text x="355" y="52" text-anchor="middle" font-family="Arial" font-size="13" fill="#222222">Combined speed</text>
-       <text x="355" y="72" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#2255cc">= 5+3 = 8 rounds/hr</text>
-       <text x="260" y="110" font-family="Arial" font-size="13" fill="#222222">Window: 5:20 to 7:00 = 100 min</text>
-       <text x="260" y="130" font-family="Arial" font-size="13" fill="#222222">= 5/3 hours</text>
-       <text x="30" y="168" font-family="Arial" font-size="14" fill="#222222">&#8658; Crossings = 8 &#215; 5/3 = 13.33 &#8594; 13 full crossings</text>
-       <text x="30" y="192" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 13 times</text>
-     </svg>`},
-    {q:"X and Y run a 3 km race along a circular course of length 300 m. Their speeds are in ratio 3:2. If they start together in the same direction, how many times would the first one pass the other (start-off not counted)?",
-     opts:["2","3","4","5"],
-     correct:1,
-     svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <circle cx="130" cy="95" r="70" fill="#f0f0f0" stroke="#555555" stroke-width="2"/>
-       <circle cx="130" cy="95" r="3" fill="#555"/>
-       <path d="M130,25 A70,70 0 1 1 129.9,25" stroke="#2255cc" stroke-width="3" fill="none" marker-end="url(#a7)"/>
-       <path d="M130,165 A70,70 0 1 0 130.1,165" stroke="#cc0000" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
-       <text x="210" y="42" font-family="Arial" font-size="13" fill="#2255cc">X (speed 3)</text>
-       <text x="210" y="60" font-family="Arial" font-size="13" fill="#222222">Total: 3000 m</text>
-       <text x="210" y="80" font-family="Arial" font-size="13" fill="#cc0000">Y (speed 2)</text>
-       <text x="210" y="98" font-family="Arial" font-size="13" fill="#222222">Total: 2000 m</text>
-       <text x="30" y="142" font-family="Arial" font-size="13" fill="#222222">&#8658; Relative distance = 3000&#8722;2000 = 1000 m</text>
-       <text x="30" y="164" font-family="Arial" font-size="13" fill="#222222">&#8658; Passes = 1000 &#247; 300 = 3.33 &#8594; 3 complete passes</text>
-       <text x="30" y="192" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 3 times</text>
-     </svg>`}
-  ]
+"q": "What is the remainder if 2¹⁹² is divided by 6?",
+"opts": [
+"0",
+"1",
+"2",
+"4"
+],
+"correct": 3,
+"svgSol": "<svg width=\"500\" height=\"230\" viewBox=\"0 0 500 230\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n</defs>\n\n<!-- ZONE 1: Number Line Mechanism -->\n<!-- Main Number Line -->\n<line x1=\"20\" y1=\"80\" x2=\"430\" y2=\"80\" stroke=\"#555555\" stroke-width=\"2\"/>\n<path d=\"M430 75 L445 80 L430 85\" fill=\"none\" stroke=\"#555555\" stroke-width=\"2\"/>\n\n<!-- Multiples of 6 (Blue Ticks) -->\n<rect x=\"40\" y=\"75\" width=\"2\" height=\"10\" fill=\"#2255cc\"/>\n<text x=\"35\" y=\"105\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">0</text>\n\n<rect x=\"160\" y=\"75\" width=\"2\" height=\"10\" fill=\"#2255cc\"/>\n<text x=\"155\" y=\"105\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">6</text>\n\n<rect x=\"280\" y=\"75\" width=\"2\" height=\"10\" fill=\"#2255cc\"/>\n<text x=\"270\" y=\"105\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">12</text>\n\n<!-- Powers of 2 (Orange Circles) -->\n<circle cx=\"80\" cy=\"80\" r=\"5\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<text x=\"70\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">2<tspan baseline-shift=\"super\" font-size=\"10\">1</tspan></text>\n\n<circle cx=\"120\" cy=\"80\" r=\"5\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<text x=\"110\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">2<tspan baseline-shift=\"super\" font-size=\"10\">2</tspan></text>\n\n<circle cx=\"200\" cy=\"80\" r=\"5\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<text x=\"190\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">2<tspan baseline-shift=\"super\" font-size=\"10\">3</tspan></text>\n\n<circle cx=\"360\" cy=\"80\" r=\"5\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<text x=\"350\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">2<tspan baseline-shift=\"super\" font-size=\"10\">4</tspan></text>\n\n<!-- Remainder Brackets (Red) -->\n<path d=\"M 42 85 Q 60 100 78 85\" fill=\"none\" stroke=\"#cc0000\" stroke-width=\"1.5\"/>\n<text x=\"50\" y=\"115\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc0000\">rem 2</text>\n\n<path d=\"M 42 85 Q 80 110 118 85\" fill=\"none\" stroke=\"#cc0000\" stroke-width=\"1.5\"/>\n<text x=\"105\" y=\"125\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc0000\">rem 4</text>\n\n<path d=\"M 162 85 Q 180 100 198 85\" fill=\"none\" stroke=\"#cc0000\" stroke-width=\"1.5\"/>\n<text x=\"210\" y=\"115\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc0000\">rem 2</text>\n\n<!-- Target Star -->\n<text x=\"410\" y=\"70\" font-family=\"Arial\" font-size=\"16\" fill=\"#cc5500\">★</text>\n<text x=\"400\" y=\"55\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#222222\">2<tspan baseline-shift=\"super\" font-size=\"10\">192</tspan></text>\n<text x=\"385\" y=\"85\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">...</text>\n\n<!-- ZONE 2: Solution lines -->\n<text x=\"30\" y=\"155\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; 2<tspan baseline-shift=\"super\" font-size=\"10\">1</tspan>=2 (rem 2), 2<tspan baseline-shift=\"super\" font-size=\"10\">2</tspan>=4 (rem 4), 2<tspan baseline-shift=\"super\" font-size=\"10\">3</tspan>=8 (rem 2), 2<tspan baseline-shift=\"super\" font-size=\"10\">4</tspan>=16 (rem 4)</text>\n<text x=\"30\" y=\"180\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Pattern: 2<tspan baseline-shift=\"super\" font-size=\"10\">even</tspan> &#247; 6 leaves remainder 4</text>\n<text x=\"30\" y=\"210\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 4</text>\n</svg>"
 },
 {
-  num:6, name:"Syllogism & Coding-Decoding", tag:"Ek hi din mein do scoring reasoning topics — Venn diagram aur letter/number pattern dono crack karo.",
-  isDouble:true,
-  partA:{
-    label:"Syllogism",
-    concept:[
-      "Syllogism = di gayi statements ko sach maan kar conclusions check karna. Best tool: <b>Venn diagram.</b>",
-      "<b>All A are B:</b> A poora B ke andar. <b>Some A are B:</b> A aur B overlap karte hain. <b>No A is B:</b> A aur B alag circles.",
-      "<b>Rule:</b> Conclusion tabhi sahi jab woh har possible diagram mein sach ho — ek bhi case fail = conclusion galat.",
-      "<b>Chain rule:</b> 'All A are B' + 'All B are C' → 'All A are C' (transitive chain). Lekin 'Some A are B' + 'All B are C' → sirf 'Some A are C' follow karta hai, 'All' nahi.",
-      "<b>Reversal rule:</b> 'Some A are B' ka reverse 'Some B are A' hamesha valid hai. 'No A is B' ka reverse 'No B is A' bhi valid hai. Lekin 'All A are B' ka reverse 'All B are A' zaroori nahi.",
-      "<b>Negative + Positive combination:</b> 'No A is B' + 'All B are C' → 'Some C are not A' follow karta hai (kyunki B wala portion of C mein A nahi hai)."
-    ],
-    shortcut:"Possibility wale conclusions ('Some X can be Y') tab follow karte hain jab woh kisi bhi diagram mein contradict na ho — inhe directly reject mat karo, ek valid case dhoondo.",
-    solved:{
-      q:"Statement-1: Some doctors are teachers. Statement-2: All teachers are engineers. Statement-3: All engineers are scientists.\nConclusion-I: Some scientists are doctors. Conclusion-II: All engineers are doctors. Conclusion-III: Some engineers are doctors.",
-      opts:"1) Only Conclusion-I &nbsp; 2) Only Conclusion-II &nbsp; 3) Both Conclusion-I and III &nbsp; 4) Both Conclusion-I and II",
-      tag:"UPSC CSAT 2022",
-      diagram:`<svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
-        <ellipse cx="330" cy="140" rx="150" ry="100" fill="#eaf7f2" stroke="#1c8a5c" stroke-width="2"/>
-        <text x="330" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#1c8a5c">Scientists</text>
-        <ellipse cx="300" cy="140" rx="105" ry="72" fill="#e5f1f7" stroke="#2980b9" stroke-width="2"/>
-        <text x="300" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#2980b9">Engineers</text>
-        <ellipse cx="265" cy="140" rx="65" ry="48" fill="#fff4e8" stroke="#f5821f" stroke-width="2"/>
-        <text x="265" y="172" text-anchor="middle" font-size="12.5" font-weight="700" fill="#f5821f">Teachers</text>
-        <ellipse cx="170" cy="140" rx="80" ry="56" fill="#fdecea" stroke="#c0392b" stroke-width="2" fill-opacity="0.85"/>
-        <text x="120" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">Doctors</text>
-        <text x="265" y="120" text-anchor="middle" font-size="11" fill="#0a2e2e">(some overlap</text>
-        <text x="265" y="133" text-anchor="middle" font-size="11" fill="#0a2e2e">with Doctors)</text>
+"q": "What is the remainder when 85 × 87 × 89 × 91 × 95 × 96 is divided by 100?",
+"opts": [
+"0",
+"1",
+"2",
+"4"
+],
+"correct": 0,
+"svgSol": "<svg width=\"500\" height=\"250\" viewBox=\"0 0 500 250\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n<path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/>\n</marker>\n</defs>\n\n<!-- ZONE 1: Divisibility Mechanism -->\n<!-- Factor extraction -->\n<circle cx=\"80\" cy=\"35\" r=\"18\" fill=\"#ccffcc\" stroke=\"#007700\" stroke-width=\"1.5\"/>\n<text x=\"71\" y=\"40\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#007700\">85</text>\n<text x=\"75\" y=\"65\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#007700\">(&#247;5)</text>\n\n<circle cx=\"160\" cy=\"35\" r=\"18\" fill=\"#ccffcc\" stroke=\"#007700\" stroke-width=\"1.5\"/>\n<text x=\"151\" y=\"40\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#007700\">95</text>\n<text x=\"155\" y=\"65\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#007700\">(&#247;5)</text>\n\n<circle cx=\"240\" cy=\"35\" r=\"18\" fill=\"#ccffcc\" stroke=\"#007700\" stroke-width=\"1.5\"/>\n<text x=\"231\" y=\"40\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#007700\">96</text>\n<text x=\"235\" y=\"65\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#007700\">(&#247;4)</text>\n\n<!-- Factor combination -->\n<path d=\"M 80 70 Q 160 100 250 100\" fill=\"none\" stroke=\"#007700\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n<path d=\"M 160 70 Q 180 90 250 100\" fill=\"none\" stroke=\"#007700\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n<path d=\"M 240 70 Q 245 90 250 100\" fill=\"none\" stroke=\"#007700\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n<text x=\"270\" y=\"85\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#007700\">5 &#215; 5 &#215; 4 = 100</text>\n\n<!-- Number Line -->\n<line x1=\"30\" y1=\"130\" x2=\"470\" y2=\"130\" stroke=\"#555555\" stroke-width=\"2\"/>\n<line x1=\"100\" y1=\"120\" x2=\"100\" y2=\"140\" stroke=\"#2255cc\" stroke-width=\"2\"/>\n<line x1=\"250\" y1=\"120\" x2=\"250\" y2=\"140\" stroke=\"#2255cc\" stroke-width=\"2\"/>\n<line x1=\"400\" y1=\"120\" x2=\"400\" y2=\"140\" stroke=\"#2255cc\" stroke-width=\"2\"/>\n\n<text x=\"50\" y=\"155\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#222222\">(k&#8722;1)&#215;100</text>\n<text x=\"225\" y=\"155\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#222222\">k&#215;100</text>\n<text x=\"375\" y=\"155\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#222222\">(k+1)&#215;100</text>\n\n<!-- Product Star -->\n<text x=\"242\" y=\"125\" font-family=\"Arial, sans-serif\" font-size=\"20\" fill=\"#cc5500\">&#9733;</text>\n<text x=\"265\" y=\"120\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#cc5500\">Product (P)</text>\n\n<!-- Remainder Bracket (point) -->\n<path d=\"M 248 130 A 2 2 0 0 1 252 130\" fill=\"none\" stroke=\"#cc5500\" stroke-width=\"2\"/>\n<text x=\"235\" y=\"110\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#cc5500\">Rem = 0</text>\n\n<!-- ZONE 2: Solution -->\n<text x=\"30\" y=\"185\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#222222\">&#8658; 100 = 4 &#215; 25</text>\n<text x=\"30\" y=\"205\" font-family=\"Arial, sans-serif\" font-size=\"14\" fill=\"#222222\">&#8658; Product factors: 96 (&#247;4), 85 (&#247;5), 95 (&#247;5) &#8658; 4 &#215; 25 = 100</text>\n\n<text x=\"30\" y=\"235\" font-family=\"Arial, sans-serif\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 0</text>\n</svg>"
+}
+]
+},
+{
+"num": 3,
+"name": "Percentage",
+"tag": "Data interpretation, comparison, growth — CSAT ka aadha arithmetic ghoom-phir ke percentage par hi aata hai.",
+"concept": [
+"Percentage ka matlab \"per 100\". x% = x/100. <b>Change %</b> = (New − Old)/Old × 100.",
+"<b>Successive change:</b> a% then b% → net = a + b + (ab/100) %. Teen successive changes ho toh pehle do ko combine karo, fir result ko teesre ke saath combine karo.",
+"<b>Fraction ↔ %:</b> 1/2=50%, 1/4=25%, 1/5=20%, 1/8=12.5%, 1/3≈33.33%, 1/6≈16.66%.",
+"<b>Base-chain percentage:</b> Jab A, B se x% zyada/kam ho aur B, C se y% zyada/kam ho, toh A ko C ke terms mein likhne ke liye dono multipliers chain karo: A = C × (1+x/100) × (1+y/100) ulta/seedha jaisa diya ho.",
+"<b>Saving = Income − Expenditure:</b> Jab dono alag % se badhte hain, toh actual values (base 100 maan kar) nikal kar saving ka % change calculate karo — seedha percentage subtract mat karo.",
+"<b>Set/group percentage:</b> Jab population do tarah se split ho (jaise nationality aur gender), toh ek 2×2 grid (table) bana kar har category ka actual count nikalo — total ko 100 maan kar kaam aasaan ho jaata hai."
+],
+"shortcut": "Common fractions yaad rakho — \"62.5% of 320\" sochne ke bajaye 5/8 × 320 = 200, instant. Successive % change kabhi simple addition se nahi hota — hamesha a+b+(ab/100) formula use karo.",
+"solved": {
+"q": "A person saves 10% of his salary every month. If his salary increases by 12% and the expenditure increases by 10%, then what will be the change in his saving per month?",
+"opts": "1) 20% increase &nbsp; 2) 30% increase &nbsp; 3) 03% decrease &nbsp; 4) 02% decrease",
+"tag": "UPSC CSAT 2026",
+"diagram": "<svg width=\"500\" height=\"240\" viewBox=\"0 0 500 240\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/></marker>\n</defs>\n\n<!-- ZONE 1: Mechanism Figure (Income = Exp + Saving) -->\n<!-- Old State -->\n<text x=\"20\" y=\"30\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">Old Salary (100)</text>\n<rect x=\"20\" y=\"40\" width=\"315\" height=\"22\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\" />\n<text x=\"140\" y=\"56\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">Exp: 90</text>\n<rect x=\"335\" y=\"40\" width=\"35\" height=\"22\" fill=\"#ccffcc\" stroke=\"#007700\" stroke-width=\"1.5\" />\n<text x=\"375\" y=\"56\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">Sav: 10</text>\n\n<!-- Growth Arrows -->\n<path d=\"M150,62 Q180,80 200,88\" fill=\"none\" stroke=\"#2255cc\" stroke-dasharray=\"4,2\" marker-end=\"url(#arr)\" />\n<text x=\"180\" y=\"80\" font-family=\"Arial\" font-size=\"12\" fill=\"#2255cc\">+10%</text>\n\n<path d=\"M350,62 Q380,80 400,88\" fill=\"none\" stroke=\"#007700\" stroke-dasharray=\"4,2\" marker-end=\"url(#arrG)\" />\n\n<path d=\"M430,40 Q460,65 460,90\" fill=\"none\" stroke=\"#cc5500\" stroke-dasharray=\"4,2\" marker-end=\"url(#arrO)\" />\n<text x=\"465\" y=\"70\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc5500\">+12%</text>\n\n<!-- New State -->\n<text x=\"20\" y=\"105\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">New Salary (112)</text>\n<rect x=\"20\" y=\"115\" width=\"346.5\" height=\"22\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\" />\n<text x=\"140\" y=\"131\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">Exp: 99</text>\n<rect x=\"366.5\" y=\"115\" width=\"45.5\" height=\"22\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"2\" />\n<text x=\"415\" y=\"131\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">Sav: 13</text>\n\n<!-- ZONE 2: Solution -->\n<text x=\"30\" y=\"170\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Old: Income 100, Saving 10, Exp 90</text>\n<text x=\"30\" y=\"195\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; New: Income 112, Exp 99, Saving 13</text>\n<text x=\"30\" y=\"220\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; % Saving Change = (3 &#247; 10) &#215; 100 = 30%</text>\n\n<text x=\"30\" y=\"235\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 30% increase</text>\n</svg>"
+},
+"practice": [
+{
+"q": "A person buys three articles P, Q and R for Rs. 3,330. If P costs 25% more than R and R costs 20% more than Q, then what is the cost of P?",
+"opts": [
+"Rs. 1,000",
+"Rs. 1,200",
+"Rs. 1,250",
+"Rs. 1,350"
+],
+"correct": 3,
+"svgSol": "<svg width=\"450\" height=\"210\" viewBox=\"0 0 450 210\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n<marker id=\"arrP\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#6a1b9a\"/></marker>\n</defs>\n\n<!-- ZONE 1: SEGMENTED RATIO BAR -->\n<!-- Article P Segment (15 units) -->\n<rect x=\"20\" y=\"55\" width=\"150\" height=\"30\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\"/>\n<text x=\"85\" y=\"75\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\" text-anchor=\"middle\">P (15u)</text>\n\n<!-- Article R Segment (12 units) -->\n<rect x=\"170\" y=\"55\" width=\"120\" height=\"30\" fill=\"#ccffcc\" stroke=\"#007700\" stroke-width=\"1.5\"/>\n<text x=\"230\" y=\"75\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\" text-anchor=\"middle\">R (12u)</text>\n\n<!-- Article Q Segment (10 units) -->\n<rect x=\"290\" y=\"55\" width=\"100\" height=\"30\" fill=\"#ede7f6\" stroke=\"#6a1b9a\" stroke-width=\"1.5\"/>\n<text x=\"340\" y=\"75\" font-family=\"Arial\" font-size=\"14\" fill=\"#6a1b9a\" text-anchor=\"middle\">Q (10u)</text>\n\n<!-- Percentage Shift Arrows -->\n<path d=\"M230,50 Q155,20 95,50\" fill=\"none\" stroke=\"#2255cc\" stroke-dasharray=\"4,2\" marker-end=\"url(#arr)\"/>\n<text x=\"145\" y=\"30\" font-family=\"Arial\" font-size=\"12\" fill=\"#2255cc\" text-anchor=\"middle\">+25%</text>\n\n<path d=\"M340,50 Q285,20 240,50\" fill=\"none\" stroke=\"#007700\" stroke-dasharray=\"4,2\" marker-end=\"url(#arrG)\"/>\n<text x=\"290\" y=\"30\" font-family=\"Arial\" font-size=\"12\" fill=\"#007700\" text-anchor=\"middle\">+20%</text>\n\n<!-- Total Bracket -->\n<path d=\"M20,90 L20,100 L205,100 M410,90 L410,100 L245,100\" fill=\"none\" stroke=\"#555555\" stroke-width=\"1.5\"/>\n<text x=\"225\" y=\"105\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\" text-anchor=\"middle\">Total = 3,330</text>\n\n<!-- ZONE 2: CALCULATION LINES -->\n<text x=\"30\" y=\"135\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; P : R : Q = 15 : 12 : 10 (Total Units = 37)</text>\n<text x=\"30\" y=\"160\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; 1 unit = 3,330 &#247; 37 = 90</text>\n\n<!-- FINAL ANSWER -->\n<text x=\"30\" y=\"195\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = Rs. 1,350</text>\n</svg>"
+},
+{
+"q": "The increase in the price of a certain item was 25%. Then the price was decreased by 20% and then again increased by 10%. What is the resultant increase in the price?",
+"opts": [
+"5%",
+"10%",
+"12.5%",
+"15%"
+],
+"correct": 1,
+"svgSol": "<svg width=\"450\" height=\"235\" viewBox=\"0 0 450 235\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrR\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc0000\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/></marker>\n</defs>\n\n<!-- ZONE 1: Percentage Mechanism Figure -->\n<!-- Number Line -->\n<line x1=\"40\" y1=\"90\" x2=\"410\" y2=\"90\" stroke=\"#555555\" stroke-width=\"2\"/>\n\n<!-- Ticks and Labels -->\n<line x1=\"80\" y1=\"85\" x2=\"80\" y2=\"95\" stroke=\"#555555\" stroke-width=\"2\"/>\n<text x=\"70\" y=\"110\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">100</text>\n\n<line x1=\"330\" y1=\"85\" x2=\"330\" y2=\"95\" stroke=\"#555555\" stroke-width=\"2\"/>\n<text x=\"320\" y=\"110\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">125</text>\n\n<line x1=\"180\" y1=\"85\" x2=\"180\" y2=\"95\" stroke=\"#555555\" stroke-width=\"2\"/>\n<text x=\"170\" y=\"110\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\">110</text>\n\n<!-- Arcs (Percentage Changes) -->\n<!-- 1. +25% -->\n<path d=\"M 80,80 Q 205,20 330,80\" fill=\"none\" stroke=\"#007700\" stroke-width=\"2\" marker-end=\"url(#arrG)\"/>\n<text x=\"180\" y=\"45\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">+25%</text>\n\n<!-- 2. -20% (of 125 = 25 decrease back to 100) -->\n<path d=\"M 330,80 Q 205,140 80,80\" fill=\"none\" stroke=\"#cc0000\" stroke-width=\"2\" marker-end=\"url(#arrR)\"/>\n<text x=\"180\" y=\"135\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc0000\">&#8722;20%</text>\n\n<!-- 3. +10% (from 100 to 110) -->\n<path d=\"M 80,75 Q 130,40 180,75\" fill=\"none\" stroke=\"#007700\" stroke-width=\"2\" marker-end=\"url(#arrG)\"/>\n<text x=\"110\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">+10%</text>\n\n<!-- Resultant Span -->\n<path d=\"M 80,95 L 180,95\" fill=\"none\" stroke=\"#cc5500\" stroke-width=\"3\" stroke-dasharray=\"4,2\"/>\n<text x=\"95\" y=\"155\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\" font-weight=\"700\">Net Increase = 10%</text>\n\n<!-- ZONE 2: Solution lines -->\n<text x=\"30\" y=\"180\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Net Change = (1.25) &#215; (0.80) &#215; (1.10)</text>\n<text x=\"30\" y=\"202\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Resultant Multiplier = 1.10 (10% increase)</text>\n\n<!-- Final Answer -->\n<text x=\"30\" y=\"225\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 10%</text>\n</svg>"
+},
+{
+"q": "In a class, 60% of students are from India and 50% of the students are girls. If 30% of the Indian students are girls, then what percentage of foreign students are boys?",
+"opts": [
+"45%",
+"40%",
+"30%",
+"20%"
+],
+"correct": 3,
+"svgSol": "&lt;svg height=&quot;260&quot; style=&quot;display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;&quot; viewbox=&quot;0 0 520 260&quot; width=&quot;520&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt; &lt;defs&gt; &lt;marker id=&quot;arr&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#2255cc&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;marker id=&quot;arrR&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#cc0000&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;marker id=&quot;arrG&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#007700&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;marker id=&quot;arrO&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#cc5500&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;/defs&gt; &lt;!-- ZONE 1: Mechanism Figure (Population Split) --&gt; &lt;!-- Indian Students Group --&gt; &lt;text fill=&quot;#2255cc&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;20&quot; y=&quot;30&quot;&gt;Indian Group (60%)&lt;/text&gt; &lt;rect fill=&quot;#ccffcc&quot; height=&quot;40&quot; rx=&quot;4&quot; stroke=&quot;#007700&quot; stroke-width=&quot;2&quot; width=&quot;72&quot; x=&quot;20&quot; y=&quot;40&quot;&gt;&lt;/rect&gt; &lt;rect fill=&quot;#f0f0f0&quot; height=&quot;40&quot; rx=&quot;4&quot; stroke=&quot;#555555&quot; stroke-width=&quot;1.5&quot; width=&quot;168&quot; x=&quot;92&quot; y=&quot;40&quot;&gt;&lt;/rect&gt; &lt;text fill=&quot;#007700&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;35&quot; y=&quot;65&quot;&gt;18 Girls&lt;/text&gt; &lt;text fill=&quot;#555555&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;145&quot; y=&quot;65&quot;&gt;42 Boys&lt;/text&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;12&quot; x=&quot;20&quot; y=&quot;95&quot;&gt;(30% of 60)&lt;/text&gt; &lt;!-- Foreign Students Group --&gt; &lt;text fill=&quot;#6a1b9a&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;300&quot; y=&quot;30&quot;&gt;Foreign Group (40%)&lt;/text&gt; &lt;rect fill=&quot;#ccffcc&quot; height=&quot;40&quot; rx=&quot;4&quot; stroke=&quot;#007700&quot; stroke-width=&quot;2&quot; width=&quot;128&quot; x=&quot;300&quot; y=&quot;40&quot;&gt;&lt;/rect&gt; &lt;rect fill=&quot;#fff0cc&quot; height=&quot;40&quot; rx=&quot;4&quot; stroke=&quot;#cc5500&quot; stroke-width=&quot;2&quot; width=&quot;32&quot; x=&quot;428&quot; y=&quot;40&quot;&gt;&lt;/rect&gt; &lt;text fill=&quot;#007700&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;335&quot; y=&quot;65&quot;&gt;32 Girls&lt;/text&gt; &lt;text fill=&quot;#cc5500&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;432&quot; y=&quot;65&quot;&gt;8 B&lt;/text&gt; &lt;!-- Relationship Indicators --&gt; &lt;path d=&quot;M56,80 Q250,130 364,80&quot; fill=&quot;none&quot; marker-end=&quot;url(#arrG)&quot; stroke=&quot;#007700&quot; stroke-dasharray=&quot;4,2&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#007700&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;180&quot; y=&quot;125&quot;&gt;Total Girls = 50 (18+32)&lt;/text&gt; &lt;!-- ZONE 2: Calculation Lines --&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;165&quot;&gt;&amp;rArr; Let Total = 100; Indian = 60, Foreign = 40&lt;/text&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;190&quot;&gt;&amp;rArr; Indian Girls = 30% of 60 = 18 &amp;rarr; Foreign Girls = 50 &amp;minus; 18 = 32&lt;/text&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;215&quot;&gt;&amp;rArr; Foreign Boys = 40 &amp;minus; 32 = 8; Boys % = (8 &amp;divide; 40) &amp;times; 100&lt;/text&gt; &lt;text fill=&quot;#000000&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;30&quot; y=&quot;245&quot;&gt;&amp;there4; Answer = 20%&lt;/text&gt; &lt;/svg&gt;"
+}
+]
+},
+{
+"num": 4,
+"name": "Average",
+"tag": "Average ke sawaal seedhe aur scoring hote hain — concept clear ho toh poora marks pakka.",
+"concept": [
+"<b>Average</b> = Sum of observations / Number of observations. <b>Sum = Average × Number</b> — yahi ulta form 80% problems solve karta hai.",
+"Consecutive numbers ka average = (first + last)/2. Agar har value mein k jodo/ghatao, average bhi k se badh/ghat jaata hai.",
+"<b>Weighted average:</b> alag-alag size ke groups ke liye = (n₁a₁ + n₂a₂)/(n₁+n₂).",
+"<b>Correction-type problems:</b> Jab koi value galat record ho gayi ho, toh sirf difference (correct − wrong) total mein jodo/ghatao — pura sum dobara mat banao. Agar do corrections ho rahi ho, dono ke effect ko alag-alag (net change in total) nikal kar combine karo.",
+"<b>Group shifting effect:</b> Jab students ek group se doosre mein shift hote hain, total sum aur total count dono same rehte hain (sirf group-wise distribution badalta hai) — isliye poori class ka overall average kabhi change nahi hota, sirf individual group averages change ho sakte hain.",
+"<b>Age-difference average:</b> Jab kisi group (teacher+students) ka average diya ho aur ek member doosron se fixed difference par ho, toh equation banao: (sum of all ages) = average × total count, fir difference ka relation substitute karo."
+],
+"shortcut": "Naya member jud-ne par average ka change = (naye value − purana average) / (naya total count) — 'deviation' se socho, pura sum nikalne ki zaroorat nahi.",
+"solved": {
+"q": "The class average x in a test increases by 4 when the score of a student is rectified, whose corrected score is 100 instead of 0. Later, the score of another student was found to have been recorded as 81 in place of 56. If there are no other corrections and the final corrected average is y, then y - x is",
+"opts": "1) 2 &nbsp; 2) 3 &nbsp; 3) 5 &nbsp; 4) 6",
+"tag": "UPSC CSAT 2026",
+"diagram": "&lt;p&gt;&lt;img src=&quot;https://cdn.testbook.com/tb_solImg_2f3a03c8.png/1779801964.png&quot; style=&quot;color: rgb(33, 37, 41); max-width: 100%; height: auto;&quot; /&gt;&lt;/p&gt;\n\n&lt;p&gt;Net increase in &lt;strong&gt;total marks&lt;/strong&gt; for the first correction = 100 &amp;minus; 0 = 100.&lt;/p&gt;\n\n&lt;p&gt;Since the &lt;strong&gt;average increase&lt;/strong&gt; is 4, &lt;strong&gt;Total students (n)&lt;/strong&gt; = 100 &amp;divide; 4 = 25.&lt;/p&gt;\n\n&lt;p&gt;Second correction: 81 is replaced by 56, so &lt;strong&gt;total marks&lt;/strong&gt; decrease by 81 &amp;minus; 56 = 25.&lt;/p&gt;\n\n&lt;p&gt;Net change in &lt;strong&gt;average&lt;/strong&gt; for second correction = &amp;minus;25 &amp;divide; 25 = &amp;minus;1.&lt;/p&gt;\n\n&lt;p&gt;Overall change in &lt;strong&gt;average&lt;/strong&gt; (y &amp;minus; x) = 4 &amp;minus; 1 = 3.&lt;/p&gt;\n\n&lt;p&gt;&lt;strong&gt;&amp;there4; The correct answer is 3.&lt;/strong&gt;&lt;/p&gt;"
+},
+"practice": [
+{
+"q": "The average marks of 100 students are given to be 40. It was found later that marks of one students were 53 which were misread as 83. The corrected mean marks are",
+"opts": [
+"39",
+"39.7",
+"40",
+"40.3"
+],
+"correct": 1,
+"svgSol": "<svg width=\"450\" height=\"280\" viewBox=\"0 0 450 280\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrR\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc0000\"/></marker>\n</defs>\n\n<!-- ZONE 1: Mechanism Figure (Average Deviation) -->\n<!-- Baseline -->\n<line x1=\"20\" y1=\"160\" x2=\"320\" y2=\"160\" stroke=\"#555555\" stroke-width=\"2\"/>\n<text x=\"330\" y=\"165\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\">Students (n=100)</text>\n\n<!-- Other Students (Representation) -->\n<rect x=\"40\" y=\"100\" width=\"25\" height=\"60\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\"/>\n<rect x=\"75\" y=\"100\" width=\"25\" height=\"60\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\"/>\n<rect x=\"110\" y=\"100\" width=\"25\" height=\"60\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\"/>\n<text x=\"50\" y=\"90\" font-family=\"Arial\" font-size=\"12\" fill=\"#2255cc\">...</text>\n\n<!-- Initial Average Line -->\n<line x1=\"20\" y1=\"100\" x2=\"320\" y2=\"100\" stroke=\"#cc0000\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\"/>\n<text x=\"25\" y=\"95\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc0000\">Old Avg = 40</text>\n\n<!-- The Misread Student Bar -->\n<!-- Part up to 40 (Blue) -->\n<rect x=\"220\" y=\"100\" width=\"40\" height=\"60\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\"/>\n<!-- Part from 40 to 53 (Correct Deviation - Green) -->\n<rect x=\"220\" y=\"80.5\" width=\"40\" height=\"19.5\" fill=\"#ccffcc\" stroke=\"#007700\" stroke-width=\"1.5\"/>\n<!-- Part from 53 to 83 (Error Deviation - Red) -->\n<rect x=\"220\" y=\"35.5\" width=\"40\" height=\"45\" fill=\"#ffd6d6\" stroke=\"#cc0000\" stroke-width=\"1.5\"/>\n\n<!-- Labels for the Student Bar -->\n<text x=\"265\" y=\"45\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc0000\">83 (Wrong)</text>\n<text x=\"265\" y=\"85\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">53 (Right)</text>\n\n<!-- Removal Arrow -->\n<path d=\"M210,35.5 L210,80.5\" stroke=\"#cc0000\" stroke-width=\"2\" marker-end=\"url(#arrR)\"/>\n<text x=\"145\" y=\"60\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc0000\">&#8722;30 (Error)</text>\n\n<!-- New Average Indicator -->\n<line x1=\"20\" y1=\"104.5\" x2=\"320\" y2=\"104.5\" stroke=\"#007700\" stroke-width=\"1\" stroke-dasharray=\"2,2\"/>\n<text x=\"25\" y=\"118\" font-family=\"Arial\" font-size=\"14\" fill=\"#007700\">New Avg</text>\n\n<!-- ZONE 2: Solution Lines -->\n<text x=\"30\" y=\"195\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Total Error = 53 &#8722; 83 = &#8722;30</text>\n<text x=\"30\" y=\"218\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Avg. Change = &#8722;30 &#247; 100 = &#8722;0.3</text>\n<text x=\"30\" y=\"241\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Corrected Mean = 40 &#8722; 0.3 = 39.7</text>\n\n<text x=\"30\" y=\"268\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 39.7</text>\n</svg>"
+},
+{
+"q": "In a class, there are three groups A, B and C. If one student from group A and two students from group B are shifted to group C, then what happens to the average weight of the students of the class?",
+"opts": [
+"It increases.",
+"It decreases",
+"It remains the same",
+"No conclusion can be drawn due to insufficient data"
+],
+"correct": 2,
+"svgSol": "<svg width=\"500\" height=\"230\" viewBox=\"0 0 500 230\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n<path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/>\n</marker>\n</defs>\n\n<!-- ZONE 1: THE MECHANISM (Groups shifting within a Class) -->\n<!-- Outer Class Boundary -->\n<rect x=\"15\" y=\"15\" width=\"470\" height=\"110\" rx=\"12\" fill=\"#f9f9f9\" stroke=\"#555555\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\"/>\n<text x=\"30\" y=\"35\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#555555\">TOTAL CLASS BOUNDARY</text>\n\n<!-- Group A -->\n<rect x=\"40\" y=\"55\" width=\"80\" height=\"50\" rx=\"8\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"2\"/>\n<text x=\"65\" y=\"85\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#2255cc\">A</text>\n\n<!-- Group B -->\n<rect x=\"170\" y=\"55\" width=\"80\" height=\"50\" rx=\"8\" fill=\"#ede7f6\" stroke=\"#6a1b9a\" stroke-width=\"2\"/>\n<text x=\"195\" y=\"85\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#6a1b9a\">B</text>\n\n<!-- Group C -->\n<rect x=\"350\" y=\"55\" width=\"100\" height=\"50\" rx=\"8\" fill=\"#d9f2f2\" stroke=\"#008080\" stroke-width=\"2\"/>\n<text x=\"390\" y=\"85\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#008080\">C</text>\n\n<!-- Shift Arrows -->\n<path d=\"M120,70 Q235,25 350,70\" fill=\"none\" stroke=\"#cc5500\" stroke-width=\"2\" marker-end=\"url(#arrO)\"/>\n<text x=\"210\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc5500\">1 student</text>\n\n<path d=\"M250,85 L340,85\" fill=\"none\" stroke=\"#cc5500\" stroke-width=\"2\" marker-end=\"url(#arrO)\"/>\n<text x=\"265\" y=\"102\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc5500\">2 students</text>\n\n<!-- ZONE 2: SOLUTION -->\n<text x=\"30\" y=\"155\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Total Weight of Class = Weight(A) + Weight(B) + Weight(C)</text>\n<text x=\"30\" y=\"180\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Since students move only internally, Total Weight and Total Count (N) remain constant</text>\n\n<text x=\"30\" y=\"212\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = It remains the same</text>\n</svg>"
+},
+{
+"q": "The average age of a teacher and three students is 20 years. If all the three students are of same age and the difference between the age of the teacher and each student is 20 years, then what is the age of the teacher?",
+"opts": [
+"25 years",
+"30 years",
+"35 years",
+"45 years"
+],
+"correct": 2,
+"svgSol": "&lt;svg height=&quot;270&quot; style=&quot;display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;&quot; viewbox=&quot;0 0 480 270&quot; width=&quot;480&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt; &lt;defs&gt; &lt;marker id=&quot;arr&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#2255cc&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;marker id=&quot;arrG&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#007700&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;/defs&gt; &lt;!-- ZONE 1: AVERAGE BAR REPRESENTATION --&gt; &lt;!-- Baseline --&gt; &lt;line stroke=&quot;#555555&quot; stroke-width=&quot;2&quot; x1=&quot;30&quot; x2=&quot;350&quot; y1=&quot;160&quot; y2=&quot;160&quot;&gt;&lt;/line&gt; &lt;!-- Teacher Bar (35 yrs) --&gt; &lt;rect fill=&quot;#ccffcc&quot; height=&quot;105&quot; stroke=&quot;#007700&quot; stroke-width=&quot;2&quot; width=&quot;40&quot; x=&quot;50&quot; y=&quot;55&quot;&gt;&lt;/rect&gt; &lt;circle cx=&quot;70&quot; cy=&quot;45&quot; fill=&quot;#ccffcc&quot; r=&quot;10&quot; stroke=&quot;#007700&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt; &lt;text fill=&quot;#007700&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;45&quot; y=&quot;30&quot;&gt;Teacher (S+20)&lt;/text&gt; &lt;!-- Student Bars (15 yrs) --&gt; &lt;rect fill=&quot;#ddeeff&quot; height=&quot;45&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;2&quot; width=&quot;35&quot; x=&quot;120&quot; y=&quot;115&quot;&gt;&lt;/rect&gt; &lt;circle cx=&quot;137.5&quot; cy=&quot;105&quot; fill=&quot;#ddeeff&quot; r=&quot;8&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt; &lt;rect fill=&quot;#ddeeff&quot; height=&quot;45&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;2&quot; width=&quot;35&quot; x=&quot;170&quot; y=&quot;115&quot;&gt;&lt;/rect&gt; &lt;circle cx=&quot;187.5&quot; cy=&quot;105&quot; fill=&quot;#ddeeff&quot; r=&quot;8&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt; &lt;rect fill=&quot;#ddeeff&quot; height=&quot;45&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;2&quot; width=&quot;35&quot; x=&quot;220&quot; y=&quot;115&quot;&gt;&lt;/rect&gt; &lt;circle cx=&quot;237.5&quot; cy=&quot;105&quot; fill=&quot;#ddeeff&quot; r=&quot;8&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt; &lt;text fill=&quot;#2255cc&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;145&quot; y=&quot;90&quot;&gt;3 Students (S)&lt;/text&gt; &lt;!-- Average Line (20 yrs) --&gt; &lt;line stroke=&quot;#cc0000&quot; stroke-dasharray=&quot;5,3&quot; stroke-width=&quot;1.5&quot; x1=&quot;30&quot; x2=&quot;350&quot; y1=&quot;100&quot; y2=&quot;100&quot;&gt;&lt;/line&gt; &lt;text fill=&quot;#cc0000&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;355&quot; y=&quot;105&quot;&gt;Avg = 20&lt;/text&gt; &lt;!-- Difference Bracket --&gt; &lt;path d=&quot;M95,55 L105,55 M100,55 L100,115 M95,115 L105,115&quot; fill=&quot;none&quot; stroke=&quot;#555555&quot; stroke-width=&quot;1&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#555555&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;85&quot; y=&quot;88&quot;&gt;Diff = 20&lt;/text&gt; &lt;!-- ZONE 2: CALCULATION --&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;195&quot;&gt;&amp;rArr; Total Age = 4 &amp;times; 20 = 80 years&lt;/text&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;220&quot;&gt;&amp;rArr; (S + 20) + 3S = 80 &amp;rArr;&amp;nbsp;4S = 60 &amp;rArr; S = 15&lt;/text&gt; &lt;text fill=&quot;#000000&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;30&quot; y=&quot;250&quot;&gt;&amp;there4; Answer = 35 years&lt;/text&gt; &lt;/svg&gt;"
+}
+]
+},
+{
+"num": 5,
+"name": "Speed, Time & Distance",
+"tag": "Trains, boats, relative motion — CSAT ka favourite scoring zone. Ek formula se poora chapter chal jaata hai.",
+"concept": [
+"<b>Speed = Distance / Time.</b> Distance constant → Speed ∝ 1/Time.",
+"Unit conversion: km/h → m/s: × 5/18 · m/s → km/h: × 18/5.",
+"<b>Relative speed:</b> same direction → ghatao (subtract); opposite direction → jodo (add).",
+"<b>Train crossing:</b> pole/man cross karne ka time = train ki length / speed. Platform cross karte waqt (train + platform) dono ki length jodo. Do persons ko alag-alag time mein cross karna ho (same train, same direction), toh: Time₁ × RelSpeed₁ = Time₂ × RelSpeed₂ = Length of train (constant).",
+"<b>Circular track meeting/crossing (opposite direction):</b> Combined speed = sum of individual speeds (in rounds/hour). Number of times they cross = combined speed × time elapsed (in hours), rounded down to whole crossings within the given window.",
+"<b>Circular race overtaking (same direction):</b> Relative speed = difference of speeds. Number of times faster one overtakes slower = (relative distance covered) / (track length), based on total distance run during the race."
+],
+"shortcut": "Average speed (equal distance, two speeds) = 2xy/(x+y) — simple average nahi! Train ke do alag scenarios mein agar length same hai, toh Time × Speed dono jagah barabar hoga.",
+"solved": {
+"q": "The speed of a train T is 100 km per hour and the speed of a person P is 4 km per hour. T crosses P in 15 seconds, if P travels along the direction of motion of T. If P travels along the opposite direction of T, then in how much time does T cross P, in seconds, approximately?",
+"opts": "1) 13.51 &nbsp; 2) 13.65 &nbsp; 3) 13.85 &nbsp; 4) 14.05",
+"tag": "UPSC CSAT 2026",
+"diagram": "<svg width=\"500\" height=\"325\" viewBox=\"0 0 500 325\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/></marker>\n<marker id=\"arrG\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#007700\"/></marker>\n</defs>\n\n<!-- Same Direction Diagram -->\n<text x=\"20\" y=\"30\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\" font-weight=\"700\">Same Direction (T = 15s)</text>\n<rect x=\"20\" y=\"45\" width=\"120\" height=\"25\" rx=\"3\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\"/>\n<rect x=\"30\" y=\"50\" width=\"12\" height=\"8\" fill=\"#ffffff\" stroke=\"#2255cc\" stroke-width=\"1\"/>\n<rect x=\"55\" y=\"50\" width=\"12\" height=\"8\" fill=\"#ffffff\" stroke=\"#2255cc\" stroke-width=\"1\"/>\n<rect x=\"80\" y=\"50\" width=\"12\" height=\"8\" fill=\"#ffffff\" stroke=\"#2255cc\" stroke-width=\"1\"/>\n<circle cx=\"40\" cy=\"74\" r=\"4\" fill=\"#555555\"/>\n<circle cx=\"120\" cy=\"74\" r=\"4\" fill=\"#555555\"/>\n<line x1=\"145\" y1=\"57\" x2=\"185\" y2=\"57\" stroke=\"#2255cc\" stroke-width=\"2\" marker-end=\"url(#arr)\"/>\n<text x=\"148\" y=\"50\" font-family=\"Arial\" font-size=\"12\" fill=\"#2255cc\">100 km/h</text>\n\n<circle cx=\"230\" cy=\"52\" r=\"5\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<path d=\"M230 57 v12 m-4 4 l4-4 l4 4 m-8 -8 l8 0\" stroke=\"#cc5500\" stroke-width=\"1.5\" fill=\"none\"/>\n<line x1=\"240\" y1=\"62\" x2=\"270\" y2=\"62\" stroke=\"#cc5500\" stroke-width=\"2\" marker-end=\"url(#arrO)\"/>\n<text x=\"240\" y=\"55\" font-family=\"Arial\" font-size=\"12\" fill=\"#cc5500\">4 km/h</text>\n<path d=\"M140 90 Q200 100 260 90\" stroke=\"#007700\" fill=\"none\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\"/>\n<text x=\"140\" y=\"105\" font-family=\"Arial\" font-size=\"13\" fill=\"#007700\">Rel. Speed = 100 &#8722; 4 = 96 km/h</text>\n\n<!-- Opposite Direction Diagram -->\n<text x=\"20\" y=\"135\" font-family=\"Arial\" font-size=\"14\" fill=\"#555555\" font-weight=\"700\">Opposite Direction (T = ?)</text>\n<rect x=\"20\" y=\"150\" width=\"120\" height=\"25\" rx=\"3\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"1.5\"/>\n<rect x=\"30\" y=\"155\" width=\"12\" height=\"8\" fill=\"#ffffff\" stroke=\"#2255cc\" stroke-width=\"1\"/>\n<rect x=\"55\" y=\"155\" width=\"12\" height=\"8\" fill=\"#ffffff\" stroke=\"#2255cc\" stroke-width=\"1\"/>\n<rect x=\"80\" y=\"155\" width=\"12\" height=\"8\" fill=\"#ffffff\" stroke=\"#2255cc\" stroke-width=\"1\"/>\n<circle cx=\"40\" cy=\"179\" r=\"4\" fill=\"#555555\"/>\n<circle cx=\"120\" cy=\"179\" r=\"4\" fill=\"#555555\"/>\n<line x1=\"145\" y1=\"162\" x2=\"185\" y2=\"162\" stroke=\"#2255cc\" stroke-width=\"2\" marker-end=\"url(#arr)\"/>\n\n<circle cx=\"280\" cy=\"157\" r=\"5\" fill=\"#fff0cc\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<path d=\"M280 162 v12 m-4 4 l4-4 l4 4 m-8 -8 l8 0\" stroke=\"#cc5500\" stroke-width=\"1.5\" fill=\"none\"/>\n<line x1=\"270\" y1=\"167\" x2=\"240\" y2=\"167\" stroke=\"#cc5500\" stroke-width=\"2\" marker-end=\"url(#arrO)\"/>\n<path d=\"M140 195 Q200 205 260 195\" stroke=\"#007700\" fill=\"none\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\"/>\n<text x=\"140\" y=\"210\" font-family=\"Arial\" font-size=\"13\" fill=\"#007700\">Rel. Speed = 100 + 4 = 104 km/h</text>\n\n<!-- Zone 2: Solutions -->\n<text x=\"30\" y=\"240\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Speed Ratio (Same : Opp) = 96 : 104 = 12 : 13</text>\n<text x=\"30\" y=\"265\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Time Ratio (Same : Opp) = 13 : 12</text>\n<text x=\"30\" y=\"290\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Required Time = 15 &#215; (12 &#247; 13) &#8776; 13.85 s</text>\n\n<text x=\"30\" y=\"315\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 13.85 seconds</text>\n</svg>"
+},
+"practice": [
+{
+"q": "A tram overtakes 2 persons X and Y walking at an average speed of 3 km/hr and 4 km/hr in the same direction and completely passes them in 8 seconds and 9 seconds respectively. What is the length of the tram ?",
+"opts": [
+"15 m",
+"18 m",
+"20 m",
+"24 m"
+],
+"correct": 2,
+"svgSol": "<svg width=\"500\" height=\"255\" viewBox=\"0 0 500 255\" xmlns=\"http://www.w3.org/2000/svg\" style=\"display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;\">\n<defs>\n<marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#2255cc\"/></marker>\n<marker id=\"arrO\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cc5500\"/></marker>\n</defs>\n\n<!-- ZONE 1: TRAIN MECHANISM -->\n<!-- Road -->\n<line x1=\"20\" y1=\"130\" x2=\"480\" y2=\"130\" stroke=\"#555555\" stroke-width=\"2\" stroke-dasharray=\"8,4\"/>\n\n<!-- Tram -->\n<rect x=\"40\" y=\"40\" width=\"160\" height=\"45\" rx=\"4\" fill=\"#ddeeff\" stroke=\"#2255cc\" stroke-width=\"2\"/>\n<rect x=\"55\" y=\"50\" width=\"20\" height=\"15\" fill=\"#ffffff\" stroke=\"#2255cc\"/>\n<rect x=\"85\" y=\"50\" width=\"20\" height=\"15\" fill=\"#ffffff\" stroke=\"#2255cc\"/>\n<rect x=\"115\" y=\"50\" width=\"20\" height=\"15\" fill=\"#ffffff\" stroke=\"#2255cc\"/>\n<rect x=\"145\" y=\"50\" width=\"20\" height=\"15\" fill=\"#ffffff\" stroke=\"#2255cc\"/>\n<circle cx=\"65\" cy=\"90\" r=\"7\" fill=\"#555555\"/>\n<circle cx=\"175\" cy=\"90\" r=\"7\" fill=\"#555555\"/>\n<text x=\"75\" y=\"30\" font-family=\"Arial\" font-size=\"14\" fill=\"#2255cc\">Tram (Speed = v)</text>\n<path d=\"M210,65 L260,65\" stroke=\"#2255cc\" stroke-width=\"2\" marker-end=\"url(#arr)\"/>\n\n<!-- Person X -->\n<circle cx=\"300\" cy=\"110\" r=\"6\" fill=\"#ede7f6\" stroke=\"#6a1b9a\" stroke-width=\"1.5\"/>\n<path d=\"M300,116 L300,130 M300,120 L290,125 M300,120 L310,125\" stroke=\"#6a1b9a\" stroke-width=\"1.5\"/>\n<text x=\"270\" y=\"100\" font-family=\"Arial\" font-size=\"14\" fill=\"#6a1b9a\">X: 3 km/hr</text>\n<text x=\"280\" y=\"150\" font-family=\"Arial\" font-size=\"14\" fill=\"#6a1b9a\">t = 8s</text>\n<path d=\"M315,120 L345,120\" stroke=\"#6a1b9a\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n\n<!-- Person Y -->\n<circle cx=\"420\" cy=\"110\" r=\"6\" fill=\"#d9f2f2\" stroke=\"#008080\" stroke-width=\"1.5\"/>\n<path d=\"M420,116 L420,130 M420,120 L410,125 M420,120 L430,125\" stroke=\"#008080\" stroke-width=\"1.5\"/>\n<text x=\"390\" y=\"100\" font-family=\"Arial\" font-size=\"14\" fill=\"#008080\">Y: 4 km/hr</text>\n<text x=\"400\" y=\"150\" font-family=\"Arial\" font-size=\"14\" fill=\"#008080\">t = 9s</text>\n<path d=\"M435,120 L465,120\" stroke=\"#008080\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n\n<!-- Length Bracket -->\n<path d=\"M40,95 L40,105 M40,100 L200,100 M200,95 L200,105\" stroke=\"#cc5500\" stroke-width=\"1.5\"/>\n<text x=\"100\" y=\"115\" font-family=\"Arial\" font-size=\"14\" fill=\"#cc5500\" font-weight=\"700\">Length (L)</text>\n\n<!-- ZONE 2: SOLUTION -->\n<text x=\"30\" y=\"185\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Tram Speed (v) = (4 &#215; 9 &#8722; 3 &#215; 8) &#247; (9 &#8722; 8) = 12 km/hr</text>\n<text x=\"30\" y=\"210\" font-family=\"Arial\" font-size=\"14\" fill=\"#222222\">&#8658; Length = (v &#8722; 3) &#215; (5/18) &#215; 8 = (12 &#8722; 3) &#215; (5/18) &#215; 8</text>\n\n<text x=\"30\" y=\"240\" font-family=\"Arial\" font-size=\"14\" font-weight=\"700\" fill=\"#000000\">&#8756; Answer = 20 m</text>\n</svg>"
+},
+{
+"q": "P and Q walk along a circular track. They start at 5:00 a.m. from the same point in opposite directions. P walks at an average speed of 5 rounds per hour and Q walks at an average speed of 3 rounds per hour. How many times will they cross each other between 5:20 a.m. and 7:00 a.m.?",
+"opts": [
+"12",
+"13",
+"14",
+"15"
+],
+"correct": 1,
+"svgSol": "&lt;svg height=&quot;310&quot; style=&quot;display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;&quot; viewbox=&quot;0 0 500 310&quot; width=&quot;500&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt; &lt;defs&gt; &lt;marker id=&quot;arr&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#2255cc&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;marker id=&quot;arrR&quot; markerheight=&quot;6&quot; markerwidth=&quot;6&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#cc0000&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;/defs&gt; &lt;!-- ZONE 1: Mechanism Figure (Circular Track) --&gt; &lt;!-- Circular Track --&gt; &lt;circle cx=&quot;250&quot; cy=&quot;100&quot; fill=&quot;none&quot; r=&quot;70&quot; stroke=&quot;#f0f0f0&quot; stroke-width=&quot;15&quot;&gt;&lt;/circle&gt; &lt;circle cx=&quot;250&quot; cy=&quot;100&quot; fill=&quot;none&quot; r=&quot;70&quot; stroke=&quot;#555555&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt; &lt;!-- Start Point Flag --&gt; &lt;path d=&quot;M 250 30 L 250 20 L 265 15 L 250 10&quot; fill=&quot;#cc5500&quot; stroke=&quot;#cc5500&quot; stroke-width=&quot;1&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; text-anchor=&quot;middle&quot; x=&quot;170&quot; y=&quot;11&quot;&gt;Start: 5:00 AM&lt;/text&gt; &lt;!-- Person P and Arrow --&gt; &lt;g transform=&quot;translate(265,22)&quot;&gt; &lt;circle cx=&quot;0&quot; cy=&quot;0&quot; fill=&quot;#2255cc&quot; r=&quot;4&quot;&gt;&lt;/circle&gt; &lt;path d=&quot;M -3 3 L 3 3 M 0 3 L 0 8 M -3 11 L 0 8 L 3 11&quot; fill=&quot;none&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;1.2&quot;&gt;&lt;/path&gt; &lt;/g&gt; &lt;path d=&quot;M 275 35 A 60 60 0 0 1 310 90&quot; fill=&quot;none&quot; marker-end=&quot;url(#arr)&quot; stroke=&quot;#2255cc&quot; stroke-dasharray=&quot;2,1&quot; stroke-width=&quot;2&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#2255cc&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;320&quot; y=&quot;65&quot;&gt;P: 5 rnd/hr&lt;/text&gt; &lt;!-- Person Q and Arrow --&gt; &lt;g transform=&quot;translate(235,22)&quot;&gt; &lt;circle cx=&quot;0&quot; cy=&quot;0&quot; fill=&quot;#cc0000&quot; r=&quot;4&quot;&gt;&lt;/circle&gt; &lt;path d=&quot;M -3 3 L 3 3 M 0 3 L 0 8 M -3 11 L 0 8 L 3 11&quot; fill=&quot;none&quot; stroke=&quot;#cc0000&quot; stroke-width=&quot;1.2&quot;&gt;&lt;/path&gt; &lt;/g&gt; &lt;path d=&quot;M 225 35 A 60 60 0 0 0 190 90&quot; fill=&quot;none&quot; marker-end=&quot;url(#arrR)&quot; stroke=&quot;#cc0000&quot; stroke-dasharray=&quot;2,1&quot; stroke-width=&quot;2&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#cc0000&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;105&quot; y=&quot;65&quot;&gt;Q: 3 rnd/hr&lt;/text&gt; &lt;!-- Relative Speed Core Concept --&gt; &lt;text fill=&quot;#007700&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; text-anchor=&quot;middle&quot; x=&quot;50&quot; y=&quot;105&quot;&gt;Relative Speed = 5 + 3 = 8 rnd/hr&lt;/text&gt; &lt;text fill=&quot;#555555&quot; font-family=&quot;Arial&quot; font-size=&quot;12&quot; text-anchor=&quot;middle&quot; x=&quot;110&quot; y=&quot;125&quot;&gt;(Crosses every = 60/5 mins = 7.5 mins)&lt;/text&gt; &lt;!-- Timeline Indicator --&gt; &lt;line stroke=&quot;#888888&quot; stroke-width=&quot;1&quot; x1=&quot;30&quot; x2=&quot;470&quot; y1=&quot;180&quot; y2=&quot;180&quot;&gt;&lt;/line&gt; &lt;circle cx=&quot;30&quot; cy=&quot;180&quot; fill=&quot;#222222&quot; r=&quot;3&quot;&gt;&lt;/circle&gt; &lt;text font-family=&quot;Arial&quot; font-size=&quot;14&quot; text-anchor=&quot;middle&quot; x=&quot;30&quot; y=&quot;198&quot;&gt;5:00&lt;/text&gt; &lt;rect fill=&quot;#cc0000&quot; height=&quot;10&quot; width=&quot;2&quot; x=&quot;70&quot; y=&quot;175&quot;&gt;&lt;/rect&gt; &lt;text font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;75&quot; y=&quot;198&quot;&gt;5:20&lt;/text&gt; &lt;circle cx=&quot;470&quot; cy=&quot;180&quot; fill=&quot;#222222&quot; r=&quot;3&quot;&gt;&lt;/circle&gt; &lt;text font-family=&quot;Arial&quot; font-size=&quot;14&quot; text-anchor=&quot;middle&quot; x=&quot;470&quot; y=&quot;198&quot;&gt;7:00&lt;/text&gt; &lt;path d=&quot;M 75 170 Q 272.5 155 470 170&quot; fill=&quot;none&quot; stroke=&quot;#cc5500&quot; stroke-dasharray=&quot;4,2&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#cc5500&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; text-anchor=&quot;middle&quot; x=&quot;272.5&quot; y=&quot;150&quot;&gt;Interval for Crossing&lt;/text&gt; &lt;!-- ZONE 2: Solution Lines --&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;225&quot;&gt;&amp;rArr; Total Crosses (5:00 to 7:00) = 2 hr &amp;times; 8 rnd/hr = 16&lt;/text&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;250&quot;&gt;&amp;rArr; Crosses before 5:20 = 20 min &amp;divide; 7.5 min &amp;asymp; 2.66 &amp;rarr; 2 times&lt;/text&gt; &lt;text fill=&quot;#000000&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;30&quot; y=&quot;285&quot;&gt;&amp;there4; Answer = 14 times&lt;/text&gt; &lt;/svg&gt;"
+},
+{
+"q": "X and Y run a 3 km race along a circular course of length 300 m. Their speeds are in the ratio 3 : 2. If they start together in the same direction, how many times would the first one pass the other (the start-off is not counted as passing)?",
+"opts": [
+"2",
+"3",
+"4",
+"5"
+],
+"correct": 1,
+"svgSol": "&lt;svg height=&quot;270&quot; style=&quot;display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;&quot; viewbox=&quot;0 0 480 270&quot; width=&quot;480&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt; &lt;defs&gt; &lt;marker id=&quot;arr&quot; markerheight=&quot;5&quot; markerwidth=&quot;5&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#2255cc&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;marker id=&quot;arrP&quot; markerheight=&quot;5&quot; markerwidth=&quot;5&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#6a1b9a&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;marker id=&quot;arrO&quot; markerheight=&quot;5&quot; markerwidth=&quot;5&quot; orient=&quot;auto-start-reverse&quot; refx=&quot;9&quot; refy=&quot;5&quot; viewbox=&quot;0 0 10 10&quot;&gt;&lt;path d=&quot;M0,0 L10,5 L0,10 z&quot; fill=&quot;#cc5500&quot;&gt;&lt;/path&gt;&lt;/marker&gt; &lt;/defs&gt; &lt;!-- ZONE 1: Circular Track Mechanism --&gt; &lt;circle cx=&quot;240&quot; cy=&quot;75&quot; fill=&quot;none&quot; r=&quot;55&quot; stroke=&quot;#555555&quot; stroke-width=&quot;8&quot;&gt;&lt;/circle&gt; &lt;line stroke=&quot;#000000&quot; stroke-width=&quot;3&quot; x1=&quot;240&quot; x2=&quot;240&quot; y1=&quot;15&quot; y2=&quot;30&quot;&gt;&lt;/line&gt; &lt;text fill=&quot;#000000&quot; font-family=&quot;Arial&quot; font-size=&quot;12&quot; x=&quot;200&quot; y=&quot;15&quot;&gt;START&lt;/text&gt; &lt;!-- Speed Vectors --&gt; &lt;path d=&quot;M 240,20 A 55,55 0 0 1 310,45&quot; fill=&quot;none&quot; marker-end=&quot;url(#arr)&quot; stroke=&quot;#2255cc&quot; stroke-width=&quot;4&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#2255cc&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;315&quot; y=&quot;45&quot;&gt;X (Speed 3)&lt;/text&gt; &lt;path d=&quot;M 240,20 A 55,55 0 0 1 285,35&quot; fill=&quot;none&quot; marker-end=&quot;url(#arrP)&quot; stroke=&quot;#6a1b9a&quot; stroke-width=&quot;4&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#6a1b9a&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;205&quot; y=&quot;50&quot;&gt;Y (Speed 2)&lt;/text&gt; &lt;!-- Labels --&gt; &lt;text fill=&quot;#555555&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;205&quot; y=&quot;80&quot;&gt;Track: 300 m&lt;/text&gt; &lt;text fill=&quot;#cc5500&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;360&quot; y=&quot;20&quot;&gt;Race: 3000 m&lt;/text&gt; &lt;!-- Distance Brackets/Reference --&gt; &lt;path d=&quot;M 120,135 L 360,135&quot; stroke=&quot;#888888&quot; stroke-dasharray=&quot;5,3&quot; stroke-width=&quot;1&quot;&gt;&lt;/path&gt; &lt;text fill=&quot;#888888&quot; font-family=&quot;Arial&quot; font-size=&quot;12&quot; x=&quot;180&quot; y=&quot;150&quot;&gt;Relative Speed Gap = 1 unit (3 &amp;minus; 2)&lt;/text&gt; &lt;!-- ZONE 2: Solution Lines --&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;170&quot;&gt;&amp;rArr; Dist. for 1st pass = Track &amp;times; [Speed_X / (Speed_X &amp;minus; Speed_Y)]&lt;/text&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;195&quot;&gt;&amp;rArr; X covers = 300 &amp;times; [3 / (3 &amp;minus; 2)] = 900 m per pass&lt;/text&gt; &lt;text fill=&quot;#222222&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;30&quot; y=&quot;220&quot;&gt;&amp;rArr; Number of passes = 3000 &amp;divide; 900 = 3.33&lt;/text&gt; &lt;text fill=&quot;#000000&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; font-weight=&quot;700&quot; x=&quot;30&quot; y=&quot;255&quot;&gt;&amp;there4; Answer = 3 times&lt;/text&gt; &lt;/svg&gt;"
+}
+]
+},
+{
+"num": 6,
+"name": "Syllogism & Coding-Decoding",
+"tag": "Ek hi din mein do scoring reasoning topics — Venn diagram aur letter/number pattern dono crack karo.",
+"isDouble": true,
+"partA": {
+"label": "Syllogism",
+"concept": [
+"Syllogism = di gayi statements ko sach maan kar conclusions check karna. Best tool: <b>Venn diagram.</b>",
+"<b>All A are B:</b> A poora B ke andar. <b>Some A are B:</b> A aur B overlap karte hain. <b>No A is B:</b> A aur B alag circles.",
+"<b>Rule:</b> Conclusion tabhi sahi jab woh har possible diagram mein sach ho — ek bhi case fail = conclusion galat.",
+"<b>Chain rule:</b> 'All A are B' + 'All B are C' → 'All A are C' (transitive chain). Lekin 'Some A are B' + 'All B are C' → sirf 'Some A are C' follow karta hai, 'All' nahi.",
+"<b>Reversal rule:</b> 'Some A are B' ka reverse 'Some B are A' hamesha valid hai. 'No A is B' ka reverse 'No B is A' bhi valid hai. Lekin 'All A are B' ka reverse 'All B are A' zaroori nahi.",
+"<b>Least-possible-diagram rule:</b> Ek conclusion 'certainly' follow karta hai sirf jab woh HAR possible Venn diagram mein sach ho. Agar conclusion mein 'may'/'possible' word ho, toh sirf ek bhi valid diagram dhoondna kaafi hai jisme woh sach ho jaaye."
+],
+"shortcut": "Possibility wale conclusions ('Some X may be Y') tab follow karte hain jab woh kisi bhi diagram mein contradict na ho — inhe directly reject mat karo, ek valid case dhoondo. 'Certainly'/'definitely' wale conclusions tabhi follow karte hain jab woh HAR possible diagram mein true ho.",
+"solved": {
+"q": "Consider the following arguments \"In order to be a teacher one must graduate from college. All poets are poor. Some Mathematicians are poets. No college graduate is poor\" Which one of the following is not a valid conclusion regarding the above argument?",
+"opts": "1) Some Mathematicians are not teachers. &nbsp; 2) Some teachers are not Mathematicians &nbsp; 3) Teachers are not poor &nbsp; 4) Poets are not teachers.",
+"tag": "UPSC CSAT 2011",
+diagram:`<svg viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+        <ellipse cx="150" cy="120" rx="120" ry="90" fill="#e5f1f7" stroke="#2980b9" stroke-width="2"/>
+        <text x="55" y="50" text-anchor="middle" font-size="13" font-weight="700" fill="#2980b9">Graduates</text>
+        <ellipse cx="120" cy="120" rx="65" ry="45" fill="#ddeeff" stroke="#114848" stroke-width="2"/>
+        <text x="120" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#114848">Teachers</text>
+        <ellipse cx="360" cy="120" rx="120" ry="90" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+        <text x="450" y="50" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">Poor</text>
+        <ellipse cx="370" cy="130" rx="65" ry="50" fill="#fff4e8" stroke="#f5821f" stroke-width="2"/>
+        <text x="370" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#f5821f">Poets</text>
+        <ellipse cx="330" cy="150" rx="45" ry="30" fill="#eaf7f2" stroke="#1c8a5c" stroke-width="2"/>
+        <text x="300" y="185" text-anchor="middle" font-size="12" font-weight="700" fill="#1c8a5c">Mathematicians</text>
+        <text x="250" y="225" text-anchor="middle" font-size="11" fill="#6b8783">Graduates &amp; Poor never overlap (No college graduate is poor)</text>
       </svg>`,
-      sol:"Doctors∩Teachers (some) ⊂ Engineers ⊂ Scientists. So the doctor-teacher overlap is also inside Engineers and Scientists.<br>→ Some scientists are doctors (I) follows. → Some engineers are doctors (III) follows (since some teachers, who are doctors, are also engineers).<br>'All engineers are doctors' (II) is too strong — not guaranteed.",
-      final:"Answer: Both Conclusion-I and Conclusion-III"
+      sol:"'In order to be a teacher one must graduate' means All teachers are graduates. All poets are poor. Some mathematicians are poets. No college graduate is poor — so Graduates and Poor never overlap, which means Teachers can never be poor or poets.<br>1) Some Mathematicians are not teachers — True (mathematicians who are poets can never be teachers, since teachers are graduates and graduates are never poor).<br>2) Some teachers are not Mathematicians — Possible, but not a definite/certain conclusion.<br>3) Teachers are not poor — True (teachers are graduates, no graduate is poor).<br>4) Poets are not teachers — True (poets are poor, no graduate is poor, teachers are graduates).",
+      final:"Answer: Option 2 — 'Some teachers are not Mathematicians' is NOT a valid (certain) conclusion"
     },
-    practice:[
-      {q:"Every red is blue. Every blue is green. Every green is yellow. Which statements are correct — P: Every blue is yellow. Q: Every red is green. R: Every red is yellow.",
-       opts:["P and Q only","Q and R only","P and R only","P, Q and R"],
-       correct:3,
-       svgSol:`<svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-         <ellipse cx="240" cy="110" rx="195" ry="85" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/>
-         <text x="420" y="114" font-family="Arial" font-size="13" font-weight="700" fill="#cc5500">Yellow</text>
-         <ellipse cx="220" cy="115" rx="145" ry="65" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
-         <text x="348" y="119" font-family="Arial" font-size="13" font-weight="700" fill="#007700">Green</text>
-         <ellipse cx="200" cy="120" rx="100" ry="48" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-         <text x="285" y="124" font-family="Arial" font-size="13" font-weight="700" fill="#2255cc">Blue</text>
-         <ellipse cx="180" cy="123" rx="56" ry="32" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
-         <text x="180" y="127" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#cc0000">Red</text>
-         <text x="30" y="22" font-family="Arial" font-size="14" fill="#222222">Red &#8834; Blue &#8834; Green &#8834; Yellow</text>
-         <text x="30" y="196" font-family="Arial" font-size="13" fill="#222222">&#8658; P, Q, R all follow the chain</text>
-         <text x="30" y="218" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = P, Q and R (all three correct)</text>
+"practice": [
+{
+"q": "Two Statements followed by four Conclusions are given below. You have to take the Statements to be true even if they seem to be at variance from the commonly known facts. Read all the Conclusions and then decide which of the given Conclusions logically follows/ follow from the Statements, disregarding the commonly known facts : Statement-1 : All pens are books. Statement-2 : No chair is a pen. Conclusion-I : All chairs are books. Conclusion-II : Some chairs are pens. Conclusion-III : All books are chairs. Conclusion-IV : No chair is a book. Which one of the following is correct?",
+"opts": [
+"Only Conclusion-I",
+"Only Conclusion-II",
+"Both Conclusion-III and Conclusion-IV",
+"None of the Conclusions follows"
+],
+"correct": 3,
+svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+         <ellipse cx="290" cy="105" rx="150" ry="80" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
+         <text x="400" y="45" font-family="Arial" font-size="13" font-weight="700" fill="#007700">Books</text>
+         <ellipse cx="330" cy="105" rx="90" ry="50" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/>
+         <text x="330" y="110" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#cc5500">Pens</text>
+         <ellipse cx="140" cy="105" rx="90" ry="60" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
+         <text x="140" y="110" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#cc0000">Chairs</text>
+         <text x="30" y="20" font-family="Arial" font-size="13" fill="#222222">No Chair is Pen &#8658; Chairs circle avoids Pens completely</text>
+         <text x="30" y="180" font-family="Arial" font-size="12" fill="#222222">&#8658; Chairs may or may not overlap Books (outside pens) &#8658; no conclusion is certain</text>
+         <text x="30" y="200" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = None of the Conclusions follows</text>
        </svg>`},
-      {q:"Main Statement: Pradeep becomes either a Director or a Producer. Statement P: Pradeep is a Director. Q: Pradeep is a Producer. R: Pradeep is not a Director. S: Pradeep is not a Producer. Choose the ordered pair where the first implies the second, consistent with the Main Statement.",
-       opts:["SP only","RQ only","Both SP and RQ","Neither SP nor RQ"],
-       correct:2,
-       svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-         <defs><marker id="a9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#007700"/></marker></defs>
-         <rect x="140" y="20" width="200" height="36" rx="8" fill="#f0f0f0" stroke="#555555" stroke-width="1.5"/>
-         <text x="240" y="43" text-anchor="middle" font-family="Arial" font-size="13" fill="#222222">Director OR Producer</text>
-         <circle cx="100" cy="130" r="36" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
-         <text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="12" fill="#cc0000">S: NOT</text>
-         <text x="100" y="142" text-anchor="middle" font-family="Arial" font-size="12" fill="#cc0000">Producer</text>
-         <circle cx="220" cy="130" r="36" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-         <text x="220" y="125" text-anchor="middle" font-family="Arial" font-size="12" fill="#2255cc">P:</text>
-         <text x="220" y="142" text-anchor="middle" font-family="Arial" font-size="12" fill="#2255cc">Director</text>
-         <circle cx="340" cy="130" r="36" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
-         <text x="340" y="125" text-anchor="middle" font-family="Arial" font-size="12" fill="#6a1b9a">R: NOT</text>
-         <text x="340" y="142" text-anchor="middle" font-family="Arial" font-size="12" fill="#6a1b9a">Director</text>
-         <circle cx="460" cy="130" r="36" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
-         <text x="460" y="125" text-anchor="middle" font-family="Arial" font-size="12" fill="#007700">Q:</text>
-         <text x="460" y="142" text-anchor="middle" font-family="Arial" font-size="12" fill="#007700">Producer</text>
-         <line x1="138" y1="130" x2="182" y2="130" stroke="#007700" stroke-width="2" marker-end="url(#a9)"/>
-         <line x1="378" y1="130" x2="422" y2="130" stroke="#007700" stroke-width="2" marker-end="url(#a9)"/>
-         <text x="140" y="175" font-family="Arial" font-size="12" fill="#007700">S &#8658; P (SP pair)</text>
-         <text x="320" y="175" font-family="Arial" font-size="12" fill="#007700">R &#8658; Q (RQ pair)</text>
-         <text x="30" y="200" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = Both SP and RQ</text>
+{
+"q": "A Statement followed by Conclusion-I and Conclusion-II is given below. You have to take the Statement to be true even if it seems to be at variance from the commonly known facts. Read all conclusions and then decide which of the given Conclusion(s) logically follows/follows from the statement, disregarding the commonly known facts. Statement: Some radios are mobiles. All mobiles are computers. Some computers are watches. Conclusion I: Certainly some radios are watches. Conclusion II: Certainly some mobiles are watches. Which one of the following is correct?",
+"opts": [
+"Only Conclusion - I",
+"Only Conclusion - II",
+"Both Conclusion-I and Conclusion - II",
+"Neither Conclusion-I nor Conclusion - II"
+],
+"correct": 3,
+svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+         <ellipse cx="130" cy="105" rx="90" ry="55" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
+         <text x="80" y="65" font-family="Arial" font-size="13" font-weight="700" fill="#2255cc">Radios</text>
+         <ellipse cx="220" cy="105" rx="75" ry="45" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/>
+         <text x="220" y="110" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#cc5500">Mobiles</text>
+         <ellipse cx="300" cy="105" rx="110" ry="65" fill="#eaf7f2" stroke="#1c8a5c" stroke-width="2"/>
+         <text x="400" y="55" font-family="Arial" font-size="13" font-weight="700" fill="#1c8a5c">Computers</text>
+         <ellipse cx="420" cy="130" rx="55" ry="35" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
+         <text x="420" y="135" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#6a1b9a">Watches</text>
+         <text x="30" y="185" font-family="Arial" font-size="12" fill="#222222">Watches overlap Computers only, not necessarily Mobiles or Radios</text>
+         <text x="30" y="204" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = Neither Conclusion-I nor Conclusion-II</text>
        </svg>`},
-      {q:"Statements: 1. No leaves are greens. 2. All fruits are greens. 3. Some sweets are fruits.\nConclusions: I. No leaves are fruits. II. All sweets are greens. III. Some leaves can be greens.",
-       opts:["Both I and II follow","Both I and III follow","Only III follows","Only I follows"],
-       correct:3,
-       svgSol:`<svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-         <ellipse cx="300" cy="100" rx="130" ry="75" fill="#ccffcc" stroke="#007700" stroke-width="2"/>
-         <text x="410" y="104" font-family="Arial" font-size="13" font-weight="700" fill="#007700">Greens</text>
-         <ellipse cx="290" cy="105" rx="80" ry="48" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
-         <text x="290" y="109" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#2255cc">Fruits</text>
-         <ellipse cx="290" cy="120" rx="40" ry="24" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/>
-         <text x="290" y="124" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">Some Sweets</text>
-         <ellipse cx="90" cy="100" rx="65" ry="60" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
-         <text x="90" y="104" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#cc0000">Leaves</text>
-         <text x="30" y="192" font-family="Arial" font-size="13" fill="#222222">&#8658; Leaves &#8745; Greens = &#216; &#8594; Leaves &#8745; Fruits = &#216; &#8756; I follows &#10003;</text>
-         <text x="30" y="210" font-family="Arial" font-size="13" fill="#cc0000">&#8658; II: only SOME sweets are greens, not ALL &#215; &nbsp; III: contradicts stmt 1 &#215;</text>
-         <text x="30" y="228" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = Only Conclusion I follows</text>
+{
+"q": "A Statement followed by Conclusion-I and Conclusion-II is given below, You have to take the Statement to be true even if it seems to be at variance from the commonly known facts. Read all conclusions and then decide which of the given Conclusion(s) logically follows/follows from the Statement, disregarding the commonly known facts. Statement : Some cats are almirahs. Some almirahs are chairs. All chairs are tables. Conclusion-I: Certainly some almirahs are tables. Conclusion-II: Some cats may not be chairs.",
+"opts": [
+"Only Conclusion-I",
+"Only Conclusion-II",
+"Both Conclusion-I and Conclusion-II",
+"Neither Conclusion-I nor Conclusion-II"
+],
+"correct": 2,
+svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+         <ellipse cx="120" cy="105" rx="90" ry="55" fill="#ddeeff" stroke="#2255cc" stroke-width="2"/>
+         <text x="65" y="65" font-family="Arial" font-size="13" font-weight="700" fill="#2255cc">Cats</text>
+         <ellipse cx="215" cy="105" rx="80" ry="48" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/>
+         <text x="215" y="110" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#cc5500">Almirahs</text>
+         <ellipse cx="300" cy="105" rx="60" ry="35" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
+         <text x="300" y="110" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#cc0000">Chairs</text>
+         <ellipse cx="360" cy="105" rx="110" ry="65" fill="#eaf7f2" stroke="#1c8a5c" stroke-width="2"/>
+         <text x="440" y="55" font-family="Arial" font-size="13" font-weight="700" fill="#1c8a5c">Tables</text>
+         <text x="30" y="180" font-family="Arial" font-size="12" fill="#222222">Almirahs&#8745;Chairs &#8834; Tables &#8756; some almirahs are certainly tables</text>
+         <text x="30" y="198" font-family="Arial" font-size="12" fill="#222222">Cats may or may not overlap Chairs &#8756; "some cats may not be chairs" holds</text>
+         <text x="30" y="216" font-family="Arial" font-size="13" font-weight="700" fill="#000000" style="display:none"></text>
+         <text x="30" y="196" font-family="Arial" font-size="14" font-weight="700" fill="#000000" transform="translate(0,10)"></text>
        </svg>`}
     ]
   },
-  partB:{
-    label:"Coding-Decoding",
-    concept:[
-      "Coding-Decoding mein letters ya numbers ko ek fixed logic (rule) se replace kiya jaata hai — pattern pehchaan kar usi rule ko naye word par apply karo.",
-      "<b>Letter shift pattern:</b> Har letter ko alphabet mein aage ya peeche shift kiya jaata hai (+1, −1, +2, −2 etc). Pattern alternate (+1,−1,+1,−1) bhi ho sakta hai ya fixed (sab +2) bhi.",
-      "<b>Word rearrangement coding:</b> Kabhi-kabhi letters shift nahi hote, sirf unka order/arrangement badalta hai (jaise reverse, ya pehla letter aakhir mein le jaana) — pehle yeh check karo ki letters same hai ya shifted.",
-      "<b>Number coding:</b> Letters ko unki alphabet position (A=1...Z=26) mein convert karke unpar mathematical operation (sum, product, square) apply kiya jaata hai. Pattern dhoondhne ke liye chhote known examples se formula reverse-engineer karo.",
-      "Hamesha pehle diye gaye example se exact rule nikaalo (letter-by-letter ya position-by-position compare karke), fir wahi rule naye word par mechanically apply karo — guess mat karo."
-    ],
-    shortcut:"Pehle letters ka count match karo (zero added/removed?), fir each position ka shift value nikaalo. Agar shift alternate ya symmetric lage, pattern turant clear ho jaata hai.",
-    solved:{
-      q:"If ZERO is encoded as ADSN, then how do you encode STOP?",
-      opts:"1) SPOT &nbsp; 2) TSPO &nbsp; 3) TSOP &nbsp; 4) POST",
-      tag:"UPSC CSAT 2026",
-      sol:"Pattern: each letter shifts alternately +1, −1, +1, −1.<br>Z(+1)→A, E(−1)→D, R(+1)→S, O(−1)→N → ADSN ✔ matches.<br>Apply to STOP: S(+1)→T, T(−1)→S, O(+1)→P, P(−1)→O → TSPO.",
-      final:"Answer: TSPO"
+"partB": {
+"label": "Coding-Decoding",
+"concept": [
+"Coding-Decoding mein letters ya numbers ko ek fixed logic (rule) se replace kiya jaata hai — pattern pehchaan kar usi rule ko naye word par apply karo.",
+"<b>Letter shift pattern:</b> Har letter ko alphabet mein aage ya peeche shift kiya jaata hai (+1, −1, +2, −2 etc). Pattern alternate (+1,−1,+1,−1) bhi ho sakta hai ya fixed (sab +2) bhi. Alternate patterns mein odd position par ek rule aur even position par doosra rule chalta hai.",
+"<b>Decreasing-shift pattern:</b> Kabhi har letter ka shift ek-ek karke badhta jaata hai (jaise −1,−2,−3,−4…) — pehle letter se lekar aakhri letter tak shift value +1 badh jaata hai.",
+"<b>Split-and-reverse coding:</b> Kabhi word ko do barabar halves mein todkar har half ke letters ka order reverse kiya jaata hai — pura word ek saath reverse nahi hota.",
+"Hamesha pehle diye gaye example se exact rule nikaalo (letter-by-letter ya position-by-position compare karke), fir wahi rule naye word par mechanically apply karo — guess mat karo."
+],
+"shortcut": "Pehle letters ka count match karo (zero added/removed?), fir each position ka shift value nikaalo. Agar shift alternate ya position-wise badhta/ghatega lage, pattern turant clear ho jaata hai.",
+"solved": {
+"q": "In a certain code language 'MATHEMATICS' is written as 'LBSIDNZUHDR'. How is 'CHEMISTRY' written in that code language?",
+"opts": "1) DIDLHRSSX &nbsp; 2) BIDNHTSSX &nbsp; 3) BIDLHTSSX &nbsp; 4) DGFLIRUQZ",
+"tag": "UPSC CSAT 2021",
+diagram:`<svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+        <text x="280" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#114848">M A T H E M A T I C S &#8594; L B S I D N Z U H D R</text>
+        ${["M→L(-1)","A→B(+1)","T→S(-1)","H→I(+1)","E→D(-1)","M→N(+1)","A→Z(-1)","T→U(+1)","I→H(-1)","C→D(+1)","S→R(-1)"].map((t,i)=>`
+          <rect x="${20+i*48}" y="45" width="42" height="30" rx="6" fill="${i%2===0?'#fff4e8':'#eef6f4'}" stroke="${i%2===0?'#f5821f':'#114848'}" stroke-width="1.5"/>
+          <text x="${41+i*48}" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="${i%2===0?'#f5821f':'#0a2e2e'}">${t}</text>
+        `).join('')}
+        <text x="30" y="105" font-size="13" fill="#0a2e2e" font-weight="700">Rule: odd position letters −1, even position letters +1</text>
+        <text x="30" y="130" font-size="13" fill="#f5821f" font-weight="700">Apply to CHEMISTRY:</text>
+        ${["C→B(-1)","H→I(+1)","E→D(-1)","M→N(+1)","I→H(-1)","S→T(+1)","T→S(-1)","R→S(+1)","Y→X(-1)"].map((t,i)=>`
+          <rect x="${20+i*58}" y="145" width="52" height="30" rx="6" fill="${i%2===0?'#fff4e8':'#eef6f4'}" stroke="${i%2===0?'#f5821f':'#114848'}" stroke-width="1.5"/>
+          <text x="${46+i*58}" y="165" text-anchor="middle" font-size="10" font-weight="700" fill="${i%2===0?'#f5821f':'#0a2e2e'}">${t}</text>
+        `).join('')}
+      </svg>`,
+      sol:"Pattern: letters at odd positions (1st,3rd,5th,7th,9th,11th) shift −1; letters at even positions (2nd,4th,6th,8th,10th) shift +1.<br>Check: M(-1)=L, A(+1)=B, T(-1)=S, H(+1)=I, E(-1)=D, M(+1)=N, A(-1)=Z, T(+1)=U, I(-1)=H, C(+1)=D, S(-1)=R → LBSIDNZUHDR ✔<br>Apply to CHEMISTRY (9 letters): C(-1)=B, H(+1)=I, E(-1)=D, M(+1)=N, I(-1)=H, S(+1)=T, T(-1)=S, R(+1)=S, Y(-1)=X → BIDNHTSSX.",
+      final:"Answer: Option 2 — BIDNHTSSX"
     },
-    practice:[
-      {q:"If 'POT' is written as ATOP and 'TRAP' is written as APART, then how is 'ARENA' written in that code?",
-       opts:["AARENA","AANREA","AANEAR","AANERA"],
-       correct:3,
-       svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-         <defs><marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
-         ${["P","O","T"].map((l,i)=>`<circle cx="${50+i*50}" cy="55" r="20" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="${50+i*50}" y="60" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">${l}</text>`).join('')}
-         <line x1="185" y1="55" x2="215" y2="55" stroke="#555" stroke-width="2" marker-end="url(#b1)"/>
-         ${["A","T","O","P"].map((l,i)=>`<circle cx="${240+i*50}" cy="55" r="20" fill="${l==='A'?'#fff0cc':'#f0f0f0'}" stroke="${l==='A'?'#cc5500':'#555'}" stroke-width="${l==='A'?2:1.5}"/><text x="${240+i*50}" y="60" text-anchor="middle" font-family="Arial" font-size="14" fill="${l==='A'?'#cc5500':'#333'}">${l}</text>`).join('')}
-         <text x="240" y="42" font-family="Arial" font-size="11" fill="#cc5500">First vowel 'A' prepended</text>
-
-         ${["T","R","A","P"].map((l,i)=>`<circle cx="${50+i*50}" cy="130" r="20" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="${50+i*50}" y="135" text-anchor="middle" font-family="Arial" font-size="14" fill="#2255cc">${l}</text>`).join('')}
-         <line x1="225" y1="130" x2="255" y2="130" stroke="#555" stroke-width="2" marker-end="url(#b1)"/>
-         ${["A","P","A","R","T"].map((l,i)=>`<circle cx="${270+i*40}" cy="130" r="18" fill="${i===0||i===2?'#fff0cc':'#f0f0f0'}" stroke="${i===0||i===2?'#cc5500':'#555'}" stroke-width="${i===0||i===2?2:1.5}"/><text x="${270+i*40}" y="135" text-anchor="middle" font-family="Arial" font-size="13" fill="${i===0||i===2?'#cc5500':'#333'}">${l}</text>`).join('')}
-
-         <text x="30" y="172" font-family="Arial" font-size="13" fill="#222222">ARENA: vowels A,E,A extracted &#8594; pattern &#8658; A,A,N,E,R,A</text>
-         <text x="30" y="194" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = AANERA</text>
+"practice": [
+{
+"q": "If LSJXVC is the code for MUMBAI, the code for DELHI is",
+"opts": [
+"CCIDD",
+"CDKGH",
+"CCJFG",
+"CCIFE"
+],
+"correct": 0,
+svgSol:`<svg viewBox="0 0 480 190" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+         <defs><marker id="d1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+         ${["M","U","M","B","A","I"].map((l,i)=>`<circle cx="${45+i*68}" cy="45" r="18" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="${45+i*68}" y="50" text-anchor="middle" font-family="Arial" font-size="13" fill="#2255cc">${l}</text>`).join('')}
+         ${["L","S","J","X","V","C"].map((l,i)=>`<circle cx="${45+i*68}" cy="105" r="18" fill="#fff0cc" stroke="#cc5500" stroke-width="1.5"/><text x="${45+i*68}" y="110" text-anchor="middle" font-family="Arial" font-size="13" fill="#cc5500">${l}</text>`).join('')}
+         ${[0,1,2,3,4,5].map(i=>`<line x1="${45+i*68}" y1="63" x2="${45+i*68}" y2="87" stroke="#555" stroke-width="1.5" marker-end="url(#d1)"/><text x="${52+i*68}" y="78" font-family="Arial" font-size="9" fill="#555">-${i+1}</text>`).join('')}
+         <text x="30" y="150" font-family="Arial" font-size="13" fill="#222222">Shift increases by 1 each letter: -1,-2,-3,-4,-5,-6</text>
+         <text x="30" y="172" font-family="Arial" font-size="13" fill="#222222">DELHI &#8594; D(-1)=C, E(-2)=C, L(-3)=I, H(-4)=D, I(-5)=D</text>
        </svg>`},
-      {q:"If 'ABCD' is written as 24 and 'EFGH' is written as 1680, then how is 'IJKL' written in that code?",
-       opts:["11880","11240","7920","5940"],
-       correct:0,
-       svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-         <text x="30" y="28" font-family="Arial" font-size="14" fill="#222222">Pattern: Code = product of alphabet positions</text>
-         ${[["A=1","B=2","C=3","D=4","= 1&#215;2&#215;3&#215;4 =","24"],["E=5","F=6","G=7","H=8","= 5&#215;6&#215;7&#215;8 =","1680"],["I=9","J=10","K=11","L=12","= 9&#215;10&#215;11&#215;12 =","11880"]].map((r,ri)=>{
-           const y=62+ri*50; const fill=ri===2?'#cc5500':'#2255cc'; const bg=ri===2?'#fff0cc':'#ddeeff'; const st=ri===2?'#cc5500':'#2255cc';
-           return `<rect x="30" y="${y-20}" width="380" height="34" rx="6" fill="${bg}" stroke="${st}" stroke-width="1.5"/>
-           <text x="220" y="${y}" text-anchor="middle" font-family="Arial" font-size="13" fill="${fill}">${r[0]}, ${r[1]}, ${r[2]}, ${r[3]}  ${r[4]} <tspan font-weight="700">${r[5]}</tspan></text>`;
-         }).join('')}
-         <text x="30" y="192" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 11880</text>
+{
+"q": "A military code writes SYSTEM as SYSMET and NEARER as AENRER. Using the same code, FRACTION can be written as:",
+"opts": [
+"CARFTION",
+"FRACNOIT",
+"NOITCARF",
+"CARFNOIT"
+],
+"correct": 3,
+svgSol:`<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+         <text x="30" y="26" font-family="Arial" font-size="13" fill="#222222">Rule: split word into two equal halves, reverse letters within each half</text>
+         <rect x="30" y="40" width="90" height="34" rx="6" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="75" y="62" text-anchor="middle" font-family="Arial" font-size="13" fill="#2255cc">SYS</text>
+         <rect x="130" y="40" width="90" height="34" rx="6" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/><text x="175" y="62" text-anchor="middle" font-family="Arial" font-size="13" fill="#6a1b9a">TEM</text>
+         <text x="240" y="62" font-family="Arial" font-size="14" fill="#555">&#8594;</text>
+         <rect x="260" y="40" width="90" height="34" rx="6" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="305" y="62" text-anchor="middle" font-family="Arial" font-size="13" fill="#2255cc">SYS</text>
+         <rect x="360" y="40" width="90" height="34" rx="6" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/><text x="405" y="62" text-anchor="middle" font-family="Arial" font-size="13" fill="#6a1b9a">MET</text>
+         <text x="30" y="105" font-family="Arial" font-size="13" fill="#222222">FRACTION (8 letters) &#8594; split FRAC | TION</text>
+         <rect x="30" y="120" width="90" height="34" rx="6" fill="#ccffcc" stroke="#007700" stroke-width="1.5"/><text x="75" y="142" text-anchor="middle" font-family="Arial" font-size="13" fill="#007700">FRAC &#8594; CARF</text>
+         <rect x="130" y="120" width="100" height="34" rx="6" fill="#fff0cc" stroke="#cc5500" stroke-width="1.5"/><text x="180" y="142" text-anchor="middle" font-family="Arial" font-size="13" fill="#cc5500">TION &#8594; NOIT</text>
+         <text x="30" y="185" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = CARFNOIT</text>
        </svg>`},
-      {q:"If 'ZERO' is written as 'CHUR', then how is 'PLAYER' written?",
-       opts:["SOCACT","SODBGT","SODBHT","SODBHU"],
-       correct:3,
-       svgSol:`<svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-         <text x="30" y="26" font-family="Arial" font-size="14" fill="#222222">Pattern: each letter shifts forward by +3</text>
-         ${["Z","E","R","O"].map((l,i)=>`
-           <circle cx="${60+i*80}" cy="80" r="24" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
-           <text x="${60+i*80}" y="85" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#cc0000">${l}</text>
-           <text x="${60+i*80}" y="118" text-anchor="middle" font-family="Arial" font-size="11" fill="#555555">+3</text>
-           ${["C","H","U","R"].map((c,ci)=> ci===i ? `<circle cx="${60+i*80}" cy="140" r="24" fill="#ccffcc" stroke="#007700" stroke-width="2"/><text x="${60+i*80}" y="145" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#007700">${c}</text>` : '').join('')}
-         `).join('')}
-         <text x="30" y="178" font-family="Arial" font-size="13" fill="#222222">PLAYER: P&#8594;S, L&#8594;O, A&#8594;D, Y&#8594;B, E&#8594;H, R&#8594;U</text>
-         <text x="30" y="200" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = SODBHU</text>
+{
+"q": "In a certain code, '256' means 'red colour chalk', '589' means 'green colour flower' and '254' means 'white colour chalk'. The digit in the code that indicates 'white' is",
+"opts": [
+"2",
+"4",
+"5",
+"8"
+],
+"correct": 1,
+svgSol:`<svg viewBox="0 0 480 190" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+         <text x="30" y="24" font-family="Arial" font-size="13" fill="#222222" font-weight="700">red colour chalk = 2 5 6</text>
+         <text x="30" y="50" font-family="Arial" font-size="13" fill="#222222" font-weight="700">green colour flower = 5 8 9</text>
+         <text x="30" y="76" font-family="Arial" font-size="13" fill="#222222" font-weight="700">white colour chalk = 2 5 4</text>
+         <rect x="30" y="95" width="100" height="30" rx="6" fill="#ddeeff" stroke="#2255cc" stroke-width="1.5"/><text x="80" y="115" text-anchor="middle" font-family="Arial" font-size="12" fill="#2255cc">colour = 5</text>
+         <rect x="140" y="95" width="100" height="30" rx="6" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/><text x="190" y="115" text-anchor="middle" font-family="Arial" font-size="12" fill="#6a1b9a">chalk = 2</text>
+         <rect x="250" y="95" width="100" height="30" rx="6" fill="#fff0cc" stroke="#cc5500" stroke-width="2"/><text x="300" y="115" text-anchor="middle" font-family="Arial" font-size="12" fill="#cc5500">white = 4</text>
+         <rect x="360" y="95" width="100" height="30" rx="6" fill="#ccffcc" stroke="#007700" stroke-width="1.5"/><text x="410" y="115" text-anchor="middle" font-family="Arial" font-size="12" fill="#007700">red = 6</text>
+         <text x="30" y="160" font-family="Arial" font-size="13" fill="#222222">"chalk" &amp; "colour" common in red/white &#8658; 2 &amp; 5. Unique digit for white = 4</text>
+         <text x="30" y="182" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 4</text>
        </svg>`}
     ]
   }
 },
 {
-  num:7, name:"Direction & Distance", tag:"Ek rough diagram banao aur sawaal khud solve ho jaata hai — CSAT mein guaranteed easy marks.",
-  concept:[
-    "4 main directions: North (upar), South (neeche), East (dayein), West (bayein).",
-    "<b>Right turn</b> = clockwise (N→E→S→W); <b>Left turn</b> = anticlockwise (N→W→S→E).",
-    "<b>Shortest distance</b> jab path mein 90° turn ho → Pythagoras: √(net horizontal² + net vertical²). Sabhi horizontal moves ko jodo/ghatao alag se, sabhi vertical moves ko alag se, fir Pythagoras lagao.",
-    "<b>Multiple-turn paths:</b> Har turn ke baad current facing direction track karo (N→E→S→W cycle for right turns). Final answer ke liye sirf net displacement (start se end tak straight-line) chahiye, poora path-length nahi.",
-    "<b>Two-person relative position:</b> Jab do log alag-alag turns lekar chalte hain, dono ke final coordinates (x,y) alag-alag nikaalo (ek common starting point se), fir unke beech ki Euclidean distance nikaalo.",
-    "<b>Road-network distance:</b> Jab fixed roads diye ho (jaise AB, BC, CD), toh sirf available connected roads ka actual path use karo — seedha shortest-distance Pythagoras nahi, balki diye gaye roads ki length jodo jo route mein aate hain."
-  ],
-  shortcut:"Hamesha North ko upar maan kar paper par diagram banao. Sunrise = East, sunset = West — shadow problems mein direction yahi se pakdo. Shadow hamesha sun ke opposite side padta hai.",
-  solved:{
-    q:"A person facing East travels 4 km straight, then turns right and travels 3 km, then turns left and travels 2 km, then turns left and travels 3 km. What is the minimum distance between the final and initial point, and which direction does the person face at the end?",
-    opts:"1) 12 km, East &nbsp; 2) 6 km, East &nbsp; 3) 8 km, North &nbsp; 4) 6 km, North",
-    tag:"UPSC CSAT 2018",
-    diagram:`<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
-      <line x1="200" y1="20" x2="200" y2="260" stroke="#cfd8d5" stroke-width="1" stroke-dasharray="4 3"/>
-      <line x1="20" y1="80" x2="400" y2="80" stroke="#cfd8d5" stroke-width="1" stroke-dasharray="4 3"/>
-      <line x1="195" y1="14" x2="200" y2="20" stroke="#6b8783"/>
-      <polygon points="200,8 195,18 205,18" fill="#6b8783"/>
-      <text x="200" y="0" text-anchor="middle" font-size="11" fill="#6b8783" dy="8">North</text>
-      <text x="200" y="270" text-anchor="middle" font-size="11" fill="#6b8783">South</text>
-      <text x="14" y="84" text-anchor="start" font-size="11" fill="#6b8783">West</text>
-      <text x="406" y="84" text-anchor="end" font-size="11" fill="#6b8783">East</text>
+"num": 7,
+"name": "Direction & Distance",
+"tag": "Ek rough diagram banao aur sawaal khud solve ho jaata hai — CSAT mein guaranteed easy marks.",
+"concept": [
+"4 main directions: North (upar), South (neeche), East (dayein), West (bayein).",
+"<b>Right turn</b> = clockwise (N→E→S→W); <b>Left turn</b> = anticlockwise (N→W→S→E).",
+"<b>Shortest distance</b> jab path mein 90° turn ho → Pythagoras: √(net horizontal² + net vertical²). Sabhi horizontal moves ko jodo/ghatao alag se, sabhi vertical moves ko alag se, fir Pythagoras lagao.",
+"<b>Multiple-turn paths:</b> Har turn ke baad current facing direction track karo (N→E→S→W cycle for right turns). Final answer ke liye sirf net displacement (start se end tak straight-line) chahiye, poora path-length nahi.",
+"<b>Two-person relative position:</b> Jab do log alag-alag turns lekar chalte hain, dono ke final coordinates (x,y) alag-alag nikaalo (ek common starting point se), fir unke beech ki Euclidean distance nikaalo.",
+"<b>House/road-facing logic:</b> Agar ek ghar East face karta hai, toh uska backside West face karega. Isi tarah do ghar road ke opposite side par ho toh unki facing directions bhi opposite hoti hain — pehle yeh set karo, fir turns follow karo."
+],
+"shortcut": "Hamesha North ko upar maan kar paper par diagram banao. Jab North-South ki dooriyan cancel ho jaayein (jitna North utna hi South), toh sirf East-West wala net displacement hi final answer banata hai — Pythagoras lagane ki zaroorat nahi padti agar ek axis pe displacement zero ho jaaye.",
+"solved": {
+"q": "A man walks down from the backside of his house straight 25 metres, then turns to the right and walks 50 metres again; then he turns towards left and again walks 25 metres. If his house faces to the East, what is his direction from the starting point?",
+"opts": "1) South-East &nbsp; 2) South-West &nbsp; 3) North-East &nbsp; 4) North-West",
+"tag": "UPSC CSAT 2020",
+diagram:`<svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+      <line x1="210" y1="20" x2="210" y2="240" stroke="#cfd8d5" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="20" y1="150" x2="400" y2="150" stroke="#cfd8d5" stroke-width="1" stroke-dasharray="4 3"/>
+      <polygon points="210,8 205,18 215,18" fill="#6b8783"/>
+      <text x="210" y="0" text-anchor="middle" font-size="11" fill="#6b8783" dy="8">North</text>
+      <text x="210" y="252" text-anchor="middle" font-size="11" fill="#6b8783">South</text>
+      <text x="16" y="154" text-anchor="start" font-size="11" fill="#6b8783">West</text>
+      <text x="404" y="154" text-anchor="end" font-size="11" fill="#6b8783">East</text>
 
-      <circle cx="80" cy="80" r="4" fill="#0a2e2e"/>
-      <text x="80" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#0a2e2e">S</text>
-      <line x1="84" y1="80" x2="196" y2="80" stroke="#1c8a5c" stroke-width="3" marker-end="url(#a1)"/>
-      <text x="140" y="70" text-anchor="middle" font-size="11.5" fill="#1c8a5c" font-weight="700">4 km</text>
+      <rect x="195" y="140" width="30" height="20" fill="#eef6f4" stroke="#114848" stroke-width="1.5"/>
+      <text x="210" y="175" text-anchor="middle" font-size="10" fill="#0a2e2e">House (faces East)</text>
 
-      <circle cx="200" cy="80" r="4" fill="#0a2e2e"/>
-      <text x="208" y="68" text-anchor="start" font-size="12" font-weight="700" fill="#0a2e2e">P</text>
-      <line x1="200" y1="84" x2="200" y2="166" stroke="#f5821f" stroke-width="3" marker-end="url(#a2)"/>
-      <text x="225" y="128" text-anchor="middle" font-size="11.5" fill="#f5821f" font-weight="700">3 km</text>
+      <line x1="195" y1="150" x2="155" y2="150" stroke="#1c8a5c" stroke-width="3" marker-end="url(#e1)"/>
+      <text x="175" y="140" text-anchor="middle" font-size="11" fill="#1c8a5c" font-weight="700">25 m (West, back of house)</text>
 
-      <circle cx="200" cy="170" r="4" fill="#0a2e2e"/>
-      <line x1="204" y1="170" x2="266" y2="170" stroke="#2980b9" stroke-width="3" marker-end="url(#a3)"/>
-      <text x="235" y="160" text-anchor="middle" font-size="11.5" fill="#2980b9" font-weight="700">2 km</text>
+      <line x1="155" y1="146" x2="155" y2="70" stroke="#f5821f" stroke-width="3" marker-end="url(#e2)"/>
+      <text x="120" y="105" text-anchor="middle" font-size="11" fill="#f5821f" font-weight="700">50 m (right turn = North)</text>
 
-      <circle cx="270" cy="170" r="4" fill="#0a2e2e"/>
-      <line x1="270" y1="166" x2="270" y2="84" stroke="#c0392b" stroke-width="3" marker-end="url(#a4)"/>
-      <text x="290" y="128" text-anchor="middle" font-size="11.5" fill="#c0392b" font-weight="700">3 km</text>
+      <line x1="151" y1="70" x2="105" y2="70" stroke="#c0392b" stroke-width="3" marker-end="url(#e3)"/>
+      <text x="90" y="60" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700">25 m (left turn = West)</text>
 
-      <circle cx="270" cy="80" r="5" fill="#fff" stroke="#0a2e2e" stroke-width="2"/>
-      <text x="280" y="68" text-anchor="start" font-size="12" font-weight="700" fill="#0a2e2e">E (End)</text>
+      <circle cx="105" cy="70" r="5" fill="#fff" stroke="#0a2e2e" stroke-width="2"/>
+      <text x="70" y="60" text-anchor="start" font-size="12" font-weight="700" fill="#0a2e2e">End</text>
 
-      <line x1="80" y1="80" x2="270" y2="80" stroke="#6b8783" stroke-width="1.5" stroke-dasharray="3 3"/>
-      <text x="175" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#6b8783">Net distance S→E = 6 km (4+2)</text>
+      <line x1="210" y1="150" x2="105" y2="70" stroke="#6b8783" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <text x="140" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="#6b8783">Net: 50 m West, 50 m North &#8658; North-West</text>
 
       <defs>
-        <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1c8a5c"/></marker>
-        <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f5821f"/></marker>
-        <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2980b9"/></marker>
-        <marker id="a4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/></marker>
+        <marker id="e1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1c8a5c"/></marker>
+        <marker id="e2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f5821f"/></marker>
+        <marker id="e3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/></marker>
       </defs>
     </svg>`,
-    sol:"Start facing East. Travel 4 km East. Turn right (now facing South), travel 3 km South. Turn left (now facing East), travel 2 km East. Turn left (now facing North), travel 3 km North.<br>Net horizontal (East) = 4+2 = 6 km. Net vertical = −3+3 = 0 km. Distance = √(6²+0²) = 6 km. Final facing = North.",
-    final:"Answer: 6 km, North"
+    sol:"House faces East, so its backside faces West. Man starts walking 25 m West (backside direction).<br>He turns right — facing West, a right turn points to North — and walks 50 m North.<br>He turns left — facing North, a left turn points to West — and walks 25 m West.<br>Net displacement: West = 25+25 = 50 m, North = 50 m. Since West and North combine, the final direction from the starting point is North-West.",
+    final:"Answer: North-West"
   },
-  practice:[
-    {q:"A person walks 100 m straight from his house, turns left and walks 100 m, again turns left and walks 300 m, then turns right and walks 100 m to reach his office. In which direction does he walk initially from his house if his office is exactly in the North-East direction?",
-     opts:["North-West","West","South","South-West"],
-     correct:3,
-     svgSol:`<svg viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs>
-         <marker id="c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2255cc"/></marker>
-         <marker id="c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cc5500"/></marker>
-       </defs>
-       <text x="240" y="16" text-anchor="middle" font-family="Arial" font-size="11" fill="#888">N</text>
-       <line x1="240" y1="20" x2="240" y2="240" stroke="#ddd" stroke-width="1" stroke-dasharray="4,3"/>
-       <line x1="30" y1="180" x2="450" y2="180" stroke="#ddd" stroke-width="1" stroke-dasharray="4,3"/>
-       <circle cx="130" cy="180" r="5" fill="#0a2e2e"/>
-       <text x="118" y="196" font-family="Arial" font-size="11" fill="#0a2e2e">House</text>
-       <line x1="130" y1="180" x2="130" y2="130" stroke="#2255cc" stroke-width="2.5" marker-end="url(#c1)"/>
-       <text x="136" y="155" font-family="Arial" font-size="10" fill="#2255cc">100m (SW)</text>
-       <line x1="130" y1="130" x2="80" y2="130" stroke="#007700" stroke-width="2.5" marker-end="url(#c1)"/>
-       <text x="90" y="122" font-family="Arial" font-size="10" fill="#007700">100m</text>
-       <line x1="80" y1="130" x2="80" y2="210" stroke="#cc5500" stroke-width="2.5" marker-end="url(#c2)"/>
-       <text x="46" y="175" font-family="Arial" font-size="10" fill="#cc5500">300m</text>
-       <line x1="80" y1="210" x2="130" y2="210" stroke="#6a1b9a" stroke-width="2.5" marker-end="url(#c1)"/>
-       <text x="95" y="225" font-family="Arial" font-size="10" fill="#6a1b9a">100m</text>
-       <circle cx="130" cy="210" r="5" fill="#cc0000"/>
-       <text x="140" y="220" font-family="Arial" font-size="11" fill="#cc0000">Office</text>
-       <line x1="130" y1="180" x2="130" y2="210" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
-       <text x="310" y="110" font-family="Arial" font-size="13" fill="#222222">Working backward:</text>
-       <text x="310" y="130" font-family="Arial" font-size="12" fill="#555">If office is NE of house,</text>
-       <text x="310" y="148" font-family="Arial" font-size="12" fill="#555">initial direction must be</text>
-       <text x="310" y="166" font-family="Arial" font-size="14" font-weight="700" fill="#cc5500">South-West</text>
-       <text x="30" y="244" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = South-West</text>
+"practice": [
+{
+"q": "'A' started from his house and walked 20 m towards East, where his friend 'B' joined him. They together walked 10 m in the same direction. Then 'A' turned left while 'B' turned right and travelled 2 m and 8 m respectively. Again 'B' turned left to travel 4 m fllowed by 5 m to his right to reach his office.o 'A' turned right and travelled 12 m to reach his office. What is the shortest distance between the two offices?",
+"opts": [
+"15 m",
+"17 m",
+"19 m",
+"20 m"
+],
+"correct": 1,
+svgSol:`<svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+       <defs><marker id="f1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2255cc"/></marker></defs>
+       <circle cx="40" cy="60" r="5" fill="#0a2e2e"/><text x="20" y="48" font-family="Arial" font-size="10" fill="#0a2e2e">A's House</text>
+       <line x1="45" y1="60" x2="270" y2="60" stroke="#2255cc" stroke-width="2.5" marker-end="url(#f1)"/>
+       <text x="150" y="50" text-anchor="middle" font-family="Arial" font-size="11" fill="#2255cc">A &amp; B walk 20m + 10m East together</text>
+       <circle cx="270" cy="60" r="5" fill="#0a2e2e"/><text x="270" y="48" text-anchor="middle" font-family="Arial" font-size="10" fill="#0a2e2e">Split point</text>
+       <line x1="270" y1="55" x2="270" y2="30" stroke="#007700" stroke-width="2.5" marker-end="url(#f1)"/>
+       <text x="280" y="40" font-family="Arial" font-size="10" fill="#007700">A: left 2m (N)</text>
+       <line x1="270" y1="27" x2="382" y2="27" stroke="#007700" stroke-width="2.5" marker-end="url(#f1)"/>
+       <text x="330" y="18" text-anchor="middle" font-family="Arial" font-size="10" fill="#007700">A: right 12m (E)</text>
+       <circle cx="382" cy="27" r="5" fill="#007700"/><text x="392" y="20" font-family="Arial" font-size="10" fill="#007700">A's office</text>
+       <line x1="270" y1="65" x2="270" y2="130" stroke="#cc0000" stroke-width="2.5" marker-end="url(#f1)"/>
+       <text x="290" y="100" font-family="Arial" font-size="10" fill="#cc0000">B: right 8m (S)</text>
+       <line x1="266" y1="130" x2="230" y2="130" stroke="#cc0000" stroke-width="2.5" marker-end="url(#f1)"/>
+       <text x="200" y="145" font-family="Arial" font-size="10" fill="#cc0000">B: left 4m (E&#8594;S turn)</text>
+       <line x1="230" y1="134" x2="230" y2="175" stroke="#cc0000" stroke-width="2.5" marker-end="url(#f1)"/>
+       <text x="240" y="158" font-family="Arial" font-size="10" fill="#cc0000">5m</text>
+       <circle cx="230" cy="175" r="5" fill="#cc0000"/><text x="240" y="188" font-family="Arial" font-size="10" fill="#cc0000">B's office</text>
+       <line x1="382" y1="27" x2="230" y2="175" stroke="#555555" stroke-width="1.5" stroke-dasharray="4,3"/>
+       <text x="30" y="212" font-family="Arial" font-size="13" fill="#222222">&#8658; Right-triangle legs: base 15 m, height 8 m</text>
+       <text x="30" y="228" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Distance = &#8730;(15&#178;+8&#178;) = &#8730;289 = 17 m</text>
      </svg>`},
-    {q:"Two friends X and Y run together for 50 m in the same direction. X turns right and runs 60 m, while Y turns left and runs 40 m. Then X turns left and runs 50 m and stops, Y turns right and runs 50 m and stops. How far are the two friends from each other now?",
-     opts:["100 m","90 m","60 m","50 m"],
-     correct:0,
-     svgSol:`<svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs>
-         <marker id="c3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2255cc"/></marker>
-         <marker id="c4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cc0000"/></marker>
-       </defs>
-       <circle cx="240" cy="40" r="5" fill="#555"/><text x="240" y="30" text-anchor="middle" font-family="Arial" font-size="11" fill="#555">Start</text>
-       <line x1="240" y1="45" x2="240" y2="95" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
-       <text x="250" y="72" font-family="Arial" font-size="10" fill="#888">50m (both)</text>
-       <circle cx="240" cy="100" r="4" fill="#555"/>
-       <text x="248" y="100" font-family="Arial" font-size="10" fill="#555">Split point</text>
-       <line x1="240" y1="104" x2="330" y2="104" stroke="#2255cc" stroke-width="2" marker-end="url(#c3)"/>
-       <text x="285" y="96" font-family="Arial" font-size="10" fill="#2255cc">X right 60m</text>
-       <line x1="330" y1="108" x2="330" y2="158" stroke="#2255cc" stroke-width="2" marker-end="url(#c3)"/>
-       <text x="338" y="138" font-family="Arial" font-size="10" fill="#2255cc">X left 50m</text>
-       <circle cx="330" cy="162" r="6" fill="#2255cc"/><text x="340" y="175" font-family="Arial" font-size="11" fill="#2255cc">X stops</text>
-       <line x1="240" y1="104" x2="150" y2="104" stroke="#cc0000" stroke-width="2" marker-end="url(#c4)"/>
-       <text x="185" y="96" font-family="Arial" font-size="10" fill="#cc0000">Y left 40m</text>
-       <line x1="150" y1="108" x2="150" y2="158" stroke="#cc0000" stroke-width="2" marker-end="url(#c4)"/>
-       <text x="114" y="138" font-family="Arial" font-size="10" fill="#cc0000">Y right 50m</text>
-       <circle cx="150" cy="162" r="6" fill="#cc0000"/><text x="100" y="175" font-family="Arial" font-size="11" fill="#cc0000">Y stops</text>
-       <line x1="150" y1="162" x2="330" y2="162" stroke="#007700" stroke-width="2" stroke-dasharray="5,3"/>
-       <text x="240" y="185" text-anchor="middle" font-family="Arial" font-size="12" fill="#007700">Distance = 60+40 = 100 m</text>
-       <text x="30" y="218" font-family="Arial" font-size="14" fill="#222222">&#8658; X is at (+60,+50) and Y is at (&#8722;40,+50) from split point</text>
-       <text x="30" y="238" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 100 m</text>
+{
+"q": "A bank employee drives 10 km towards South from her house and turns to her left and drives another 20 km. She again turns left and drives 40 km, then she turns to her right and drives for another 5 km. She again turns to her right and drives another 30 km to reach her bank where she works. What is the shortest distance between her bank and her house ?",
+"opts": [
+"20 km",
+"25 km",
+"30 km",
+"35 km"
+],
+"correct": 1,
+svgSol:`<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+       <defs><marker id="f2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2255cc"/></marker></defs>
+       <circle cx="60" cy="180" r="5" fill="#0a2e2e"/><text x="30" y="196" font-family="Arial" font-size="10" fill="#0a2e2e">House</text>
+       <line x1="60" y1="175" x2="60" y2="150" stroke="#2255cc" stroke-width="2.5" marker-end="url(#f2)"/>
+       <text x="30" y="163" font-family="Arial" font-size="10" fill="#2255cc">10km S</text>
+       <line x1="60" y1="150" x2="60" y2="150" stroke="none"/>
+       <line x1="60" y1="180" x2="60" y2="150" stroke="none"/>
+       <line x1="65" y1="150" x2="200" y2="150" stroke="#2255cc" stroke-width="2.5" marker-end="url(#f2)"/>
+       <text x="130" y="140" text-anchor="middle" font-family="Arial" font-size="10" fill="#2255cc">20km E (left turn)</text>
+       <line x1="200" y1="146" x2="200" y2="40" stroke="#007700" stroke-width="2.5" marker-end="url(#f2)"/>
+       <text x="215" y="95" font-family="Arial" font-size="10" fill="#007700">40km N (left turn)</text>
+       <line x1="200" y1="37" x2="300" y2="37" stroke="#cc5500" stroke-width="2.5" marker-end="url(#f2)"/>
+       <text x="250" y="28" text-anchor="middle" font-family="Arial" font-size="10" fill="#cc5500">5km E (right turn)</text>
+       <line x1="300" y1="42" x2="300" y2="180" stroke="#cc0000" stroke-width="2.5" marker-end="url(#f2)"/>
+       <text x="315" y="115" font-family="Arial" font-size="10" fill="#cc0000">30km S (right turn)</text>
+       <circle cx="300" cy="180" r="5" fill="#cc0000"/><text x="310" y="196" font-family="Arial" font-size="10" fill="#cc0000">Bank</text>
+       <text x="30" y="15" font-family="Arial" font-size="13" fill="#222222">&#8658; South total = 10+30 = 40; North total = 40 &#8594; cancel out</text>
+       <text x="30" y="212" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Net East = 20+5 = 25 km &#8756; Answer = 25 km</text>
      </svg>`},
-    {q:"7 places A–G connected by roads AB, AC, CD, DE, BF, EG, FG. A is 6 km south of B. A is 10 km west of C. D is 5 km east of E. C is 6 km north of D. F is 9 km west of B. F is 12 km north of G. A person travels from D to F through these roads. What is the distance covered?",
-     opts:["20 km","25 km","31 km","37 km"],
-     correct:2,
-     svgSol:`<svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
-       <defs><marker id="c5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cc5500"/></marker></defs>
-       ${[["D",280,190],["C",280,120],["A",160,190],["B",160,120],["F",60,120],["E",370,190],["G",60,220]].map(([n,x,y])=>
-         `<circle cx="${x}" cy="${y}" r="16" fill="${['D','C','A','B','F'].includes(n)?'#fff0cc':'#f0f0f0'}" stroke="${['D','C','A','B','F'].includes(n)?'#cc5500':'#888'}" stroke-width="2"/>
-          <text x="${x}" y="${y+5}" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="${['D','C','A','B','F'].includes(n)?'#cc5500':'#888'}">${n}</text>`
-       ).join('')}
-       <line x1="280" y1="174" x2="280" y2="136" stroke="#cc5500" stroke-width="3" marker-end="url(#c5)"/>
-       <text x="292" y="158" font-family="Arial" font-size="11" fill="#cc5500">6 km</text>
-       <line x1="264" y1="120" x2="176" y2="120" stroke="#cc5500" stroke-width="3" marker-end="url(#c5)"/>
-       <text x="215" y="112" font-family="Arial" font-size="11" fill="#cc5500">10 km→wait: C is E of A, so A&#8592;</text>
-       <line x1="160" y1="136" x2="160" y2="174" stroke="#cc5500" stroke-width="3" marker-end="url(#c5)"/>
-       <text x="100" y="160" font-family="Arial" font-size="11" fill="#555">6 km (A south B)</text>
-       <line x1="144" y1="120" x2="76" y2="120" stroke="#cc5500" stroke-width="3" marker-end="url(#c5)"/>
-       <text x="108" y="112" font-family="Arial" font-size="11" fill="#cc5500">9 km</text>
-       <line x1="30" y1="210" font-family="Arial" font-size="13" fill="#222222"/>
-       <text x="30" y="215" font-family="Arial" font-size="13" fill="#222222">Route: D&#8594;C(6) &#8594; C&#8594;A(10) &#8594; A&#8594;B(6) &#8594; B&#8594;F(9)</text>
-       <text x="30" y="236" font-family="Arial" font-size="14" font-weight="700" fill="#000000">&#8756; Answer = 6+10+6+9 = 31 km</text>
+{
+"q": "The houses of A and B face each other on a road going north-south, A's being on the western side. A comes out of his house, turns left, travels 5 km, turns right, travels 5 km to the front of D's house. B does exactly the same and reaches the front of C's house. In this context, which one of the following statements is correct ?",
+"opts": [
+"C and D live on the same street.",
+"C's house faces south.",
+"The houses of C and D are less than 20 km apart.",
+"None of the above"
+],
+"correct": 2,
+svgSol:`<svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1px;padding:0;background:#ffffff;border-radius:8px;border:1px solid #cccccc;box-sizing:border-box;">
+       <defs><marker id="f3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+       <line x1="240" y1="20" x2="240" y2="210" stroke="#cfd8d5" stroke-width="2" stroke-dasharray="4,3"/>
+       <text x="240" y="14" text-anchor="middle" font-family="Arial" font-size="10" fill="#6b8783">Road (N-S)</text>
+       <circle cx="220" cy="115" r="6" fill="#2255cc"/><text x="200" y="132" text-anchor="middle" font-family="Arial" font-size="11" fill="#2255cc">A (West)</text>
+       <circle cx="260" cy="115" r="6" fill="#cc5500"/><text x="280" y="132" text-anchor="middle" font-family="Arial" font-size="11" fill="#cc5500">B (East)</text>
+       <line x1="220" y1="109" x2="220" y2="55" stroke="#2255cc" stroke-width="2.5" marker-end="url(#f3)"/>
+       <text x="200" y="80" font-family="Arial" font-size="10" fill="#2255cc">5km (left)</text>
+       <line x1="224" y1="55" x2="300" y2="55" stroke="#2255cc" stroke-width="2.5" marker-end="url(#f3)"/>
+       <text x="260" y="45" text-anchor="middle" font-family="Arial" font-size="10" fill="#2255cc">5km (right)</text>
+       <circle cx="300" cy="55" r="5" fill="#2255cc"/><text x="315" y="45" font-family="Arial" font-size="11" fill="#2255cc">D</text>
+       <line x1="260" y1="121" x2="260" y2="175" stroke="#cc5500" stroke-width="2.5" marker-end="url(#f3)"/>
+       <text x="280" y="150" font-family="Arial" font-size="10" fill="#cc5500">5km (left)</text>
+       <line x1="256" y1="175" x2="180" y2="175" stroke="#cc5500" stroke-width="2.5" marker-end="url(#f3)"/>
+       <text x="200" y="192" text-anchor="middle" font-family="Arial" font-size="10" fill="#cc5500">5km (right)</text>
+       <circle cx="180" cy="175" r="5" fill="#cc5500"/><text x="160" y="192" font-family="Arial" font-size="11" fill="#cc5500">C</text>
+       <line x1="300" y1="55" x2="180" y2="175" stroke="#555" stroke-width="1.5" stroke-dasharray="4,3"/>
+       <text x="30" y="220" font-family="Arial" font-size="13" font-weight="700" fill="#000000">&#8756; C and D are diagonal, straight-line distance &lt; 20 km apart</text>
      </svg>`}
   ]
 }
 ];
-
 const wrap = document.getElementById('dayWrap');
 const resultsWrap = document.getElementById('resultsWrap');
 const trackGrid = document.getElementById('trackGrid');
@@ -1312,8 +1195,8 @@ function renderSolved(s){
     <div class="qtext">${s.q.replace(/\n/g,'<br>')}</div>
     <div class="opts-plain">${s.opts}</div>
     ${s.diagram ? `<div class="diagram-box">${s.diagram}</div>` : ''}
-    <div class="sol-body">${s.sol}</div>
-    <div class="final">${s.final}</div>
+    ${s.sol ? `<div class="sol-body">${s.sol}</div>` : ''}
+    ${s.final ? `<div class="final">${s.final}</div>` : ''}
   </div>`;
 }
 
@@ -1525,4 +1408,3 @@ function showResults(){
 
 </body>
 </html>
-
